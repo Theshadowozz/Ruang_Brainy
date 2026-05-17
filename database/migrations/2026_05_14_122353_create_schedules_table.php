@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('class_id')
+                ->constrained('classes')
+                ->onDelete('cascade');
+
+            $table->date('start_date');
+            $table->date('end_date');
+
+            $table->string('day');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->string('room');
+            $table->integer('capacity');
             $table->timestamps();
         });
     }

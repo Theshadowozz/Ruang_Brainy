@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('registrations', function (Blueprint $table) {
+        Schema::create('waiting_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
             $table->foreignId('user_id')
                 ->constrained('users')
                 ->onDelete('cascade');
@@ -22,9 +21,19 @@ return new class extends Migration
                 ->constrained('schedules')
                 ->onDelete('cascade');
             
-            $table->string('phone_number');
+            $table->string('full_name');
+            $table->string('phone_number', 13);
             $table->string('address');
-            $table->enum('status', ['pending','accepted','rejected','waiting_list','finished'])->default('pending');
+
+            $table->integer('queue_number');
+            $table->enum('status', [
+                'waiting',
+                'offered',
+                'accepted',
+                'expired',
+                'cancelled'
+            ])->default('waiting');
+
             $table->timestamps();
         });
     }
@@ -34,6 +43,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('registrations');
+        Schema::dropIfExists('waiting_lists');
     }
 };

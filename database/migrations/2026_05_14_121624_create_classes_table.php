@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->enum('language', ['Inggris', 'Jepang', 'Korea']);
+            $table->enum('level', ['Beginner', 'Intermediate', 'Advance']);
+            
+            $table->foreignId('tutor_id')
+                ->constrained('tutors')
+                ->onDelete('cascade');
+
+            $table->decimal('price', 10, 2);
+            $table->text('description');
+
             $table->timestamps();
         });
     }
