@@ -14,6 +14,7 @@ Brainy adalah platform kursus bahasa asing berbasis web dengan fitur:
 - dashboard admin
 
 
+
 1. Laravel Breeze
 
 Referensi:
@@ -46,6 +47,7 @@ Command:
 composer require laravel/breeze --dev
 php artisan breeze:install
 npm install && npm run build
+
 
 
 2. Spatie Laravel Permission
@@ -81,6 +83,7 @@ Command:
 composer require spatie/laravel-permission
 
 
+
 3. Laravel DomPDF
 
 Referensi:
@@ -110,6 +113,7 @@ Command:
 composer require barryvdh/laravel-dompdf
 
 
+
 4. Laravel Filesystem Storage
 
 Referensi:
@@ -136,6 +140,7 @@ Learning center
 
 How:
 Menggunakan storage bawaan Laravel untuk menyimpan file ke folder public storage.
+
 
 
 5. Laravel HTTP Client
@@ -167,6 +172,7 @@ Contoh:
 Http::get(...)
 
 
+
 6. Google Translate API
 
 Referensi:
@@ -191,6 +197,7 @@ Learning center
 
 How:
 Laravel mengirim request ke Google Translate API lalu menampilkan hasil terjemahan.
+
 
 
 7. Midtrans Payment Gateway
