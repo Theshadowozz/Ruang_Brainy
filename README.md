@@ -1,59 +1,100 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧠 Brainy - Foreign Language Learning Platform
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📖 Deskripsi Proyek
 
-## About Laravel
+Brainy adalah platform kursus bahasa asing berbasis web yang dirancang untuk menghadirkan pengalaman belajar bahasa yang **modern, fleksibel, interaktif, dan terintegrasi dalam satu sistem digital** 🌍✨
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Platform ini dikembangkan untuk membantu pengguna dalam mempelajari bahasa asing dengan lebih mudah melalui sistem pembelajaran online yang terstruktur, mulai dari proses pendaftaran hingga aktivitas belajar.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌐 Bahasa yang Tersedia
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Brainy menyediakan pembelajaran untuk beberapa bahasa asing:
 
-## Learning Laravel
+- 🇬🇧 English
+- 🇯🇵 Japanese
+- 🇰🇷 Korean
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## ✨ Fitur Utama
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Brainy memiliki berbagai fitur yang mendukung proses pembelajaran, di antaranya:
 
-## Laravel Sponsors
+- 🔐 Multi-role Authentication (Admin, Tutor, Student)
+- 📝 Online Class Registration
+- 📅 Flexible Class Scheduling
+- ⏳ Waiting List System
+- 💳 Payment Management
+- 🎧 Audio Listening Learning
+- 🧠 Short Quiz
+- 🌍 Translate Feature
+- 📚 Learning Documentation
+- 👨‍🏫 Tutor Profiles
+- ⭐ Testimonials
+- 🏆 Achievements Information
+- 🎁 Trial Class Information
+- 📍 Location & Contact Information
+- 💬 Random Discussion / Q&A
+- 👤 Student Profile Management
+- 📊 Payment Status Tracking
+- 🚦 Class Capacity Monitoring
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 👥 User Roles
 
-### Premium Partners
+### 👨‍🎓 Student
+Students can:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Register and login to the platform
+- Browse available classes
+- Select language categories
+- Choose class levels
+- Select preferred schedules
+- Register for classes
+- Join waiting lists when classes are full
+- Make payments
+- Access learning materials
+- Use translate tools
+- Manage personal profile
 
-## Contributing
+### 👨‍🏫 Tutor
+Tutors can:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Login to the platform
+- View assigned teaching schedules
+- View classes they teach
+- Manage tutor profile information
 
-## Code of Conduct
+### 🛠️ Admin
+Admins can:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Manage student data
+- Manage tutor data
+- Manage classes
+- Manage schedules
+- Manage registrations
+- Manage waiting lists
+- Manage payment transactions
+- Monitor system activities
 
-## Security Vulnerabilities
+## 🛠️ Technology Stack
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+This project is built using:
 
-## License
+- ⚙️ Laravel
+- 🐘 PHP
+- 🗄️ MySQL
+- 🎨 Blade Template
+- 💻 HTML
+- 🎨 CSS
+- ⚡ JavaScript
+- 🔧 Composer
+- 📦 npm
+- 🌿 Git
+- 🐙 GitHub
+- 🧑‍💻 Visual Studio Code
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🎯 Project Goal
+
+The main objective of Brainy is to create a digital learning platform that simplifies foreign language education by providing a complete and user-friendly system for registration, scheduling, payment, and interactive learning.
+
+## 🚀 Project Status
+
+🚧 Currently under development as part of the **Project Based Learning (PBL)** academic project.
