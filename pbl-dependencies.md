@@ -1,7 +1,9 @@
 Identifikasi Dependency/Package Laravel untuk Proyek PBL Brainy
 
 Deskripsi Proyek:
+
 Brainy adalah platform kursus bahasa asing berbasis web dengan fitur:
+
 - autentikasi multi-role (admin, tutor, siswa)
 - pendaftaran kelas online
 - jadwal kelas fleksibel
@@ -12,7 +14,6 @@ Brainy adalah platform kursus bahasa asing berbasis web dengan fitur:
 - translate
 - profile tutor
 - dashboard admin
-
 
 
 1. Laravel Breeze
@@ -27,27 +28,28 @@ Why:
 Digunakan untuk menyediakan sistem autentikasi dasar seperti login, register, logout, reset password, dan manajemen session.
 
 Who:
-Admin
-Tutor
-Siswa
-Developer
+- Admin
+- Tutor
+- Siswa
+- Developer
 
 When:
 Digunakan saat user melakukan login atau register.
 
 Where:
-Modul autentikasi
-Halaman login
-Halaman register
+- Modul autentikasi
+- Halaman login
+- Halaman register
 
 How:
 Diinstall menggunakan Composer dan digunakan untuk membuat sistem autentikasi bawaan Laravel.
 
 Command:
+
 composer require laravel/breeze --dev
 php artisan breeze:install
-npm install && npm run build
-
+npm install
+npm run build
 
 
 2. Spatie Laravel Permission
@@ -62,26 +64,26 @@ Why:
 Digunakan untuk mengatur hak akses berdasarkan role seperti admin, tutor, dan siswa.
 
 Who:
-Admin
-Tutor
-Siswa
-Developer
+- Admin
+- Tutor
+- Siswa
+- Developer
 
 When:
 Digunakan setelah user login untuk menentukan dashboard dan fitur yang dapat diakses.
 
 Where:
-Middleware
-Dashboard admin
-Dashboard tutor
-Dashboard siswa
+- Middleware
+- Dashboard admin
+- Dashboard tutor
+- Dashboard siswa
 
 How:
 Package diinstall menggunakan Composer lalu role diberikan pada user melalui model User.
 
 Command:
-composer require spatie/laravel-permission
 
+composer require spatie/laravel-permission
 
 
 3. Laravel DomPDF
@@ -96,22 +98,22 @@ Why:
 Digunakan untuk generate invoice pembayaran atau laporan transaksi dalam format PDF.
 
 Who:
-Admin
-Siswa
+- Admin
+- Siswa
 
 When:
 Saat siswa ingin melihat invoice pembayaran atau admin ingin mencetak laporan.
 
 Where:
-Modul pembayaran
-Dashboard admin
+- Modul pembayaran
+- Dashboard admin
 
 How:
 Diintegrasikan ke controller payment untuk membuat file PDF.
 
 Command:
-composer require barryvdh/laravel-dompdf
 
+composer require barryvdh/laravel-dompdf
 
 
 4. Laravel Filesystem Storage
@@ -126,21 +128,20 @@ Why:
 Digunakan untuk menyimpan file upload seperti foto tutor, audio listening, dan bukti pembayaran.
 
 Who:
-Admin
-Tutor
-Siswa
+- Admin
+- Tutor
+- Siswa
 
 When:
 Saat user upload file ke sistem.
 
 Where:
-Profile tutor
-Payment
-Learning center
+- Profile tutor
+- Payment
+- Learning center
 
 How:
 Menggunakan storage bawaan Laravel untuk menyimpan file ke folder public storage.
-
 
 
 5. Laravel HTTP Client
@@ -155,22 +156,22 @@ Why:
 Digunakan untuk menghubungkan Laravel dengan API pihak ketiga seperti translate API atau payment gateway.
 
 Who:
-Developer
-User aplikasi
+- Developer
+- User aplikasi
 
 When:
 Saat sistem perlu request data dari layanan eksternal.
 
 Where:
-Modul translate
-Modul payment
+- Modul translate
+- Modul payment
 
 How:
 Menggunakan Http facade bawaan Laravel.
 
 Contoh:
-Http::get(...)
 
+Http::get(...)
 
 
 6. Google Translate API
@@ -185,19 +186,18 @@ Why:
 Digunakan untuk fitur translate kata atau kalimat dalam sistem.
 
 Who:
-Siswa
-Tutor
+- Siswa
+- Tutor
 
 When:
 Saat user menggunakan fitur translate.
 
 Where:
-Dashboard siswa
-Learning center
+- Dashboard siswa
+- Learning center
 
 How:
 Laravel mengirim request ke Google Translate API lalu menampilkan hasil terjemahan.
-
 
 
 7. Midtrans Payment Gateway
@@ -212,14 +212,14 @@ Why:
 Digunakan untuk memproses pembayaran kursus secara online.
 
 Who:
-Siswa
-Admin
+- Siswa
+- Admin
 
 When:
 Saat siswa melakukan pembayaran kelas.
 
 Where:
-Modul pembayaran
+- Modul pembayaran
 
 How:
 Diintegrasikan ke Laravel menggunakan API Midtrans untuk memproses transaksi pembayaran.
