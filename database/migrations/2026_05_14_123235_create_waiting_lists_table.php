@@ -35,6 +35,9 @@ return new class extends Migration
             ])->default('waiting');
 
             $table->timestamps();
+
+            $table->unique(['user_id', 'schedule_id']);
+            $table->unique(['schedule_id', 'queue_number']);
         });
     }
 

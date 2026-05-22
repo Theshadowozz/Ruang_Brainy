@@ -26,6 +26,8 @@ return new class extends Migration
             $table->string('address');
             $table->enum('status', ['pending','accepted','rejected','waiting_list','finished'])->default('pending');
             $table->timestamps();
+
+            $table->unique(['user_id', 'schedule_id']);
         });
     }
 
