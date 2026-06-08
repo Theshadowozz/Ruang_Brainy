@@ -1,100 +1,168 @@
-# 🧠 Brainy - Foreign Language Learning Platform
+# 🧠 Ruang Brainy
+### Sistem Informasi Manajemen Pembelajaran Terintegrasi — Brainy Course Padang
+
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+
+---
 
 ## 📖 Deskripsi Proyek
 
-Brainy adalah platform kursus bahasa asing berbasis web yang dirancang untuk menghadirkan pengalaman belajar bahasa yang **modern, fleksibel, interaktif, dan terintegrasi dalam satu sistem digital** 🌍✨
+**Ruang Brainy** adalah platform web terintegrasi yang dikembangkan untuk mendukung digitalisasi operasional **Brainy Course**, sebuah lembaga kursus bahasa (Inggris, Jepang, dan Korea) yang berlokasi di Jl. Alai Parak Kopi, Padang.
 
-Platform ini dikembangkan untuk membantu pengguna dalam mempelajari bahasa asing dengan lebih mudah melalui sistem pembelajaran online yang terstruktur, mulai dari proses pendaftaran hingga aktivitas belajar.
+### Masalah yang Diselesaikan
+Saat ini operasional Brainy Course masih bersifat konvensional (manual). Proses pendaftaran, pengecekan jadwal, dan pembayaran dilakukan secara manual, sehingga lambat dan rentan terhadap kesalahan. Komunikasi dengan calon siswa pun masih bergantung pada aplikasi pihak ketiga yang terpisah-pisah.
 
-## 🌐 Bahasa yang Tersedia
+### Tujuan Aplikasi
+- Mengotomasi proses pendaftaran kursus dan pengelolaan waiting list
+- Menyediakan sistem pembayaran online yang terverifikasi langsung di dalam platform
+- Menyediakan fitur pembelajaran interaktif (audio listening & kuis)
+- Menyatukan komunikasi admin dan customer dalam satu platform terpadu
 
-Brainy menyediakan pembelajaran untuk beberapa bahasa asing:
+### Target Pengguna
+| Peran | Deskripsi |
+|-------|-----------|
+| 👨‍💼 Admin | Staf Brainy Course yang mengelola kelas, data siswa, dan transaksi |
+| 👩‍🏫 Tutor | Pengajar yang mengelola jadwal dan materi pembelajaran |
+| 🎓 Siswa | Calon dan siswa aktif Brainy Course dari semua jenjang usia |
 
-- 🇬🇧 English
-- 🇯🇵 Japanese
-- 🇰🇷 Korean
+### Relevansi SDGs
+- 🎓 **SDG 4** — Quality Education: Mempermudah akses materi bahasa bagi semua kalangan melalui teknologi digital
+- 💼 **SDG 8** — Decent Work & Economic Growth: Mendukung pertumbuhan lembaga pendidikan lokal
+- 🏗️ **SDG 9** — Industry, Innovation & Infrastructure: Digitalisasi lembaga konvensional menuju sistem berbasis cloud
+
+---
 
 ## ✨ Fitur Utama
 
-Brainy memiliki berbagai fitur yang mendukung proses pembelajaran, di antaranya:
+### 🖥️ Fitur Base Web
+- **Dashboard Admin** — Kelola kelas, data customer, dan monitoring transaksi secara real-time
+- **Pendaftaran Online & Katalog Kelas** — Cek ketersediaan dan daftar kelas online/offline
+- **Waiting List Otomatis** — Antrian otomatis jika kuota kelas sudah penuh
+- **Integrasi Pembayaran** — Pembayaran digital langsung di dalam web via Payment Gateway
+- **Direct Chat** — Komunikasi langsung antara admin dan customer tanpa aplikasi pihak ketiga
+- **Profil Tutor** — Informasi detail kualifikasi dan jadwal pengajar
+- **Info Level Kelas** — Detail kurikulum dan tingkatan kelas yang tersedia
+- **Jadwal Kelas Fleksibel** — Sinkronisasi ketersediaan waktu tutor dan siswa
+- **Kelas Trial** — Informasi dan pendaftaran kelas percobaan
+- **Lokasi & Maps** — Integrasi Google Maps untuk petunjuk arah ke lembaga
+- **Galeri Prestasi & Testimoni** — Menampilkan pencapaian dan ulasan siswa
 
-- 🔐 Multi-role Authentication (Admin, Tutor, Student)
-- 📝 Online Class Registration
-- 📅 Flexible Class Scheduling
-- ⏳ Waiting List System
-- 💳 Payment Management
-- 🎧 Audio Listening Learning
-- 🧠 Short Quiz
-- 🌍 Translate Feature
-- 📚 Learning Documentation
-- 👨‍🏫 Tutor Profiles
-- ⭐ Testimonials
-- 🏆 Achievements Information
-- 🎁 Trial Class Information
-- 📍 Location & Contact Information
-- 💬 Random Discussion / Q&A
-- 👤 Student Profile Management
-- 📊 Payment Status Tracking
-- 🚦 Class Capacity Monitoring
+### 📚 Fitur Pembelajaran
+- **Audio Listening** — Materi pembelajaran berbasis audio yang interaktif
+- **Kuis Interaktif** — Kuis dengan pertanyaan acak (randomized) per sesi
+- **Forum Diskusi** — Ruang tanya jawab antara siswa dan tutor
+- **Fitur Translate** — Terjemahan teks materi berbasis NLP (Google Cloud / OpenAI API)
 
-## 👥 User Roles
+### ⚙️ Fitur Sistem
+- **Multi-Level Authentication** — Hak akses terpisah untuk Admin, Tutor, dan Siswa
+- **CMS (Content Management System)** — Admin dapat melakukan CRUD konten secara mandiri
+- **Responsive Design** — Tampilan optimal di desktop maupun mobile
 
-### 👨‍🎓 Student
-Students can:
+---
 
-- Register and login to the platform
-- Browse available classes
-- Select language categories
-- Choose class levels
-- Select preferred schedules
-- Register for classes
-- Join waiting lists when classes are full
-- Make payments
-- Access learning materials
-- Use translate tools
-- Manage personal profile
+## 🛠️ Tech Stack
 
-### 👨‍🏫 Tutor
-Tutors can:
+| Kategori | Teknologi |
+|----------|-----------|
+| **Backend Framework** | Laravel (PHP) |
+| **Database** | MySQL |
+| **Frontend** | Bootstrap, Blade Template |
+| **AI / NLP** | OpenAI API / Google Cloud Translation |
+| **Payment** | Payment Gateway (Midtrans/Xendit) |
+| **Maps** | Google Maps API |
+| **Version Control** | Git & GitHub |
+| **Project Management** | Trello / Notion |
+| **Collaboration** | Google Workspace, WhatsApp Group |
+| **Deployment** | Cloud Hosting + Domain |
 
-- Login to the platform
-- View assigned teaching schedules
-- View classes they teach
-- Manage tutor profile information
+---
 
-### 🛠️ Admin
-Admins can:
+## ⚙️ Instalasi
 
-- Manage student data
-- Manage tutor data
-- Manage classes
-- Manage schedules
-- Manage registrations
-- Manage waiting lists
-- Manage payment transactions
-- Monitor system activities
+### Prasyarat
+- PHP >= 8.1
+- Composer
+- MySQL
+- Node.js & NPM
 
-## 🛠️ Technology Stack
+### Langkah Instalasi
 
-This project is built using:
+```bash
+# 1. Clone repositori
+git clone https://github.com/username/ruang-brainy.git
+cd ruang-brainy
 
-- ⚙️ Laravel
-- 🐘 PHP
-- 🗄️ MySQL
-- 🎨 Blade Template
-- 💻 HTML
-- 🎨 CSS
-- ⚡ JavaScript
-- 🔧 Composer
-- 📦 npm
-- 🌿 Git
-- 🐙 GitHub
-- 🧑‍💻 Visual Studio Code
+# 2. Install dependensi PHP
+composer install
 
-## 🎯 Project Goal
+# 3. Install dependensi Node
+npm install && npm run build
 
-The main objective of Brainy is to create a digital learning platform that simplifies foreign language education by providing a complete and user-friendly system for registration, scheduling, payment, and interactive learning.
+# 4. Salin file environment
+cp .env.example .env
 
-## 🚀 Project Status
+# 5. Generate application key
+php artisan key:generate
 
-🚧 Currently under development as part of the **Project Based Learning (PBL)** academic project.
+# 6. Konfigurasi database di file .env
+# DB_DATABASE=ruang_brainy
+# DB_USERNAME=root
+# DB_PASSWORD=
+
+# 7. Jalankan migrasi & seeder
+php artisan migrate --seed
+
+# 8. Jalankan server lokal
+php artisan serve
+```
+
+Akses aplikasi di: `http://localhost:8000`
+
+---
+
+## 📸 Screenshot
+
+![Login](https://github.com/user-attachments/assets/80263c8c-78f9-48cf-9294-e698b85376da)
+![Dashboard](https://github.com/user-attachments/assets/426aa75f-3688-4bc6-9ccf-f0fa0a3492ae)
+![Daftar Kelas Online](https://github.com/user-attachments/assets/8289e99f-1590-4dec-83f5-a8d33565a0ef)
+
+---
+
+## 👥 Tim Pengembang — Kelompok 5 (TRPL2B)
+
+| Peran | Nama | NIM |
+|-------|------|-----|
+| 🧑‍💼 Project Manager | Rifqi Reswarra Putra Nugraha | 2411081021 |
+| 🔍 System Analyst | Khalisa Mutiara Adrila | 2411081013 |
+| 💻 Lead Programmer | Ravi Andito | 2411082019 |
+| 🤖 AI Specialist | Nabila Rahmadhani | 2411082017 |
+| ✅ Quality Assurance | Iqbal Putra Ananda | 2411081011 |
+
+---
+
+## 🏫 Dosen Pengampu
+
+| Mata Kuliah | Dosen |
+|-------------|-------|
+| Manajemen Proyek PL | Fazrol Rozi, M.Sc & Indri Rahmayuni, S.T., M.T |
+| Analisis & Perancangan | Dr. Yulherniwati, S.Kom., M.T & Rita Afyenni, S.Kom., M.Kom |
+| Pemrograman Web | Deni Satria & Yori Adi Atma, S.Pd., M.Kom |
+| Kecerdasan Buatan | Ainil Mardiah, M.Cs. & Nurraudya Tuz Zahra, S.Si., M.C.S.(AI) |
+| QA & Pengujian | Yulia Jihan Sy, S.Kom., M.Kom & Rozi Meri, S.Kom., M.Kom |
+| Konstruksi & Evolusi | Defni, S.Si., M.Kom & Mutia Rahmi Dewi, S.Kom., M.Kom |
+| Komunikasi Bisnis | Rayendra, S.T, M.Kom. & Eko Purnomo, S.Ds, M.Sn |
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dikembangkan untuk keperluan akademik dalam rangka mata kuliah Project-Based Learning (PBL) Semester Genap 2024/2025.
+
+---
+
+<p align="center">
+  Dikembangkan dengan ❤️ oleh <strong>Kelompok 5 TRPL2B</strong> untuk <strong>Brainy Course Padang</strong>
+</p>
