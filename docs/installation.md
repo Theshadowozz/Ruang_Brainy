@@ -154,48 +154,93 @@ vendor\bin\pint.bat
 
 ## 10. Troubleshooting
 
-### File `.env` Belum Ada
+Bagian ini berisi masalah yang sering muncul setelah file `.env` tersedia dan database sudah terkoneksi.
 
-Pastikan `.env.example` sudah disalin menjadi `.env`.
+### Composer Install Gagal
+
+Jika `composer install` gagal, periksa versi PHP dan ekstensi yang dibutuhkan Laravel.
 
 ```bash
-cp .env.example .env
-php artisan key:generate
+php -v
+composer install
 ```
 
-### Database Tidak Terkoneksi
+Jika masih gagal, bersihkan cache Composer lalu ulangi instalasi.
 
-Periksa kembali:
+```bash
+composer clear-cache
+composer install
+```
 
-- Service MySQL/MariaDB sudah berjalan.
-- Nama database sudah dibuat.
-- Username dan password pada `.env` benar.
-- Port database sesuai, biasanya `3306`.
+### NPM Install Gagal
 
-### Tabel Belum Ada
+Jika `npm install` gagal, pastikan Node.js dan npm sudah terpasang.
 
-Jalankan migrasi:
+```bash
+node -v
+npm -v
+npm install
+```
+
+Jika dependency frontend bermasalah, hapus folder `node_modules` secara manual lalu jalankan ulang `npm install`.
+
+### Migration Gagal atau Tabel Belum Terbuat
+
+Jika tabel database belum muncul, jalankan migrasi.
 
 ```bash
 php artisan migrate
 ```
 
-### Asset Frontend Tidak Muncul
-
-Jalankan:
+Jika ingin mengulang migrasi dari awal pada database lokal, gunakan:
 
 ```bash
-npm install
+php artisan migrate:fresh
+```
+
+Catatan: `migrate:fresh` akan menghapus tabel yang sudah ada, jadi gunakan hanya untuk database development.
+
+### Asset Frontend Tidak Terbaca
+
+Jika tampilan tidak memuat CSS atau JavaScript, jalankan Vite development server.
+
+```bash
 npm run dev
 ```
 
-### Cache Menyebabkan Konfigurasi Lama Terbaca
+Untuk build asset production, jalankan:
 
-Jalankan:
+```bash
+npm run build
+```
+
+### Port Laravel Sudah Digunakan
+
+Jika `php artisan serve` gagal karena port `8000` sudah digunakan, jalankan server pada port lain.
+
+```bash
+php artisan serve --port=8001
+```
+
+### Konfigurasi Lama Masih Terbaca
+
+Jika perubahan `.env`, route, atau konfigurasi belum terbaca, bersihkan cache Laravel.
 
 ```bash
 php artisan optimize:clear
 ```
+
+### Permission Storage Bermasalah
+
+Jika upload file, cache, atau log tidak bisa ditulis, pastikan folder `storage` dan `bootstrap/cache` dapat diakses aplikasi.
+
+Pada Linux/macOS:
+
+```bash
+chmod -R 775 storage bootstrap/cache
+```
+
+Pada Windows, pastikan folder proyek tidak berada di lokasi yang dibatasi permission dan jalankan terminal dengan akses yang cukup.
 
 ## 11. Checklist Instalasi
 
