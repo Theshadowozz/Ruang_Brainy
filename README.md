@@ -1,100 +1,175 @@
-# 🧠 Brainy - Foreign Language Learning Platform
+# Brainy - Foreign Language Learning Platform
 
-## 📖 Deskripsi Proyek
+Brainy adalah platform kursus bahasa asing berbasis web yang dikembangkan untuk kebutuhan Project Based Learning (PBL). Sistem ini dirancang untuk membantu proses pendaftaran kelas, pengelolaan jadwal, waiting list, pembayaran, dan aktivitas belajar bahasa asing secara terpusat.
 
-Brainy adalah platform kursus bahasa asing berbasis web yang dirancang untuk menghadirkan pengalaman belajar bahasa yang **modern, fleksibel, interaktif, dan terintegrasi dalam satu sistem digital** 🌍✨
+## Ringkasan Proyek
 
-Platform ini dikembangkan untuk membantu pengguna dalam mempelajari bahasa asing dengan lebih mudah melalui sistem pembelajaran online yang terstruktur, mulai dari proses pendaftaran hingga aktivitas belajar.
+| Item | Keterangan |
+| --- | --- |
+| Nama aplikasi | Brainy |
+| Jenis aplikasi | Platform kursus bahasa asing berbasis web |
+| Framework | Laravel 12 |
+| Bahasa backend | PHP 8.2+ |
+| Frontend build tool | Vite |
+| Database | MySQL/MariaDB |
+| Repository | https://github.com/Theshadowozz/Ruang_Brainy |
+| Status | Dalam pengembangan |
 
-## 🌐 Bahasa yang Tersedia
+## Tujuan
 
-Brainy menyediakan pembelajaran untuk beberapa bahasa asing:
+Tujuan utama Brainy adalah menyediakan sistem digital yang memudahkan pengelolaan kursus bahasa asing, mulai dari pengguna memilih kelas sampai admin memantau data kelas, jadwal, pendaftaran, waiting list, dan pembayaran.
 
-- 🇬🇧 English
-- 🇯🇵 Japanese
-- 🇰🇷 Korean
+## Masalah yang Diselesaikan
 
-## ✨ Fitur Utama
+Brainy membantu mengurangi pencatatan manual pada proses kursus bahasa, terutama untuk data kelas, jadwal, kapasitas kelas, pendaftaran peserta, antrean waiting list, dan status pembayaran.
 
-Brainy memiliki berbagai fitur yang mendukung proses pembelajaran, di antaranya:
+## Target Pengguna
 
-- 🔐 Multi-role Authentication (Admin, Tutor, Student)
-- 📝 Online Class Registration
-- 📅 Flexible Class Scheduling
-- ⏳ Waiting List System
-- 💳 Payment Management
-- 🎧 Audio Listening Learning
-- 🧠 Short Quiz
-- 🌍 Translate Feature
-- 📚 Learning Documentation
-- 👨‍🏫 Tutor Profiles
-- ⭐ Testimonials
-- 🏆 Achievements Information
-- 🎁 Trial Class Information
-- 📍 Location & Contact Information
-- 💬 Random Discussion / Q&A
-- 👤 Student Profile Management
-- 📊 Payment Status Tracking
-- 🚦 Class Capacity Monitoring
+- Student yang ingin mendaftar dan mengikuti kursus bahasa.
+- Tutor yang mengajar kelas bahasa.
+- Admin yang mengelola operasional kursus.
 
-## 👥 User Roles
+## Cakupan Awal
 
-### 👨‍🎓 Student
-Students can:
+Dokumentasi ini mengikuti kebutuhan dokumentasi proyek PBL:
 
-- Register and login to the platform
-- Browse available classes
-- Select language categories
-- Choose class levels
-- Select preferred schedules
-- Register for classes
-- Join waiting lists when classes are full
-- Make payments
-- Access learning materials
-- Use translate tools
-- Manage personal profile
+- README sebagai dokumentasi utama proyek.
+- Installation Documentation untuk panduan instalasi lokal.
+- Dependency Documentation untuk mencatat dependency yang digunakan dan direncanakan.
+- CHANGELOG untuk mencatat perkembangan implementasi secara berkala.
+- Refactoring Documentation sebagai catatan final perbaikan kode.
+- GitHub Actions Documentation sebagai catatan final CI/CD.
 
-### 👨‍🏫 Tutor
-Tutors can:
+Feature Documentation tidak diperbarui pada tahap ini karena analisis kebutuhan ditargetkan selesai pada minggu ke-14.
 
-- Login to the platform
-- View assigned teaching schedules
-- View classes they teach
-- Manage tutor profile information
+## Fitur Utama
 
-### 🛠️ Admin
-Admins can:
+Fitur berikut merupakan rancangan utama aplikasi berdasarkan kebutuhan awal dan struktur database yang sudah tersedia:
 
-- Manage student data
-- Manage tutor data
-- Manage classes
-- Manage schedules
-- Manage registrations
-- Manage waiting lists
-- Manage payment transactions
-- Monitor system activities
+- Multi-role authentication untuk admin, tutor, dan student.
+- Manajemen tutor.
+- Manajemen kelas bahasa.
+- Manajemen jadwal kelas.
+- Pendaftaran kelas online.
+- Waiting list ketika kapasitas kelas penuh.
+- Manajemen pembayaran.
+- Monitoring status pendaftaran dan pembayaran.
 
-## 🛠️ Technology Stack
+## Bahasa yang Didukung
 
-This project is built using:
+Berdasarkan rancangan database saat ini, kelas dapat dibuat untuk:
 
-- ⚙️ Laravel
-- 🐘 PHP
-- 🗄️ MySQL
-- 🎨 Blade Template
-- 💻 HTML
-- 🎨 CSS
-- ⚡ JavaScript
-- 🔧 Composer
-- 📦 npm
-- 🌿 Git
-- 🐙 GitHub
-- 🧑‍💻 Visual Studio Code
+- Inggris
+- Jepang
+- Korea
 
-## 🎯 Project Goal
+## Role Pengguna
 
-The main objective of Brainy is to create a digital learning platform that simplifies foreign language education by providing a complete and user-friendly system for registration, scheduling, payment, and interactive learning.
+### Student
 
-## 🚀 Project Status
+Student adalah pengguna yang mendaftar kelas, memilih jadwal, melakukan pembayaran, dan mengakses materi pembelajaran ketika modul pembelajaran sudah tersedia.
 
-🚧 Currently under development as part of the **Project Based Learning (PBL)** academic project.
+### Tutor
+
+Tutor adalah pengajar yang memiliki data profil, keahlian bahasa, dan relasi dengan kelas yang diajar.
+
+### Admin
+
+Admin bertanggung jawab mengelola data tutor, kelas, jadwal, registrasi, waiting list, pembayaran, serta monitoring aktivitas sistem.
+
+## Modul Data Saat Ini
+
+Struktur database awal sudah mencakup:
+
+- `users`: data akun pengguna.
+- `tutors`: data tutor dan keahlian.
+- `classes`: data kelas, bahasa, level, tutor, harga, dan deskripsi.
+- `schedules`: jadwal kelas, ruangan, dan kapasitas.
+- `registrations`: data pendaftaran kelas.
+- `waiting_lists`: data antrean ketika kelas penuh.
+- `payments`: data pembayaran dan status transaksi.
+
+## Tech Stack
+
+- Laravel 12
+- PHP 8.2+
+- Composer
+- MySQL atau MariaDB
+- Blade
+- Vite
+- Tailwind CSS
+- Node.js dan npm
+- Git dan GitHub
+
+## Instalasi Cepat
+
+Dokumentasi instalasi lengkap tersedia di [docs/installation.md](docs/installation.md).
+
+```bash
+git clone https://github.com/Theshadowozz/Ruang_Brainy.git
+cd Ruang_Brainy
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
+```
+
+Untuk menjalankan frontend development server:
+
+```bash
+npm run dev
+```
+
+Untuk build asset production:
+
+```bash
+npm run build
+```
+
+## Struktur Dokumentasi
+
+| Dokumen | Lokasi | Status |
+| --- | --- | --- |
+| README | `README.md` | Disiapkan untuk target minggu depan |
+| Installation Documentation | `docs/installation.md` | Disiapkan untuk target minggu depan |
+| Feature Documentation | `docs/features.md` | Belum diisi, menunggu analisis kebutuhan minggu ke-14 |
+| Changelog | `CHANGELOG.md` | Berjalan dan diupdate berkala |
+| Dependency Documentation | `docs/dependency.md` | Dirapikan untuk tugas dokumentasi |
+| Refactoring Documentation | `docs/refactoring.md` | Template final |
+| GitHub Actions Documentation | `docs/github-actions.md` | Template final |
+
+## Status Implementasi
+
+Saat dokumentasi ini diperbarui, proyek masih berada pada tahap setup Laravel, struktur database awal, dan penyusunan dokumentasi proyek. Route utama masih menggunakan halaman default Laravel.
+
+## Screenshot Proyek
+
+Screenshot belum tersedia karena implementasi halaman login, dashboard, dan fitur utama belum selesai. Screenshot perlu ditambahkan setelah halaman berikut tersedia:
+
+- Halaman login.
+- Dashboard admin/student/tutor.
+- Halaman pendaftaran kelas atau fitur utama lain.
+
+Format penyimpanan yang disarankan:
+
+```text
+docs/screenshots/login.png
+docs/screenshots/dashboard.png
+docs/screenshots/main-feature.png
+```
+
+## Tim Pengembang
+
+Isi bagian ini dengan nama anggota kelompok:
+
+| Nama | Peran |
+| --- | --- |
+| Nama anggota 1 | Developer |
+| Nama anggota 2 | Developer |
+| Nama anggota 3 | Developer |
+
+## Kontribusi Tim
+
+Setiap perubahan fitur, dependency, refactoring, dan workflow GitHub Actions perlu dicatat pada dokumen terkait agar progres proyek mudah diperiksa setiap minggu.
