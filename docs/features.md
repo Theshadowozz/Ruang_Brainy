@@ -13,8 +13,8 @@ User input data registrasi atau email & password login → sistem validasi krede
 `POST /register`
 (AuthController)
 
-**Screenshot fitur:**
-*(Tambahkan screenshot halaman login/register di sini)*
+<img width="192" height="210" alt="image" src="https://github.com/user-attachments/assets/df785062-2e50-44ab-8b41-1fe0a7422ae0" />
+<img width="190" height="166" alt="image" src="https://github.com/user-attachments/assets/e9ada6e1-5a98-4535-bbba-3afa7d3d91f0" />
 
 ---
 
@@ -27,8 +27,7 @@ Siswa buka website → lihat katalog kursus → melakukan pencarian dan memfilte
 `GET /courses/search`
 (CourseController)
 
-**Screenshot fitur:**
-*(Tambahkan screenshot halaman katalog kursus di sini)*
+<img width="352" height="210" alt="image" src="https://github.com/user-attachments/assets/2c7aeb2b-236b-4d70-99a5-8b9e4001ce91" />
 
 ---
 
@@ -40,8 +39,8 @@ Siswa mendaftar online mengisi formulir → sistem cek ketersediaan kuota kelas 
 `POST /courses/{id}/enroll`
 (EnrollmentController)
 
-**Screenshot fitur:**
-*(Tambahkan screenshot formulir pendaftaran di sini)*
+<img width="153" height="191" alt="image" src="https://github.com/user-attachments/assets/eebd78d6-399f-4aa9-9539-d51b1619e479" />
+
 
 ---
 
@@ -54,7 +53,6 @@ Siswa terima invoice atau tagihan → pilih metode pembayaran → melakukan pemb
 `POST /payment/callback`
 (PaymentController)
 
-**Screenshot fitur:**
 *(Tambahkan screenshot halaman pembayaran / invoice di sini)*
 
 ---
@@ -68,8 +66,7 @@ Admin login CMS → masuk ke *dashboard* monitoring → melakukan manajemen data
 `Resource /admin/customers`
 (AdminController / CourseController / CustomerController)
 
-**Screenshot fitur:**
-*(Tambahkan screenshot halaman dashboard admin di sini)*
+<img width="355" height="211" alt="image" src="https://github.com/user-attachments/assets/4d28ba8f-9bcd-4171-8398-dcebec0847e1" />
 
 ---
 
@@ -82,8 +79,8 @@ Sistem mencatat transaksi masuk → rekap pembayaran → sistem membuat laporan 
 `GET /admin/reports/export`
 (TransactionController / ReportController)
 
-**Screenshot fitur:**
-*(Tambahkan screenshot tabel riwayat transaksi / laporan admin di sini)*
+<img width="355" height="212" alt="image" src="https://github.com/user-attachments/assets/944894de-574e-4ef2-84e2-df416eec8db8" />
+
 
 ---
 
@@ -97,26 +94,11 @@ Buka *widget* chat di *dashboard* → kirim pesan ke admin → sistem menampilka
 `DELETE /chat/{id}`
 (ChatController)
 
-**Screenshot fitur:**
 *(Tambahkan screenshot tampilan antarmuka chat di sini)*
 
 ---
 
-## 8. Penjadwalan Kelas Fleksibel
-**Tujuan fitur:**
-Menyediakan fitur jadwal kelas yang fleksibel dengan menyinkronkan ketersediaan tutor dengan preferensi waktu siswa. **Aktor:**
-Siswa/Customer , Tutor , Sistem Web **Alur fitur:**
-Siswa memilih slot waktu atau preferensi waktu → sistem mengecek ketersediaan jadwal tutor → konfirmasi jadwal kelas → notifikasi dikirim ke siswa dan tutor **Route / Controller terkait:**
-`GET /schedules/available`
-`POST /schedules/book`
-(ScheduleController)
-
-**Screenshot fitur:**
-*(Tambahkan screenshot tampilan pemilihan jadwal kelas di sini)*
-
----
-
-## 9. Audio Listening Interaktif
+## 8. Audio Listening Interaktif
 **Tujuan fitur:**
 Mendukung pembelajaran bahasa dengan fitur pemutar audio *listening* interaktif yang dilengkapi tombol *play, pause, volume*, dan *repeat*. **Aktor:**
 Siswa/Customer **Alur fitur:**
@@ -124,12 +106,12 @@ Siswa membuka halaman pembelajaran siswa → mengakses player audio listening �
 `GET /learning/materi/{id}`
 (LearningController)
 
-**Screenshot fitur:**
-*(Tambahkan screenshot tampilan player audio di halaman materi di sini)*
+<img width="351" height="211" alt="image" src="https://github.com/user-attachments/assets/5a14c070-c923-48eb-8edc-5bb269ac52c6" />
+
 
 ---
 
-## 10. Kuis Interaktif
+## 9. Kuis Interaktif
 **Tujuan fitur:**
 Menyediakan sarana evaluasi siswa melalui kuis interaktif dengan sistem pengacakan (*random*) soal per sesi pengerjaan siswa. **Aktor:**
 Siswa/Customer **Alur fitur:**
@@ -138,39 +120,11 @@ Siswa mengakses halaman pembelajaran → memulai sesi kuis dengan soal random �
 `POST /quiz/{id}/submit`
 (QuizController)
 
-**Screenshot fitur:**
-*(Tambahkan screenshot tampilan antarmuka kuis interaktif di sini)*
+<img width="355" height="212" alt="image" src="https://github.com/user-attachments/assets/dc221d16-564b-4ce6-83c3-1004b0bd8d2f" />
 
 ---
 
-## 11. Translate Teks Materi Secara Real-time
-**Tujuan fitur:**
-Membantu proses belajar siswa dengan menyediakan fitur penerjemah (*translate*) teks materi (Inggris, Jepang, Korea) secara langsung dan *real-time*. **Aktor:**
-Siswa/Customer **Alur fitur:**
-Siswa mengakses materi pada halaman pembelajaran → menggunakan fitur translate teks materi → sistem menampilkan hasil terjemahan secara real-time **Route / Controller terkait:**
-`POST /learning/translate`
-(LearningController)
-
-**Screenshot fitur:**
-*(Tambahkan screenshot penggunaan fitur translate di materi di sini)*
-
----
-
-## 12. Forum Diskusi Kelas
-**Tujuan fitur:**
-Menyediakan ruang interaksi melalui forum diskusi antara sesama siswa dan tutor untuk membahas materi pada setiap kelas. **Aktor:**
-Siswa/Customer , Tutor **Alur fitur:**
-Siswa atau Tutor membuka akses forum diskusi per kelas → membuat postingan atau berdiskusi mengenai materi kelas **Route / Controller terkait:**
-`GET /courses/{id}/forum`
-`POST /courses/{id}/forum/reply`
-(ForumController)
-
-**Screenshot fitur:**
-*(Tambahkan screenshot tampilan forum diskusi di sini)*
-
----
-
-## 13. Integrasi Lokasi & Kontak (Hubungi Kami)
+## 10. Integrasi Lokasi & Kontak (Hubungi Kami)
 **Tujuan fitur:**
 Menyajikan halaman Hubungi Kami yang berisi nomor kontak, alamat (Jl. Alai Parak Kopi), jam operasional, dan media sosial dengan *embed* Google Maps yang interaktif untuk menunjukkan lokasi fisik Brainy Course. **Aktor:**
 Publik, Siswa/Customer **Alur fitur:**
@@ -178,5 +132,4 @@ User membuka navbar atau halaman Hubungi Kami → melihat informasi kontak, alam
 `GET /contact`
 (ContactController)
 
-**Screenshot fitur:**
 *(Tambahkan screenshot halaman Hubungi Kami beserta Google Maps di sini)*
