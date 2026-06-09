@@ -8,5 +8,6 @@
 </head>
 <body class="bg-white font-sans text-gray-950">
     @include('layouts.header')
+    
 </body>
 </html>
