@@ -38,3 +38,5 @@ Route::middleware('auth')->group(function () {
         return view('siswa.dashboard');
     })->name('siswa.dashboard');
 });
+
+Route::middleware(['auth', 'role:2'])->get('/siswa/dashboard', [\App\Http\Controllers\Siswa\SiswaDashboardController::class, 'index'])->name('siswa.dashboard');
