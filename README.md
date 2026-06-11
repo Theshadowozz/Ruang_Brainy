@@ -1,175 +1,172 @@
-# Brainy - Foreign Language Learning Platform
+
+# 🧠 Ruang Brai
+### Sistem Informasi Manajemen Pembelajaran Terintegrasi — Brainy Course Padang
+
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+
 
 Brainy adalah platform kursus bahasa asing berbasis web yang dikembangkan untuk kebutuhan Project Based Learning (PBL). Sistem ini dirancang untuk membantu proses pendaftaran kelas, pengelolaan jadwal, waiting list, pembayaran, dan aktivitas belajar bahasa asing secara terpusat.
 
-## Ringkasan Proyek
 
-| Item | Keterangan |
-| --- | --- |
-| Nama aplikasi | Brainy |
-| Jenis aplikasi | Platform kursus bahasa asing berbasis web |
-| Framework | Laravel 12 |
-| Bahasa backend | PHP 8.2+ |
-| Frontend build tool | Vite |
-| Database | MySQL/MariaDB |
-| Repository | https://github.com/Theshadowozz/Ruang_Brainy |
-| Status | Dalam pengembangan |
+**Ruang Brainy** adalah platform web terintegrasi yang dikembangkan untuk mendukung digitalisasi operasional **Brainy Course**, sebuah lembaga kursus bahasa (Inggris, Jepang, dan Korea) yang berlokasi di Jl. Alai Parak Kopi, Padang.
 
-## Tujuan
+### Masalah yang Diselesaikan
+Saat ini operasional Brainy Course masih bersifat konvensional (manual). Proses pendaftaran, pengecekan jadwal, dan pembayaran dilakukan secara manual, sehingga lambat dan rentan terhadap kesalahan. Komunikasi dengan calon siswa pun masih bergantung pada aplikasi pihak ketiga yang terpisah-pisah.
 
-Tujuan utama Brainy adalah menyediakan sistem digital yang memudahkan pengelolaan kursus bahasa asing, mulai dari pengguna memilih kelas sampai admin memantau data kelas, jadwal, pendaftaran, waiting list, dan pembayaran.
+### Tujuan Aplikasi
+- Mengotomasi proses pendaftaran kursus dan pengelolaan waiting list
+- Menyediakan sistem pembayaran online yang terverifikasi langsung di dalam platform
+- Menyediakan fitur pembelajaran interaktif (audio listening & kuis)
+- Menyatukan komunikasi admin dan customer dalam satu platform terpadu
 
-## Masalah yang Diselesaikan
+### Target Pengguna
+| Peran | Deskripsi |
+|-------|-----------|
+| 👨‍💼 Admin | Staf Brainy Course yang mengelola kelas, data siswa, dan transaksi |
+| 👩‍🏫 Tutor | Pengajar yang mengelola jadwal dan materi pembelajaran |
+| 🎓 Siswa | Calon dan siswa aktif Brainy Course dari semua jenjang usia |
+
+### Relevansi SDGs
+- 🎓 **SDG 4** — Quality Education: Mempermudah akses materi bahasa bagi semua kalangan melalui teknologi digital
+- 💼 **SDG 8** — Decent Work & Economic Growth: Mendukung pertumbuhan lembaga pendidikan lokal
+- 🏗️ **SDG 9** — Industry, Innovation & Infrastructure: Digitalisasi lembaga konvensional menuju sistem berbasis cloud
+
+---
+>>>>>>> 7c6cc12e0f9a61c3121e884ec81cc2bec0d228b4
 
 Brainy membantu mengurangi pencatatan manual pada proses kursus bahasa, terutama untuk data kelas, jadwal, kapasitas kelas, pendaftaran peserta, antrean waiting list, dan status pembayaran.
 
-## Target Pengguna
 
-- Student yang ingin mendaftar dan mengikuti kursus bahasa.
-- Tutor yang mengajar kelas bahasa.
-- Admin yang mengelola operasional kursus.
+### 🖥️ Fitur Base Web
+- **Dashboard Admin** — Kelola kelas, data customer, dan monitoring transaksi secara real-time
+- **Pendaftaran Online & Katalog Kelas** — Cek ketersediaan dan daftar kelas online/offline
+- **Waiting List Otomatis** — Antrian otomatis jika kuota kelas sudah penuh
+- **Integrasi Pembayaran** — Pembayaran digital langsung di dalam web via Payment Gateway
+- **Direct Chat** — Komunikasi langsung antara admin dan customer tanpa aplikasi pihak ketiga
+- **Profil Tutor** — Informasi detail kualifikasi dan jadwal pengajar
+- **Info Level Kelas** — Detail kurikulum dan tingkatan kelas yang tersedia
+- **Jadwal Kelas Fleksibel** — Sinkronisasi ketersediaan waktu tutor dan siswa
+- **Kelas Trial** — Informasi dan pendaftaran kelas percobaan
+- **Lokasi & Maps** — Integrasi Google Maps untuk petunjuk arah ke lembaga
+- **Galeri Prestasi & Testimoni** — Menampilkan pencapaian dan ulasan siswa
 
-## Cakupan Awal
+### 📚 Fitur Pembelajaran
+- **Audio Listening** — Materi pembelajaran berbasis audio yang interaktif
+- **Kuis Interaktif** — Kuis dengan pertanyaan acak (randomized) per sesi
+- **Forum Diskusi** — Ruang tanya jawab antara siswa dan tutor
+- **Fitur Translate** — Terjemahan teks materi berbasis NLP (Google Cloud / OpenAI API)
 
-Dokumentasi ini mengikuti kebutuhan dokumentasi proyek PBL:
+### ⚙️ Fitur Sistem
+- **Multi-Level Authentication** — Hak akses terpisah untuk Admin, Tutor, dan Siswa
+- **CMS (Content Management System)** — Admin dapat melakukan CRUD konten secara mandiri
+- **Responsive Design** — Tampilan optimal di desktop maupun mobile
 
-- README sebagai dokumentasi utama proyek.
-- Installation Documentation untuk panduan instalasi lokal.
-- Dependency Documentation untuk mencatat dependency yang digunakan dan direncanakan.
-- CHANGELOG untuk mencatat perkembangan implementasi secara berkala.
-- Refactoring Documentation sebagai catatan final perbaikan kode.
-- GitHub Actions Documentation sebagai catatan final CI/CD.
+---
 
-Feature Documentation tidak diperbarui pada tahap ini karena analisis kebutuhan ditargetkan selesai pada minggu ke-14.
+## 🛠️ Tech Stack
 
-## Fitur Utama
+| Kategori | Teknologi |
+|----------|-----------|
+| **Backend Framework** | Laravel (PHP) |
+| **Database** | MySQL |
+| **Frontend** | Bootstrap, Blade Template |
+| **AI / NLP** | OpenAI API / Google Cloud Translation |
+| **Payment** | Payment Gateway (Midtrans/Xendit) |
+| **Maps** | Google Maps API |
+| **Version Control** | Git & GitHub |
+| **Project Management** | Trello / Notion |
+| **Collaboration** | Google Workspace, WhatsApp Group |
+| **Deployment** | Cloud Hosting + Domain |
 
-Fitur berikut merupakan rancangan utama aplikasi berdasarkan kebutuhan awal dan struktur database yang sudah tersedia:
+---
 
-- Multi-role authentication untuk admin, tutor, dan student.
-- Manajemen tutor.
-- Manajemen kelas bahasa.
-- Manajemen jadwal kelas.
-- Pendaftaran kelas online.
-- Waiting list ketika kapasitas kelas penuh.
-- Manajemen pembayaran.
-- Monitoring status pendaftaran dan pembayaran.
+## ⚙️ Instalasi
 
-## Bahasa yang Didukung
-
-Berdasarkan rancangan database saat ini, kelas dapat dibuat untuk:
-
-- Inggris
-- Jepang
-- Korea
-
-## Role Pengguna
-
-### Student
-
-Student adalah pengguna yang mendaftar kelas, memilih jadwal, melakukan pembayaran, dan mengakses materi pembelajaran ketika modul pembelajaran sudah tersedia.
-
-### Tutor
-
-Tutor adalah pengajar yang memiliki data profil, keahlian bahasa, dan relasi dengan kelas yang diajar.
-
-### Admin
-
-Admin bertanggung jawab mengelola data tutor, kelas, jadwal, registrasi, waiting list, pembayaran, serta monitoring aktivitas sistem.
-
-## Modul Data Saat Ini
-
-Struktur database awal sudah mencakup:
-
-- `users`: data akun pengguna.
-- `tutors`: data tutor dan keahlian.
-- `classes`: data kelas, bahasa, level, tutor, harga, dan deskripsi.
-- `schedules`: jadwal kelas, ruangan, dan kapasitas.
-- `registrations`: data pendaftaran kelas.
-- `waiting_lists`: data antrean ketika kelas penuh.
-- `payments`: data pembayaran dan status transaksi.
-
-## Tech Stack
-
-- Laravel 12
-- PHP 8.2+
+### Prasyarat
+- PHP >= 8.1
 - Composer
-- MySQL atau MariaDB
-- Blade
-- Vite
-- Tailwind CSS
-- Node.js dan npm
-- Git dan GitHub
+- MySQL
+- Node.js & NPM
 
-## Instalasi Cepat
-
-Dokumentasi instalasi lengkap tersedia di [docs/installation.md](docs/installation.md).
+### Langkah Instalasi
 
 ```bash
-git clone https://github.com/Theshadowozz/Ruang_Brainy.git
-cd Ruang_Brainy
+# 1. Clone repositori
+git clone https://github.com/username/ruang-brainy.git
+cd ruang-brainy
+
+# 2. Install dependensi PHP
 composer install
-npm install
+
+# 3. Install dependensi Node
+npm install && npm run build
+
+# 4. Salin file environment
 cp .env.example .env
+
+# 5. Generate application key
 php artisan key:generate
-php artisan migrate
+
+# 6. Konfigurasi database di file .env
+# DB_DATABASE=ruang_brainy
+# DB_USERNAME=root
+# DB_PASSWORD=
+
+# 7. Jalankan migrasi & seeder
+php artisan migrate --seed
+
+# 8. Jalankan server lokal
 php artisan serve
 ```
 
-Untuk menjalankan frontend development server:
+Akses aplikasi di: `http://localhost:8000`
 
-```bash
-npm run dev
-```
+---
 
-Untuk build asset production:
+## 📸 Screenshot
 
-```bash
-npm run build
-```
+![Login](https://github.com/user-attachments/assets/80263c8c-78f9-48cf-9294-e698b85376da)
+![Dashboard](https://github.com/user-attachments/assets/426aa75f-3688-4bc6-9ccf-f0fa0a3492ae)
+![Daftar Kelas Online](https://github.com/user-attachments/assets/8289e99f-1590-4dec-83f5-a8d33565a0ef)
 
-## Struktur Dokumentasi
+---
 
-| Dokumen | Lokasi | Status |
-| --- | --- | --- |
-| README | `README.md` | Disiapkan untuk target minggu depan |
-| Installation Documentation | `docs/installation.md` | Disiapkan untuk target minggu depan |
-| Feature Documentation | `docs/features.md` | Belum diisi, menunggu analisis kebutuhan minggu ke-14 |
-| Changelog | `CHANGELOG.md` | Berjalan dan diupdate berkala |
-| Dependency Documentation | `docs/dependency.md` | Dirapikan untuk tugas dokumentasi |
-| Refactoring Documentation | `docs/refactoring.md` | Template final |
-| GitHub Actions Documentation | `docs/github-actions.md` | Template final |
+## 👥 Tim Pengembang — Kelompok 5 (TRPL2B)
 
-## Status Implementasi
+| Peran | Nama | NIM |
+|-------|------|-----|
+| 🧑‍💼 Project Manager | Rifqi Reswarra Putra Nugraha | 2411081021 |
+| 🔍 System Analyst | Khalisa Mutiara Adrila | 2411081013 |
+| 💻 Lead Programmer | Ravi Andito | 2411082019 |
+| 🤖 AI Specialist | Nabila Rahmadhani | 2411082017 |
+| ✅ Quality Assurance | Iqbal Putra Ananda | 2411081011 |
 
-Saat dokumentasi ini diperbarui, proyek masih berada pada tahap setup Laravel, struktur database awal, dan penyusunan dokumentasi proyek. Route utama masih menggunakan halaman default Laravel.
+---
 
-## Screenshot Proyek
+## 🏫 Dosen Pengampu
 
-Screenshot belum tersedia karena implementasi halaman login, dashboard, dan fitur utama belum selesai. Screenshot perlu ditambahkan setelah halaman berikut tersedia:
+| Mata Kuliah | Dosen |
+|-------------|-------|
+| Manajemen Proyek PL | Fazrol Rozi, M.Sc & Indri Rahmayuni, S.T., M.T |
+| Analisis & Perancangan | Dr. Yulherniwati, S.Kom., M.T & Rita Afyenni, S.Kom., M.Kom |
+| Pemrograman Web | Deni Satria & Yori Adi Atma, S.Pd., M.Kom |
+| Kecerdasan Buatan | Ainil Mardiah, M.Cs. & Nurraudya Tuz Zahra, S.Si., M.C.S.(AI) |
+| QA & Pengujian | Yulia Jihan Sy, S.Kom., M.Kom & Rozi Meri, S.Kom., M.Kom |
+| Konstruksi & Evolusi | Defni, S.Si., M.Kom & Mutia Rahmi Dewi, S.Kom., M.Kom |
+| Komunikasi Bisnis | Rayendra, S.T, M.Kom. & Eko Purnomo, S.Ds, M.Sn |
 
-- Halaman login.
-- Dashboard admin/student/tutor.
-- Halaman pendaftaran kelas atau fitur utama lain.
+---
 
-Format penyimpanan yang disarankan:
+## 📄 Lisensi
 
-```text
-docs/screenshots/login.png
-docs/screenshots/dashboard.png
-docs/screenshots/main-feature.png
-```
+Proyek ini dikembangkan untuk keperluan akademik dalam rangka mata kuliah Project-Based Learning (PBL) Semester Genap 2024/2025.
 
-## Tim Pengembang
+---
 
-Isi bagian ini dengan nama anggota kelompok:
-
-| Nama | Peran |
-| --- | --- |
-| Nama anggota 1 | Developer |
-| Nama anggota 2 | Developer |
-| Nama anggota 3 | Developer |
-
-## Kontribusi Tim
-
-Setiap perubahan fitur, dependency, refactoring, dan workflow GitHub Actions perlu dicatat pada dokumen terkait agar progres proyek mudah diperiksa setiap minggu.
+<p align="center">
+  Dikembangkan dengan ❤️ oleh <strong>Kelompok 5 TRPL2B</strong> untuk <strong>Brainy Course Padang</strong>
+</p>
+>>>>>>> 7c6cc12e0f9a61c3121e884ec81cc2bec0d228b4
