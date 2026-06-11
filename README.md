@@ -1,59 +1,168 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧠 Ruang Brainy
+### Sistem Informasi Manajemen Pembelajaran Terintegrasi — Brainy Course Padang
+
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+
+---
+
+## 📖 Deskripsi Proyek
+
+**Ruang Brainy** adalah platform web terintegrasi yang dikembangkan untuk mendukung digitalisasi operasional **Brainy Course**, sebuah lembaga kursus bahasa (Inggris, Jepang, dan Korea) yang berlokasi di Jl. Alai Parak Kopi, Padang.
+
+### Masalah yang Diselesaikan
+Saat ini operasional Brainy Course masih bersifat konvensional (manual). Proses pendaftaran, pengecekan jadwal, dan pembayaran dilakukan secara manual, sehingga lambat dan rentan terhadap kesalahan. Komunikasi dengan calon siswa pun masih bergantung pada aplikasi pihak ketiga yang terpisah-pisah.
+
+### Tujuan Aplikasi
+- Mengotomasi proses pendaftaran kursus dan pengelolaan waiting list
+- Menyediakan sistem pembayaran online yang terverifikasi langsung di dalam platform
+- Menyediakan fitur pembelajaran interaktif (audio listening & kuis)
+- Menyatukan komunikasi admin dan customer dalam satu platform terpadu
+
+### Target Pengguna
+| Peran | Deskripsi |
+|-------|-----------|
+| 👨‍💼 Admin | Staf Brainy Course yang mengelola kelas, data siswa, dan transaksi |
+| 👩‍🏫 Tutor | Pengajar yang mengelola jadwal dan materi pembelajaran |
+| 🎓 Siswa | Calon dan siswa aktif Brainy Course dari semua jenjang usia |
+
+### Relevansi SDGs
+- 🎓 **SDG 4** — Quality Education: Mempermudah akses materi bahasa bagi semua kalangan melalui teknologi digital
+- 💼 **SDG 8** — Decent Work & Economic Growth: Mendukung pertumbuhan lembaga pendidikan lokal
+- 🏗️ **SDG 9** — Industry, Innovation & Infrastructure: Digitalisasi lembaga konvensional menuju sistem berbasis cloud
+
+---
+
+## ✨ Fitur Utama
+
+### 🖥️ Fitur Base Web
+- **Dashboard Admin** — Kelola kelas, data customer, dan monitoring transaksi secara real-time
+- **Pendaftaran Online & Katalog Kelas** — Cek ketersediaan dan daftar kelas online/offline
+- **Waiting List Otomatis** — Antrian otomatis jika kuota kelas sudah penuh
+- **Integrasi Pembayaran** — Pembayaran digital langsung di dalam web via Payment Gateway
+- **Direct Chat** — Komunikasi langsung antara admin dan customer tanpa aplikasi pihak ketiga
+- **Profil Tutor** — Informasi detail kualifikasi dan jadwal pengajar
+- **Info Level Kelas** — Detail kurikulum dan tingkatan kelas yang tersedia
+- **Jadwal Kelas Fleksibel** — Sinkronisasi ketersediaan waktu tutor dan siswa
+- **Kelas Trial** — Informasi dan pendaftaran kelas percobaan
+- **Lokasi & Maps** — Integrasi Google Maps untuk petunjuk arah ke lembaga
+- **Galeri Prestasi & Testimoni** — Menampilkan pencapaian dan ulasan siswa
+
+### 📚 Fitur Pembelajaran
+- **Audio Listening** — Materi pembelajaran berbasis audio yang interaktif
+- **Kuis Interaktif** — Kuis dengan pertanyaan acak (randomized) per sesi
+- **Forum Diskusi** — Ruang tanya jawab antara siswa dan tutor
+- **Fitur Translate** — Terjemahan teks materi berbasis NLP (Google Cloud / OpenAI API)
+
+### ⚙️ Fitur Sistem
+- **Multi-Level Authentication** — Hak akses terpisah untuk Admin, Tutor, dan Siswa
+- **CMS (Content Management System)** — Admin dapat melakukan CRUD konten secara mandiri
+- **Responsive Design** — Tampilan optimal di desktop maupun mobile
+
+---
+
+## 🛠️ Tech Stack
+
+| Kategori | Teknologi |
+|----------|-----------|
+| **Backend Framework** | Laravel (PHP) |
+| **Database** | MySQL |
+| **Frontend** | Bootstrap, Blade Template |
+| **AI / NLP** | OpenAI API / Google Cloud Translation |
+| **Payment** | Payment Gateway (Midtrans/Xendit) |
+| **Maps** | Google Maps API |
+| **Version Control** | Git & GitHub |
+| **Project Management** | Trello / Notion |
+| **Collaboration** | Google Workspace, WhatsApp Group |
+| **Deployment** | Cloud Hosting + Domain |
+
+---
+
+## ⚙️ Instalasi
+
+### Prasyarat
+- PHP >= 8.1
+- Composer
+- MySQL
+- Node.js & NPM
+
+### Langkah Instalasi
+
+```bash
+# 1. Clone repositori
+git clone https://github.com/username/ruang-brainy.git
+cd ruang-brainy
+
+# 2. Install dependensi PHP
+composer install
+
+# 3. Install dependensi Node
+npm install && npm run build
+
+# 4. Salin file environment
+cp .env.example .env
+
+# 5. Generate application key
+php artisan key:generate
+
+# 6. Konfigurasi database di file .env
+# DB_DATABASE=ruang_brainy
+# DB_USERNAME=root
+# DB_PASSWORD=
+
+# 7. Jalankan migrasi & seeder
+php artisan migrate --seed
+
+# 8. Jalankan server lokal
+php artisan serve
+```
+
+Akses aplikasi di: `http://localhost:8000`
+
+---
+
+## 📸 Screenshot
+
+![Login](https://github.com/user-attachments/assets/80263c8c-78f9-48cf-9294-e698b85376da)
+![Dashboard](https://github.com/user-attachments/assets/426aa75f-3688-4bc6-9ccf-f0fa0a3492ae)
+![Daftar Kelas Online](https://github.com/user-attachments/assets/8289e99f-1590-4dec-83f5-a8d33565a0ef)
+
+---
+
+## 👥 Tim Pengembang — Kelompok 5 (TRPL2B)
+
+| Peran | Nama | NIM |
+|-------|------|-----|
+| 🧑‍💼 Project Manager | Rifqi Reswarra Putra Nugraha | 2411081021 |
+| 🔍 System Analyst | Khalisa Mutiara Adrila | 2411081013 |
+| 💻 Lead Programmer | Ravi Andito | 2411082019 |
+| 🤖 AI Specialist | Nabila Rahmadhani | 2411082017 |
+| ✅ Quality Assurance | Iqbal Putra Ananda | 2411081011 |
+
+---
+
+## 🏫 Dosen Pengampu
+
+| Mata Kuliah | Dosen |
+|-------------|-------|
+| Manajemen Proyek PL | Fazrol Rozi, M.Sc & Indri Rahmayuni, S.T., M.T |
+| Analisis & Perancangan | Dr. Yulherniwati, S.Kom., M.T & Rita Afyenni, S.Kom., M.Kom |
+| Pemrograman Web | Deni Satria & Yori Adi Atma, S.Pd., M.Kom |
+| Kecerdasan Buatan | Ainil Mardiah, M.Cs. & Nurraudya Tuz Zahra, S.Si., M.C.S.(AI) |
+| QA & Pengujian | Yulia Jihan Sy, S.Kom., M.Kom & Rozi Meri, S.Kom., M.Kom |
+| Konstruksi & Evolusi | Defni, S.Si., M.Kom & Mutia Rahmi Dewi, S.Kom., M.Kom |
+| Komunikasi Bisnis | Rayendra, S.T, M.Kom. & Eko Purnomo, S.Ds, M.Sn |
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dikembangkan untuk keperluan akademik dalam rangka mata kuliah Project-Based Learning (PBL) Semester Genap 2024/2025.
+
+---
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  Dikembangkan dengan ❤️ oleh <strong>Kelompok 5 TRPL2B</strong> untuk <strong>Brainy Course Padang</strong>
 </p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
