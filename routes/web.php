@@ -20,15 +20,11 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [AuthController::class, 'register'])->name('register.store');
 });
 
+Route::view('/admin/{any?}', 'admin.dashboard')->where('any', '.*')->name('admin.dashboard');
+
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
     Route::match(['get', 'post'], '/logout', [AuthController::class, 'logout'])->name('logout');
-
-    Route::get('/admin/dashboard', function () {
-        abort_unless(Auth::user()->role === User::ROLE_ADMIN, 403);
-
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
 
     Route::get('/tutor/dashboard', function () {
         abort_unless(Auth::user()->role === User::ROLE_TUTOR, 403);

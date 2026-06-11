@@ -1,4 +1,5 @@
-# 🧠 Ruang Brainy
+
+# 🧠 Ruang Brai
 ### Sistem Informasi Manajemen Pembelajaran Terintegrasi — Brainy Course Padang
 
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
@@ -6,9 +7,9 @@
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 
----
 
-## 📖 Deskripsi Proyek
+Brainy adalah platform kursus bahasa asing berbasis web yang dikembangkan untuk kebutuhan Project Based Learning (PBL). Sistem ini dirancang untuk membantu proses pendaftaran kelas, pengelolaan jadwal, waiting list, pembayaran, dan aktivitas belajar bahasa asing secara terpusat.
+
 
 **Ruang Brainy** adalah platform web terintegrasi yang dikembangkan untuk mendukung digitalisasi operasional **Brainy Course**, sebuah lembaga kursus bahasa (Inggris, Jepang, dan Korea) yang berlokasi di Jl. Alai Parak Kopi, Padang.
 
@@ -34,8 +35,10 @@ Saat ini operasional Brainy Course masih bersifat konvensional (manual). Proses 
 - 🏗️ **SDG 9** — Industry, Innovation & Infrastructure: Digitalisasi lembaga konvensional menuju sistem berbasis cloud
 
 ---
+>>>>>>> 7c6cc12e0f9a61c3121e884ec81cc2bec0d228b4
 
-## ✨ Fitur Utama
+Brainy membantu mengurangi pencatatan manual pada proses kursus bahasa, terutama untuk data kelas, jadwal, kapasitas kelas, pendaftaran peserta, antrean waiting list, dan status pembayaran.
+
 
 ### 🖥️ Fitur Base Web
 - **Dashboard Admin** — Kelola kelas, data customer, dan monitoring transaksi secara real-time
@@ -166,3 +169,4 @@ Proyek ini dikembangkan untuk keperluan akademik dalam rangka mata kuliah Projec
 <p align="center">
   Dikembangkan dengan ❤️ oleh <strong>Kelompok 5 TRPL2B</strong> untuk <strong>Brainy Course Padang</strong>
 </p>
+>>>>>>> 7c6cc12e0f9a61c3121e884ec81cc2bec0d228b4

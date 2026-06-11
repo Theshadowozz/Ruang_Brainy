@@ -1,3 +1,4 @@
+
 # Identifikasi Dependency/Package Laravel untuk Proyek PBL Brainy
 
 ## Deskripsi Proyek
@@ -150,3 +151,4 @@ Http::get('https://api.example.com/endpoint');
 | **When** | Saat siswa melakukan pembayaran kelas. |
 | **Where** | Modul pembayaran |
 | **How** | Diintegrasikan ke Laravel menggunakan API Midtrans untuk memproses transaksi pembayaran. |
+>>>>>>> 7c6cc12e0f9a61c3121e884ec81cc2bec0d228b4
