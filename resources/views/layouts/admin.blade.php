@@ -197,21 +197,21 @@
                 </a>
 
                 <!-- Nav Item: Kelola Kursus -->
-                <button onclick="showDevInfo('Kelola Kursus')" class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200 cursor-pointer">
+                <a href="/admin/courses" class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 @if($activeTab === 'courses') bg-blue-50/80 text-blue-600 @else text-slate-600 hover:bg-slate-50 hover:text-slate-900 @endif">
                     <div class="flex items-center gap-3">
-                        <i data-lucide="graduation-cap" class="h-5 w-5 text-slate-400"></i>
+                        <i data-lucide="graduation-cap" class="h-5 w-5 @if($activeTab === 'courses') text-blue-600 @else text-slate-400 @endif"></i>
                         <span>Kelola Kursus</span>
                     </div>
-                </button>
+                </a>
 
                 <!-- Nav Item: Pembayaran -->
-                <button onclick="showDevInfo('Pembayaran')" class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200 cursor-pointer">
+                <a href="/admin/payments" class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 @if($activeTab === 'payments') bg-blue-50/80 text-blue-600 @else text-slate-600 hover:bg-slate-50 hover:text-slate-900 @endif">
                     <div class="flex items-center gap-3">
-                        <i data-lucide="dollar-sign" class="h-5 w-5 text-slate-400"></i>
+                        <i data-lucide="dollar-sign" class="h-5 w-5 @if($activeTab === 'payments') text-blue-600 @else text-slate-400 @endif"></i>
                         <span>Pembayaran</span>
                     </div>
                     <span id="badge-pembayaran" class="rounded-full px-2 py-0.5 text-xs font-bold bg-slate-100 text-slate-600 hidden">0</span>
-                </button>
+                </a>
 
                 <!-- Nav Item: Waiting List -->
                 <a href="/admin/waitinglist" class="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 @if($activeTab === 'waitinglist') bg-blue-50/80 text-blue-600 @else text-slate-600 hover:bg-slate-50 hover:text-slate-900 @endif">
@@ -231,12 +231,12 @@
                 </a>
 
                 <!-- Nav Item: Jadwal Kelas -->
-                <button onclick="showDevInfo('Jadwal Kelas')" class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all duration-200 cursor-pointer">
+                <a href="/admin/schedules" class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 @if($activeTab === 'schedules') bg-blue-50/80 text-blue-600 @else text-slate-600 hover:bg-slate-50 hover:text-slate-900 @endif">
                     <div class="flex items-center gap-3">
-                        <i data-lucide="calendar-days" class="h-5 w-5 text-slate-400"></i>
+                        <i data-lucide="calendar-days" class="h-5 w-5 @if($activeTab === 'schedules') text-blue-600 @else text-slate-400 @endif"></i>
                         <span>Jadwal Kelas</span>
                     </div>
-                </button>
+                </a>
 
                 <!-- Nav Item: Data Siswa -->
                 <a href="/admin/students" class="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 @if($activeTab === 'siswa') bg-blue-50/80 text-blue-600 @else text-slate-600 hover:bg-slate-50 hover:text-slate-900 @endif">

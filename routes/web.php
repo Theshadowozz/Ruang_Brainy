@@ -28,6 +28,18 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
+Route::get('/admin/courses', function () {
+    return view('admin.courses');
+})->name('admin.courses');
+
+Route::get('/admin/payments', function () {
+    return view('admin.payments');
+})->name('admin.payments');
+
+Route::get('/admin/schedules', function () {
+    return view('admin.schedules');
+})->name('admin.schedules');
+
 Route::get('/admin/waitinglist', function () {
     return view('admin.waitinglist');
 })->name('admin.waitinglist');
@@ -49,6 +61,15 @@ Route::get('/admin/tutor', function () {
 });
 Route::get('/admin/siswa', function () {
     return redirect()->route('admin.students');
+});
+Route::get('/admin/kursus', function () {
+    return redirect()->route('admin.courses');
+});
+Route::get('/admin/pembayaran', function () {
+    return redirect()->route('admin.payments');
+});
+Route::get('/admin/jadwal', function () {
+    return redirect()->route('admin.schedules');
 });
 Route::get('/admin', function () {
     return redirect()->route('admin.dashboard');

@@ -113,7 +113,7 @@
         </div>
         <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             <!-- Menu 1 -->
-            <button onclick="showDevInfo('Kelola Kursus')" class="group relative text-left rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-500/20 border-l-4 border-l-blue-500 cursor-pointer">
+            <a href="/admin/courses" class="group relative text-left block rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-500/20 border-l-4 border-l-blue-500">
                 <div class="flex justify-between items-start">
                     <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 border border-slate-100 text-slate-700 transition-colors group-hover:bg-blue-50 group-hover:text-blue-600 group-hover:border-blue-100/50">
                         <i data-lucide="graduation-cap" class="h-5 w-5"></i>
@@ -122,10 +122,10 @@
                 </div>
                 <h3 class="mt-4 text-xs font-bold text-slate-900">Kelola Kursus</h3>
                 <p class="mt-1 text-[11px] text-slate-500 font-medium leading-relaxed">Tambah, edit, dan hapus kurikulum bahasa.</p>
-            </button>
+            </a>
 
             <!-- Menu 2 -->
-            <button onclick="showDevInfo('Pembayaran')" class="group relative text-left rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-500/20 border-l-4 border-l-blue-500 cursor-pointer">
+            <a href="/admin/payments" class="group relative text-left block rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-500/20 border-l-4 border-l-blue-500">
                 <div class="flex justify-between items-start">
                     <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 border border-slate-100 text-slate-700 transition-colors group-hover:bg-blue-50 group-hover:text-blue-600 group-hover:border-blue-100/50">
                         <i data-lucide="dollar-sign" class="h-5 w-5"></i>
@@ -134,7 +134,7 @@
                 </div>
                 <h3 class="mt-4 text-xs font-bold text-slate-900">Pembayaran</h3>
                 <p class="mt-1 text-[11px] text-slate-500 font-medium leading-relaxed">Verifikasi & pantau mutasi invoice pendaftaran.</p>
-            </button>
+            </a>
 
             <!-- Menu 3 -->
             <a href="/admin/waitinglist" class="group relative text-left block rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-500/20 border-l-4 border-l-blue-500">
@@ -161,7 +161,7 @@
             </a>
 
             <!-- Menu 5 -->
-            <button onclick="showDevInfo('Jadwal Kelas')" class="group relative text-left rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-500/20 border-l-4 border-l-blue-500 cursor-pointer">
+            <a href="/admin/schedules" class="group relative text-left block rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-500/20 border-l-4 border-l-blue-500">
                 <div class="flex justify-between items-start">
                     <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 border border-slate-100 text-slate-700 transition-colors group-hover:bg-blue-50 group-hover:text-blue-600 group-hover:border-blue-100/50">
                         <i data-lucide="calendar-days" class="h-5 w-5"></i>
@@ -170,7 +170,7 @@
                 </div>
                 <h3 class="mt-4 text-xs font-bold text-slate-900">Jadwal Kelas</h3>
                 <p class="mt-1 text-[11px] text-slate-500 font-medium leading-relaxed">Atur pemetaan ruangan dan waktu belajar.</p>
-            </button>
+            </a>
 
             <!-- Menu 6 -->
             <a href="/admin/students" class="group relative text-left block rounded-2xl border border-slate-200/60 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-blue-500/20 border-l-4 border-l-blue-500">
