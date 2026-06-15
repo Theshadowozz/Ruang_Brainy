@@ -6,12 +6,18 @@ use App\Models\ForumReply;
 use App\Models\ForumTopic;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Validation\Rule;
 
 class ForumController extends Controller
 {
     public function storeTopic(Request $request): RedirectResponse
     {
+        if (! Schema::hasTable('forum_topics')) {
+            return redirect(url()->previous() . '#forum-diskusi')
+                ->withErrors(['forum' => 'Tabel forum belum ada. Jalankan php artisan migrate terlebih dahulu.']);
+        }
+
         $validated = $request->validate([
             'category' => ['required', Rule::in(array_keys(ForumTopic::categories()))],
             'title' => ['required', 'string', 'max:120'],
@@ -29,6 +35,11 @@ class ForumController extends Controller
 
     public function storeReply(Request $request, ForumTopic $forumTopic): RedirectResponse
     {
+        if (! Schema::hasTable('forum_replies')) {
+            return redirect(url()->previous() . '#forum-diskusi')
+                ->withErrors(['forum' => 'Tabel balasan forum belum ada. Jalankan php artisan migrate terlebih dahulu.']);
+        }
+
         $validated = $request->validate([
             'body' => ['required', 'string', 'max:1500'],
         ]);
