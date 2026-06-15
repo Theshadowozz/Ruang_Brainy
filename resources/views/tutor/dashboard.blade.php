@@ -210,6 +210,8 @@
                 </div>
             </section>
         </section>
+
+        @include('components.forum-discussion')
     </main>
 </body>
 </html>
