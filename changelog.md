@@ -1,7 +1,4 @@
 # Changelog
-
-Semua perubahan penting pada project Ruang Brainy akan dicatat di file ini.
-
 ## v1.0.0
 
 ### Added
