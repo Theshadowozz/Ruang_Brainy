@@ -20,25 +20,27 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [AuthController::class, 'register'])->name('register.store');
 });
 
-Route::get('/admin/login', function () {
-    return view('admin.login');
-})->name('admin.login');
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/dashboard', function () {
+        abort_unless(Auth::user()->isAdmin(), 403);
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->name('admin.dashboard');
+    Route::get('/admin/waitinglist', function () {
+        abort_unless(Auth::user()->isAdmin(), 403);
+        return view('admin.waitinglist');
+    })->name('admin.waitinglist');
 
-Route::get('/admin/waitinglist', function () {
-    return view('admin.waitinglist');
-})->name('admin.waitinglist');
+    Route::get('/admin/tutors', function () {
+        abort_unless(Auth::user()->isAdmin(), 403);
+        return view('admin.tutors');
+    })->name('admin.tutors');
 
-Route::get('/admin/tutors', function () {
-    return view('admin.tutors');
-})->name('admin.tutors');
-
-Route::get('/admin/students', function () {
-    return view('admin.students');
-})->name('admin.students');
+    Route::get('/admin/students', function () {
+        abort_unless(Auth::user()->isAdmin(), 403);
+        return view('admin.students');
+    })->name('admin.students');
+});
 
 // Redirects for compatibility
 Route::get('/admin/waitlist', function () {
