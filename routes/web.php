@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    if (Auth::check()) {
-        return redirect()->route('dashboard');
-    }
-
-    return view('auth.login');
+    return view('landing');
 });
 
 Route::middleware('guest')->group(function () {
@@ -72,3 +68,12 @@ Route::middleware('auth')->group(function () {
         return view('siswa.dashboard');
     })->name('siswa.dashboard');
 });
+
+Route::middleware(['auth', 'role:2'])->get('/siswa/dashboard', [\App\Http\Controllers\Siswa\SiswaDashboardController::class, 'index'])->name('siswa.dashboard');
+
+Route::middleware(['auth', 'role:2'])->group(function () {
+    Route::get('/siswa/audio', [\App\Http\Controllers\Siswa\SiswaAudioController::class, 'index'])->name('siswa.audio.index');
+    Route::get('/siswa/audio/{id}/download', [\App\Http\Controllers\Siswa\SiswaAudioController::class, 'download'])->name('siswa.audio.download');
+    Route::post('/siswa/audio/{id}/listen', [\App\Http\Controllers\Siswa\SiswaAudioController::class, 'markListened'])->name('siswa.audio.listen');
+});
+
