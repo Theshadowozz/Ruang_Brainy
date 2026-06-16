@@ -1,148 +1,275 @@
+@extends('layouts.siswa')
+
+@section('title', 'Dashboard Siswa - Brainy')
+
+@section('content')
 @php
-    $user = auth()->user();
-    $studentName = $user->name ?? 'Andi Wijaya';
-
-    $stats = [
-        ['label' => 'Kelas Aktif', 'value' => 2, 'icon' => 'mortar', 'tone' => 'text-blue-200'],
-        ['label' => 'Kelas Selesai', 'value' => 24, 'icon' => 'calendar', 'tone' => 'text-emerald-200'],
-        ['label' => 'Audio Didengar', 'value' => 15, 'icon' => 'audio', 'tone' => 'text-purple-200'],
-        ['label' => 'Quiz Selesai', 'value' => 8, 'icon' => 'book', 'tone' => 'text-orange-200'],
-    ];
-
-    $activeClasses = [
-        [
-            'name' => 'English Intermediate',
-            'tutor' => 'Sarah Johnson',
-            'level' => 'Level 2',
-            'progress' => 65,
-            'schedule' => 'Selasa & Kamis, 19:00 - 20:30',
-        ],
-        [
-            'name' => 'Japanese Beginner',
-            'tutor' => 'Yuki Tanaka',
-            'level' => 'Level 1',
-            'progress' => 40,
-            'schedule' => 'Senin & Rabu, 18:00 - 19:30',
-        ],
-    ];
-
-    $features = [
-        ['label' => 'Katalog Kursus', 'desc' => 'Lihat semua kursus', 'href' => '#kelas-aktif', 'color' => 'text-blue-600', 'icon' => 'book'],
-        ['label' => 'Audio Listening', 'desc' => 'Latihan mendengar', 'href' => '#kelas-aktif', 'color' => 'text-purple-600', 'icon' => 'audio'],
-        ['label' => 'Quiz', 'desc' => 'Tes pemahaman', 'href' => '#kelas-aktif', 'color' => 'text-orange-600', 'icon' => 'mortar'],
-        ['label' => 'Diskusi', 'desc' => 'Forum diskusi', 'href' => '#forum-diskusi', 'color' => 'text-emerald-600', 'icon' => 'chat'],
-        ['label' => 'Translate', 'desc' => 'Alat terjemahan', 'href' => '#kelas-aktif', 'color' => 'text-rose-600', 'icon' => 'translate'],
-        ['label' => 'Jadwal Saya', 'desc' => 'Lihat jadwal kelas', 'href' => '#jadwal-kelas', 'color' => 'text-indigo-600', 'icon' => 'calendar'],
-    ];
-
-    $schedules = [
-        ['class' => 'English Intermediate', 'meta' => 'Sarah Johnson - Selasa, 23 Mei 2026', 'time' => '19:00 - 20:30', 'tone' => 'bg-blue-50 text-blue-600'],
-        ['class' => 'Japanese Beginner', 'meta' => 'Yuki Tanaka - Rabu, 24 Mei 2026', 'time' => '18:00 - 19:30', 'tone' => 'bg-purple-50 text-purple-600'],
-        ['class' => 'English Intermediate', 'meta' => 'Sarah Johnson - Kamis, 25 Mei 2026', 'time' => '19:00 - 20:30', 'tone' => 'bg-blue-50 text-blue-600'],
-    ];
+    \Illuminate\Support\Carbon::setLocale('id');
 @endphp
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Siswa - Brainy</title>
-    @include('layouts.vite')
-</head>
-<body class="bg-gray-50 font-sans text-gray-950">
-    @include('layouts.header')
+<!-- Header Banner -->
+<div class="text-white py-12 px-6 sm:px-10 lg:px-28" style="background-color: #1D4ED8;">
+    <div class="mx-auto max-w-7xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-blue-300">Dashboard Siswa</p>
+        <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Selamat datang kembali, {{ auth()->user()->name }}!</h1>
+        <p class="mt-3 text-blue-100 max-w-2xl text-sm sm:text-base">Siap untuk melanjutkan pembelajaran hari ini? Pantau progres kelas Anda dan pelajari materi baru di bawah ini.</p>
+    </div>
+</div>
 
-    <main>
-        <section class="bg-blue-700 text-white">
-            <div class="mx-auto max-w-7xl px-4 py-9 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold">Dashboard Siswa</h1>
-                <p class="mt-2 text-base text-white/90">Selamat datang kembali, {{ $studentName }}!</p>
+<!-- Stats Section (Overlapping Header) -->
+<div class="mx-auto max-w-7xl px-6 sm:px-10 lg:px-28 -mt-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Stat Card 1 -->
+        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4">
+            <div class="p-3 bg-blue-50 rounded-lg">
+                <img src="{{ asset('asset/kelas_aktif.svg') }}" alt="" class="h-6 w-6 object-contain">
             </div>
-        </section>
+            <div>
+                <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">Kelas Aktif</p>
+                <p class="text-2xl font-bold text-gray-950 mt-1">{{ $kelasAktif }}</p>
+            </div>
+        </div>
 
-        <section class="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
-            <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-                @foreach ($stats as $stat)
-                    <article class="flex min-h-20 items-center justify-between rounded-lg border border-gray-200 bg-white px-5 py-4">
-                        <div>
-                            <p class="text-xs text-gray-600">{{ $stat['label'] }}</p>
-                            <p class="mt-1 text-2xl font-bold">{{ $stat['value'] }}</p>
+        <!-- Stat Card 2 -->
+        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4">
+            <div class="p-3 bg-emerald-50 rounded-lg">
+                <img src="{{ asset('asset/kelas_selesai.svg') }}" alt="" class="h-6 w-6 object-contain">
+            </div>
+            <div>
+                <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">Kelas Selesai</p>
+                <p class="text-2xl font-bold text-gray-950 mt-1">{{ $kelasSelesai }}</p>
+            </div>
+        </div>
+
+        <!-- Stat Card 3 -->
+        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4">
+            <div class="p-3 bg-purple-50 rounded-lg">
+                <img src="{{ asset('asset/audio_didengar.svg') }}" alt="" class="h-6 w-6 object-contain">
+            </div>
+            <div>
+                <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">Audio Didengar</p>
+                <p class="text-2xl font-bold text-gray-950 mt-1">{{ $audioDidengar }}</p>
+            </div>
+        </div>
+
+        <!-- Stat Card 4 -->
+        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex items-center gap-4">
+            <div class="p-3 bg-amber-50 rounded-lg">
+                <img src="{{ asset('asset/quiz_selesai.svg') }}" alt="" class="h-6 w-6 object-contain">
+            </div>
+            <div>
+                <p class="text-xs font-medium text-gray-500 uppercase tracking-wider">Quiz Selesai</p>
+                <p class="text-2xl font-bold text-gray-950 mt-1">{{ $quizSelesai }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Section -->
+<main class="mx-auto max-w-7xl px-6 py-10 sm:px-10 lg:px-28">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Left Column (Kelas Aktif & Fitur Pembelajaran) -->
+        <div class="lg:col-span-2 space-y-10">
+            
+            <!-- Section: Kelas Aktif Saya -->
+            <section aria-labelledby="kelas-aktif-title">
+                <h2 id="kelas-aktif-title" class="text-xl font-bold text-gray-950 mb-4 flex items-center gap-2">
+                    <img src="{{ asset('asset/kelas_aktif_saya.svg') }}" alt="" class="h-6 w-6 object-contain">
+                    <span>Kelas Aktif Saya</span>
+                </h2>
+                
+                @if($kelasAktifList->isEmpty())
+                    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-8 text-center">
+                        <div class="mx-auto w-12 h-12 mb-3 flex items-center justify-center bg-gray-50 rounded-full">
+                            <img src="{{ asset('asset/kelas_aktif_saya.svg') }}" alt="" class="h-6 w-6 object-contain">
                         </div>
-                        <x-dashboard-icon :name="$stat['icon']" class="h-9 w-9 {{ $stat['tone'] }}" />
-                    </article>
-                @endforeach
-            </div>
+                        <p class="text-gray-500 font-medium">Belum ada kelas aktif</p>
+                        <p class="text-gray-400 text-xs mt-1">Silakan mendaftar kelas baru melalui katalog kursus.</p>
+                    </div>
+                @else
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        @foreach($kelasAktifList as $reg)
+                            @if($reg->schedule && $reg->schedule->class)
+                                <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-5 flex flex-col justify-between hover:shadow transition duration-200">
+                                    <div>
+                                        <!-- Level Badge & Title -->
+                                        <div class="flex items-center justify-between gap-2">
+                                            <span class="bg-gray-900 text-white text-[10px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded">
+                                                {{ $reg->schedule->class->level }}
+                                            </span>
+                                            <span class="text-xs text-blue-600 font-semibold uppercase tracking-wider">
+                                                {{ $reg->schedule->class->language }}
+                                            </span>
+                                        </div>
+                                        
+                                        <h3 class="text-base font-bold text-gray-950 mt-2 line-clamp-1">
+                                            {{ $reg->schedule->class->name }}
+                                        </h3>
+                                        <p class="text-xs text-gray-500 mt-1">
+                                            Tutor: <span class="font-medium text-gray-700">{{ $reg->schedule->class->tutor->name ?? '-' }}</span>
+                                        </p>
+                                        
+                                        <!-- Progress Bar -->
+                                        <div class="mt-4">
+                                            <div class="flex justify-between items-center text-xs font-semibold text-gray-700 mb-1">
+                                                <span>Progres Belajar</span>
+                                                <span>{{ $reg->progress }}%</span>
+                                            </div>
+                                            <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                                                <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: {{ $reg->progress }}%"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Schedule Info -->
+                                        <div class="mt-4 pt-3 border-t border-gray-100 flex items-start gap-2 text-xs text-gray-600">
+                                            <img src="{{ asset('asset/jadwal_saya.svg') }}" alt="" class="mt-0.5 h-4 w-4 object-contain">
+                                            <div>
+                                                <p class="font-medium text-gray-800">{{ $reg->schedule->day }}</p>
+                                                <p class="text-[11px] text-gray-500 mt-0.5">
+                                                    {{ substr($reg->schedule->start_time, 0, 5) }} - {{ substr($reg->schedule->end_time, 0, 5) }} • Ruang {{ $reg->schedule->room }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Buttons -->
+                                    <div class="mt-6 grid grid-cols-2 gap-3">
+                                        <a href="#" class="flex items-center justify-center py-2 px-3 border border-gray-300 text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 transition text-center">
+                                            Lihat Detail
+                                        </a>
+                                        <a href="#" class="flex items-center justify-center py-2 px-3 bg-gray-950 text-xs font-medium rounded text-white hover:bg-gray-800 transition text-center">
+                                            Mulai Belajar
+                                        </a>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                @endif
+            </section>
 
-            <div id="kelas-aktif" class="mt-8">
-                <h2 class="text-xl font-bold">Kelas Aktif Saya</h2>
-                <div class="mt-5 grid gap-5 lg:grid-cols-2">
-                    @foreach ($activeClasses as $class)
-                        <article class="rounded-lg border border-gray-200 bg-white p-5">
-                            <div class="flex items-start justify-between gap-4">
-                                <div>
-                                    <h3 class="font-semibold">{{ $class['name'] }}</h3>
-                                    <p class="text-sm text-gray-600">{{ $class['tutor'] }}</p>
-                                </div>
-                                <span class="rounded-md bg-gray-950 px-2 py-1 text-xs font-semibold text-white">{{ $class['level'] }}</span>
+            <!-- Section: Fitur Pembelajaran -->
+            <section aria-labelledby="fitur-title">
+                <h2 id="fitur-title" class="text-xl font-bold text-gray-950 mb-4 flex items-center gap-2">
+                    <img src="{{ asset('asset/fitur_pembelajaran.svg') }}" alt="" class="h-6 w-6 object-contain">
+                    <span>Fitur Pembelajaran</span>
+                </h2>
+                
+                <div class="space-y-4">
+                    <!-- Baris 1: 4 Kolom -->
+                    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Katalog Kursus -->
+                        <a href="{{ url('/siswa/katalog') }}" class="flex flex-col items-center justify-center p-5 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-600 hover:shadow-md transition duration-200 text-center">
+                            <div class="mb-3 p-3 bg-blue-50 rounded-full">
+                                <img src="{{ asset('asset/kelas%20kursus.svg') }}" alt="" class="h-6 w-6 object-contain">
                             </div>
-                            <div class="mt-6">
-                                <div class="flex justify-between text-xs font-semibold text-gray-600">
-                                    <span>Progress</span>
-                                    <span>{{ $class['progress'] }}%</span>
-                                </div>
-                                <div class="mt-2 h-2 rounded-full bg-gray-200">
-                                    <div class="h-full rounded-full bg-blue-600" style="width: {{ $class['progress'] }}%"></div>
-                                </div>
-                            </div>
-                            <p class="mt-4 flex items-center gap-2 text-sm text-gray-600">
-                                <x-dashboard-icon name="calendar" class="h-4 w-4 text-gray-500" />
-                                {{ $class['schedule'] }}
-                            </p>
-                            <div class="mt-4 grid gap-3 sm:grid-cols-2">
-                                <a href="#" class="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-4 text-sm font-semibold transition hover:border-blue-200 hover:text-blue-600">Lihat Detail</a>
-                                <a href="#" class="inline-flex h-9 items-center justify-center rounded-md bg-gray-950 px-4 text-sm font-semibold text-white transition hover:bg-blue-700">Mulai Belajar</a>
-                            </div>
-                        </article>
-                    @endforeach
-                </div>
-            </div>
-
-            <div class="mt-8">
-                <h2 class="text-xl font-bold">Fitur Pembelajaran</h2>
-                <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    @foreach ($features as $feature)
-                        <a href="{{ $feature['href'] }}" class="flex min-h-28 flex-col items-center justify-center rounded-lg border border-gray-200 bg-white p-5 text-center transition hover:border-blue-200 hover:shadow-sm">
-                            <x-dashboard-icon :name="$feature['icon']" class="h-9 w-9 {{ $feature['color'] }}" />
-                            <h3 class="mt-3 text-sm font-bold">{{ $feature['label'] }}</h3>
-                            <p class="mt-1 text-xs text-gray-600">{{ $feature['desc'] }}</p>
+                            <span class="text-sm font-bold text-gray-900">Kelas Kursus</span>
                         </a>
-                    @endforeach
-                </div>
-            </div>
 
-            <section id="jadwal-kelas" class="mt-8">
-                <h2 class="text-xl font-bold">Jadwal Kelas Mendatang</h2>
-                <div class="mt-5 rounded-lg border border-gray-200 bg-white p-5">
-                    @foreach ($schedules as $schedule)
-                        <article class="flex flex-col gap-3 border-b border-gray-100 py-4 first:pt-0 last:border-b-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between">
-                            <div class="flex items-center gap-4">
-                                <span class="flex h-11 w-11 items-center justify-center rounded-md {{ $schedule['tone'] }}">
-                                    <x-dashboard-icon name="calendar" class="h-5 w-5" />
-                                </span>
-                                <div>
-                                    <h3 class="text-sm font-bold">{{ $schedule['class'] }}</h3>
-                                    <p class="text-sm text-gray-600">{{ $schedule['meta'] }}</p>
-                                </div>
+                        <!-- Audio Listening -->
+                        <a href="{{ url('/siswa/audio') }}" class="flex flex-col items-center justify-center p-5 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-purple-600 hover:shadow-md transition duration-200 text-center">
+                            <div class="mb-3 p-3 bg-purple-50 rounded-full">
+                                <img src="{{ asset('asset/audio_listening.svg') }}" alt="" class="h-6 w-6 object-contain">
                             </div>
-                            <span class="w-fit rounded-md border border-gray-200 px-3 py-1 text-xs font-semibold">{{ $schedule['time'] }}</span>
-                        </article>
-                    @endforeach
+                            <span class="text-sm font-bold text-gray-900">Audio Listening</span>
+                        </a>
+
+                        <!-- Quiz -->
+                        <a href="{{ url('/siswa/quiz') }}" class="flex flex-col items-center justify-center p-5 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-amber-600 hover:shadow-md transition duration-200 text-center">
+                            <div class="mb-3 p-3 bg-amber-50 rounded-full">
+                                <img src="{{ asset('asset/quiz.svg') }}" alt="" class="h-6 w-6 object-contain">
+                            </div>
+                            <span class="text-sm font-bold text-gray-900">Quiz</span>
+                        </a>
+
+                        <!-- Diskusi -->
+                        <a href="{{ url('/siswa/diskusi') }}" class="flex flex-col items-center justify-center p-5 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-emerald-600 hover:shadow-md transition duration-200 text-center">
+                            <div class="mb-3 p-3 bg-emerald-50 rounded-full">
+                                <img src="{{ asset('asset/diskusi.svg') }}" alt="" class="h-6 w-6 object-contain">
+                            </div>
+                            <span class="text-sm font-bold text-gray-900">Diskusi</span>
+                        </a>
+                    </div>
+
+                    <!-- Baris 2: 2 Kolom -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Translate -->
+                        <a href="{{ url('/siswa/translate') }}" class="flex flex-col items-center justify-center p-5 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-red-600 hover:shadow-md transition duration-200 text-center">
+                            <div class="mb-3 p-3 bg-red-50 rounded-full">
+                                <img src="{{ asset('asset/translate.svg') }}" alt="" class="h-6 w-6 object-contain">
+                            </div>
+                            <span class="text-sm font-bold text-gray-900">Translate</span>
+                        </a>
+
+                        <!-- Jadwal Saya -->
+                        <a href="{{ url('/siswa/jadwal') }}" class="flex flex-col items-center justify-center p-5 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-600 hover:shadow-md transition duration-200 text-center">
+                            <div class="mb-3 p-3 bg-blue-50 rounded-full">
+                                <img src="{{ asset('asset/jadwal_saya.svg') }}" alt="" class="h-6 w-6 object-contain">
+                            </div>
+                            <span class="text-sm font-bold text-gray-900">Jadwal Saya</span>
+                        </a>
+                    </div>
                 </div>
             </section>
-        </section>
 
-        @include('components.forum-discussion')
-    </main>
-</body>
-</html>
+        </div>
+
+        <!-- Right Column (Jadwal Kelas Mendatang) -->
+        <div class="space-y-6">
+            
+            <!-- Section: Jadwal Kelas Mendatang -->
+            <section aria-labelledby="jadwal-title" class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
+                <h2 id="jadwal-title" class="text-lg font-bold text-gray-950 mb-4 flex items-center gap-2 border-b border-gray-100 pb-3">
+                    <img src="{{ asset('asset/jadwal_kelas_mendatang.svg') }}" alt="" class="h-5 w-5 object-contain">
+                    <span>Jadwal Kelas Mendatang</span>
+                </h2>
+                
+                @if($jadwalMendatang->isEmpty())
+                    <div class="text-center py-8">
+                        <div class="mx-auto w-10 h-10 mb-2 flex items-center justify-center bg-gray-50 rounded-full">
+                            <img src="{{ asset('asset/jadwal_kelas_mendatang.svg') }}" alt="" class="h-5 w-5 object-contain">
+                        </div>
+                        <p class="text-xs text-gray-500 font-medium">Tidak ada jadwal mendatang</p>
+                    </div>
+                @else
+                    <div class="space-y-4">
+                        @foreach($jadwalMendatang as $jadwal)
+                            @if($jadwal->class)
+                                <div class="flex items-start justify-between gap-3 p-3 bg-gray-50 hover:bg-gray-100 transition rounded-md border border-gray-100">
+                                    <div class="flex gap-3">
+                                        <!-- Color-coded calendar icon -->
+                                        <div class="mt-0.5 p-2 bg-blue-100 rounded">
+                                            <img src="{{ asset('asset/jadwal_kelas_mendatang.svg') }}" alt="" class="h-4 w-4 object-contain">
+                                        </div>
+                                        <div>
+                                            <h4 class="text-sm font-bold text-gray-900 leading-tight">
+                                                {{ $jadwal->class->name }}
+                                            </h4>
+                                            <p class="text-[11px] text-gray-500 mt-1">
+                                                {{ $jadwal->class->tutor->name ?? 'Tutor' }}
+                                            </p>
+                                            <p class="text-[11px] font-semibold text-gray-700 mt-0.5">
+                                                {{ \Illuminate\Support\Carbon::parse($jadwal->start_date)->translatedFormat('l, d F Y') }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Time on right -->
+                                    <div class="text-right flex-shrink-0">
+                                        <span class="inline-block text-[10px] font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
+                                            {{ substr($jadwal->start_time, 0, 5) }} - {{ substr($jadwal->end_time, 0, 5) }}
+                                        </span>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                @endif
+            </section>
+            
+        </div>
+
+    </div>
+</main>
+@endsection

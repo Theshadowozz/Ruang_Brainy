@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\Siswa\SiswaAudioController;
+use App\Http\Controllers\Siswa\SiswaDashboardController;
 use App\Models\ForumTopic;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -40,24 +42,61 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
     Route::match(['get', 'post'], '/logout', [AuthController::class, 'logout'])->name('logout');
+
     Route::post('/forum/topics', [ForumController::class, 'storeTopic'])->name('forum.topics.store');
     Route::post('/forum/topics/{forumTopic}/replies', [ForumController::class, 'storeReply'])->name('forum.replies.store');
 
     Route::get('/admin/dashboard', function () use ($forumData) {
-        abort_unless(Auth::user()->role === User::ROLE_ADMIN, 403);
+        abort_unless(Auth::user()->isAdmin(), 403);
 
         return view('admin.dashboard', $forumData());
     })->name('admin.dashboard');
 
+    Route::get('/admin/waitinglist', function () {
+        abort_unless(Auth::user()->isAdmin(), 403);
+
+        return view('admin.waitinglist');
+    })->name('admin.waitinglist');
+
+    Route::get('/admin/tutors', function () {
+        abort_unless(Auth::user()->isAdmin(), 403);
+
+        return view('admin.tutors');
+    })->name('admin.tutors');
+
+    Route::get('/admin/students', function () {
+        abort_unless(Auth::user()->isAdmin(), 403);
+
+        return view('admin.students');
+    })->name('admin.students');
+
     Route::get('/tutor/dashboard', function () use ($forumData) {
-        abort_unless(Auth::user()->role === User::ROLE_TUTOR, 403);
+        abort_unless(Auth::user()->isTutor(), 403);
 
         return view('tutor.dashboard', $forumData());
     })->name('tutor.dashboard');
 
-    Route::get('/siswa/dashboard', function () use ($forumData) {
-        abort_unless(Auth::user()->role === User::ROLE_SISWA, 403);
+    Route::middleware('role:' . User::ROLE_SISWA)->prefix('siswa')->name('siswa.')->group(function () {
+        Route::get('/dashboard', [SiswaDashboardController::class, 'index'])->name('dashboard');
+        Route::get('/audio', [SiswaAudioController::class, 'index'])->name('audio.index');
+        Route::get('/audio/{id}/download', [SiswaAudioController::class, 'download'])->name('audio.download');
+        Route::post('/audio/{id}/listen', [SiswaAudioController::class, 'markListened'])->name('audio.listen');
+    });
+});
 
-        return view('siswa.dashboard', $forumData());
-    })->name('siswa.dashboard');
+// Redirects for compatibility
+Route::get('/admin/waitlist', function () {
+    return redirect()->route('admin.waitinglist');
+});
+
+Route::get('/admin/tutor', function () {
+    return redirect()->route('admin.tutors');
+});
+
+Route::get('/admin/siswa', function () {
+    return redirect()->route('admin.students');
+});
+
+Route::get('/admin', function () {
+    return redirect()->route('admin.dashboard');
 });

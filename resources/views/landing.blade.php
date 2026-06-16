@@ -153,6 +153,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            color: #1D4ED8;
             font-size: 21px;
             font-weight: 800;
             letter-spacing: 0;
