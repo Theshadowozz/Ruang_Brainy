@@ -1,16 +1,42 @@
 # Changelog
 
-Semua perubahan penting pada proyek Brainy dicatat di dokumen ini. Format changelog mengikuti pola sederhana: `Added`, `Changed`, `Fixed`, `Removed`, dan `Documentation`.
+Semua perubahan penting pada project Ruang Brainy akan dicatat di file ini.
 
-## [Unreleased]
+## v1.0.0
 
-### Documentation
-- Menyiapkan README sebagai dokumentasi utama proyek.
-- Merapikan installation documentation untuk kebutuhan setup lokal.
-- Menambahkan dependency documentation pada `docs/dependency.md`.
-- Menambahkan template refactoring documentation untuk tahap final.
-- Menambahkan template GitHub Actions documentation untuk tahap final.
-- Menandai feature documentation sebagai dokumen yang belum diperbarui sampai analisis kebutuhan selesai.
+### Added
+
+- Menambahkan fitur login admin.
+- Menambahkan fitur register customer.
+- Menambahkan fitur login customer.
+- Menambahkan CRUD data customer.
+- Menambahkan CRUD kategori kelas.
+- Menambahkan CRUD data kelas.
+- Menambahkan CRUD data tutor.
+- Menambahkan fitur jadwal kelas.
+- Menambahkan fitur pendaftaran kelas.
+- Menambahkan fitur waiting list.
+- Menambahkan fitur pembayaran.
+- Menambahkan dashboard admin.
+- Menambahkan dashboard customer.
+- Menambahkan dashboard tutor.
+- Menambahkan laporan transaksi.
+
+### Changed
+
+- Merapikan tampilan dashboard admin.
+- Menyesuaikan alur pendaftaran kelas.
+- Memisahkan tampilan berdasarkan role admin, customer, dan tutor.
+- Merapikan struktur menu agar lebih mudah digunakan.
+- Menyesuaikan tampilan tabel data agar lebih rapi.
+
+### Fixed
+
+- Memperbaiki redirect setelah login.
+- Memperbaiki validasi form pendaftaran.
+- Memperbaiki tampilan tabel data kelas.
+- Memperbaiki alur pembayaran agar lebih jelas.
+- Memperbaiki tampilan halaman waiting list.
 
 ### Dependency
 - Belum ada dependency baru yang diinstall pada perubahan dokumentasi ini.

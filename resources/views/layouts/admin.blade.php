@@ -38,12 +38,9 @@
 </head>
 <body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen">
 
-    <!-- Admin Authentication Shield -->
+    <!-- Admin Authentication State Sync -->
     <script>
-        const AUTH_KEY = 'brainy_admin_auth';
-        if (localStorage.getItem(AUTH_KEY) !== 'true') {
-            window.location.href = '/admin/login';
-        }
+        localStorage.setItem('brainy_admin_auth', 'true');
 
         // Initialize Global State in localStorage if not exists
         const DEFAULT_STUDENTS = [
