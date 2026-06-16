@@ -10,6 +10,26 @@
         'pembelajaran' => 'border-emerald-200 bg-emerald-50 text-emerald-700',
     ];
 
+    $categoryTabStyles = [
+        'brainy' => 'border-blue-200 bg-blue-50 text-blue-700',
+        'keluhan' => 'border-rose-200 bg-rose-50 text-rose-700',
+        'pembelajaran' => 'border-emerald-200 bg-emerald-50 text-emerald-700',
+    ];
+
+    $defaultForumCategory = array_key_first($forumCategories) ?? 'pembelajaran';
+    $activeForumCategory = request('forum_category', old('category', $defaultForumCategory));
+
+    if (! array_key_exists($activeForumCategory, $forumCategories)) {
+        $activeForumCategory = $defaultForumCategory;
+    }
+
+    $visibleForumTopics = $forumTopics
+        ->where('category', $activeForumCategory)
+        ->values();
+
+    $categoryCounts = collect($forumCategories)
+        ->mapWithKeys(fn ($label, $value) => [$value => $forumTopics->where('category', $value)->count()]);
+
     $roleLabel = function ($role) {
         return match ((int) $role) {
             User::ROLE_ADMIN => 'Admin',
@@ -38,16 +58,18 @@
                 </span>
                 <div>
                     <h2 class="text-2xl font-bold">Forum Diskusi</h2>
-                    <p class="mt-1 text-sm text-white/90">Diskusi terhubung untuk admin, siswa, dan tutor Brainy.</p>
+                    <p class="mt-1 text-sm text-white/90">Pilih kategori untuk melihat chat forum yang sesuai.</p>
                 </div>
             </div>
-        
+            <a href="#topik-baru" class="inline-flex h-10 items-center justify-center rounded-md bg-white px-4 text-sm font-semibold text-blue-700 transition hover:bg-blue-50">
+                Topik Baru
+            </a>
         </div>
 
         <div class="grid gap-6 p-5 lg:grid-cols-[minmax(0,1fr)_360px]">
             <div class="space-y-4">
                 @if (session('forum_success'))
-                    <div class="rounded-md border border-blue-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-blue-700">
+                    <div class="rounded-md border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-semibold text-blue-700">
                         {{ session('forum_success') }}
                     </div>
                 @endif
@@ -58,7 +80,34 @@
                     </div>
                 @endif
 
-                @forelse ($forumTopics as $topic)
+                <div class="rounded-lg border border-gray-200 bg-gray-50 p-3">
+                    <div class="grid gap-2 sm:grid-cols-3" aria-label="Kategori forum diskusi">
+                        @foreach ($forumCategories as $value => $label)
+                            @php
+                                $isActiveCategory = $activeForumCategory === $value;
+                                $activeClass = $categoryTabStyles[$value] ?? 'border-gray-200 bg-white text-gray-700';
+                            @endphp
+                            <a
+                                href="{{ request()->fullUrlWithQuery(['forum_category' => $value]) }}#forum-diskusi"
+                                class="flex min-h-14 items-center justify-between rounded-md border px-4 py-3 text-sm font-bold transition {{ $isActiveCategory ? $activeClass : 'border-transparent bg-white text-gray-600 hover:border-gray-200 hover:text-gray-950' }}"
+                                @if ($isActiveCategory) aria-current="page" @endif
+                            >
+                                <span>{{ $label }}</span>
+                                <span class="rounded-full bg-white px-2 py-0.5 text-xs text-gray-600">{{ $categoryCounts[$value] ?? 0 }}</span>
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-500">Kategori aktif</p>
+                        <h3 class="text-xl font-bold">{{ $forumCategories[$activeForumCategory] ?? 'Forum Diskusi' }}</h3>
+                    </div>
+                    <p class="text-sm text-gray-600">{{ $visibleForumTopics->count() }} topik ditampilkan</p>
+                </div>
+
+                @forelse ($visibleForumTopics as $topic)
                     @php
                         $author = $topic->user;
                         $authorName = $author->name ?? 'Pengguna Brainy';
@@ -78,7 +127,7 @@
                                 </div>
                                 <h3 class="mt-3 text-lg font-bold">{{ $topic->title }}</h3>
                                 <p class="mt-1 text-sm text-gray-600">
-                                    {{ $authorName }} · {{ $roleLabel($author->role ?? User::ROLE_SISWA) }} · {{ $topic->replies_count }} balasan
+                                    {{ $authorName }} - {{ $roleLabel($author->role ?? User::ROLE_SISWA) }} - {{ $topic->replies_count }} balasan
                                 </p>
                                 <p class="mt-4 text-sm leading-6 text-gray-800">{{ $topic->body }}</p>
 
@@ -95,7 +144,7 @@
                                             <div class="min-w-0">
                                                 <p class="text-xs font-bold text-gray-950">
                                                     {{ $replyName }}
-                                                    <span class="ml-1 font-semibold text-gray-500">{{ $roleLabel($replyUser->role ?? User::ROLE_SISWA) }} · {{ $reply->created_at?->diffForHumans() }}</span>
+                                                    <span class="ml-1 font-semibold text-gray-500">{{ $roleLabel($replyUser->role ?? User::ROLE_SISWA) }} - {{ $reply->created_at?->diffForHumans() }}</span>
                                                 </p>
                                                 <p class="mt-1 text-sm leading-6 text-gray-700">{{ $reply->body }}</p>
                                             </div>
@@ -114,35 +163,35 @@
                     </article>
                 @empty
                     <div class="rounded-lg border border-dashed border-gray-300 bg-gray-50 px-5 py-10 text-center">
-                        <h3 class="text-lg font-bold text-gray-950">Belum ada diskusi</h3>
-                        <p class="mt-2 text-sm text-gray-600">Buat topik pertama agar semua role bisa langsung melihat dan membalas.</p>
+                        <h3 class="text-lg font-bold text-gray-950">Belum ada diskusi {{ strtolower($forumCategories[$activeForumCategory] ?? '') }}</h3>
+                        <p class="mt-2 text-sm text-gray-600">Buat topik pada kategori ini agar semua role bisa langsung melihat dan membalas.</p>
                     </div>
                 @endforelse
             </div>
 
             <aside id="topik-baru" class="h-fit rounded-lg border border-gray-200 bg-gray-50 p-5">
                 <h3 class="text-lg font-bold">Buat Topik Diskusi</h3>
-                <p class="mt-1 text-sm text-gray-600">Pilih kategori agar percakapan mudah ditemukan.</p>
+                <p class="mt-1 text-sm text-gray-600">Topik akan muncul di tab kategori yang dipilih.</p>
 
                 <form action="{{ route('forum.topics.store') }}" method="POST" class="mt-5 space-y-4">
                     @csrf
                     <div>
                         <label for="forum-category" class="text-sm font-semibold text-gray-950">Kategori</label>
-                        <select id="forum-category" name="category" required class="mt-2 h-11 w-full rounded-md border border-gray-200 bg-white px-3 text-sm outline-none transition focus:border-emerald-500">
+                        <select id="forum-category" name="category" required class="mt-2 h-11 w-full rounded-md border border-gray-200 bg-white px-3 text-sm outline-none transition focus:border-blue-500">
                             @foreach ($forumCategories as $value => $label)
-                                <option value="{{ $value }}" @selected(old('category') === $value)>{{ $label }}</option>
+                                <option value="{{ $value }}" @selected(old('category', $activeForumCategory) === $value)>{{ $label }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div>
                         <label for="forum-title" class="text-sm font-semibold text-gray-950">Judul</label>
-                        <input id="forum-title" name="title" value="{{ old('title') }}" required maxlength="120" placeholder="Contoh: Tips meningkatkan speaking" class="mt-2 h-11 w-full rounded-md border border-gray-200 bg-white px-3 text-sm outline-none transition focus:border-emerald-500">
+                        <input id="forum-title" name="title" value="{{ old('title') }}" required maxlength="120" placeholder="Contoh: Tips meningkatkan speaking" class="mt-2 h-11 w-full rounded-md border border-gray-200 bg-white px-3 text-sm outline-none transition focus:border-blue-500">
                     </div>
 
                     <div>
                         <label for="forum-body" class="text-sm font-semibold text-gray-950">Chat Diskusi</label>
-                        <textarea id="forum-body" name="body" rows="5" required maxlength="2000" placeholder="Tulis pertanyaan, keluhan, atau topik belajar..." class="mt-2 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm outline-none transition focus:border-emerald-500"></textarea>
+                        <textarea id="forum-body" name="body" rows="5" required maxlength="2000" placeholder="Tulis pertanyaan, keluhan, atau topik belajar..." class="mt-2 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm outline-none transition focus:border-blue-500"></textarea>
                     </div>
 
                     <button type="submit" class="inline-flex h-10 w-full items-center justify-center rounded-md bg-blue-600 px-4 text-sm font-semibold text-white transition hover:bg-blue-700">Kirim Topik</button>
