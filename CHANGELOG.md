@@ -1,4 +1,7 @@
 # Changelog
+
+Semua perubahan penting pada project Ruang Brainy akan dicatat di file ini.
+
 ## v1.0.0
 
 ### Added
@@ -36,15 +39,21 @@
 - Memperbaiki tampilan halaman waiting list.
 
 ### Dependency
-
-- Menggunakan Laravel sebagai framework utama.
-- Menggunakan Composer untuk mengelola dependency PHP.
-- Menggunakan Tailwind CSS untuk styling tampilan.
-- Menggunakan MySQL sebagai database.
+- Belum ada dependency baru yang diinstall pada perubahan dokumentasi ini.
+- Dependency aktual didokumentasikan berdasarkan `composer.json` dan `package.json`.
 
 ### Refactor
+- Belum ada refactoring kode aplikasi pada perubahan ini.
 
-- Memisahkan tampilan dashboard berdasarkan role.
-- Merapikan route berdasarkan modul.
-- Merapikan file blade agar lebih mudah dipahami.
-- Membersihkan kode yang tidak digunakan.
+## [0.1.0] - 2026-06-08
+
+### Added
+- Initial Laravel project setup.
+- Struktur database awal untuk users, tutors, classes, schedules, registrations, waiting lists, dan payments.
+- Struktur dokumentasi proyek PBL.
+- Dokumentasi instalasi awal.
+- Template dokumentasi feature, dependency, refactoring, dan GitHub Actions.
+
+### Documentation
+- Menambahkan README awal.
+- Menambahkan changelog awal untuk pelacakan progres mingguan.
