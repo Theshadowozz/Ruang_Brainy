@@ -12,9 +12,9 @@
     <header class="w-full border-b border-gray-100 bg-white sticky top-0 z-50 shadow-sm">
         <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-10 lg:px-28">
             <!-- Logo -->
-            <a href="{{ url('/siswa/dashboard') }}" class="flex items-center gap-2 text-blue-700 hover:text-blue-800 transition font-bold text-2xl" aria-label="Brainy Logo">
-                <span>📖</span>
-                <span class="tracking-tight">Brainy</span>
+            <a href="{{ url('/siswa/dashboard') }}" class="flex items-center gap-3 transition" aria-label="Brainy Logo">
+                <img src="{{ asset('images/logo_brainy.png') }}" alt="Brainy" class="h-12 w-auto">
+                <span class="text-2xl font-extrabold leading-none tracking-normal" style="color: #1D4ED8;">Brainy</span>
             </a>
 
             <!-- Navigation Menu -->
