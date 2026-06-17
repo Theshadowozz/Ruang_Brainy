@@ -27,10 +27,28 @@ Route::middleware('auth')->group(function () {
         return view('admin.waitinglist');
     })->name('admin.waitinglist');
 
+
     Route::get('/admin/tutors', function () {
         abort_unless(Auth::user()->isAdmin(), 403);
         return view('admin.tutors');
     })->name('admin.tutors');
+
+Route::get('/admin/courses', function () {
+    return view('admin.courses');
+})->name('admin.courses');
+
+Route::get('/admin/payments', function () {
+    return view('admin.payments');
+})->name('admin.payments');
+
+Route::get('/admin/schedules', function () {
+    return view('admin.schedules');
+})->name('admin.schedules');
+
+Route::get('/admin/waitinglist', function () {
+    return view('admin.waitinglist');
+})->name('admin.waitinglist');
+
 
     Route::get('/admin/students', function () {
         abort_unless(Auth::user()->isAdmin(), 403);
@@ -47,6 +65,15 @@ Route::get('/admin/tutor', function () {
 });
 Route::get('/admin/siswa', function () {
     return redirect()->route('admin.students');
+});
+Route::get('/admin/kursus', function () {
+    return redirect()->route('admin.courses');
+});
+Route::get('/admin/pembayaran', function () {
+    return redirect()->route('admin.payments');
+});
+Route::get('/admin/jadwal', function () {
+    return redirect()->route('admin.schedules');
 });
 Route::get('/admin', function () {
     return redirect()->route('admin.dashboard');
