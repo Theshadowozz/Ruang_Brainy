@@ -8,7 +8,7 @@
 @endphp
 
 <!-- Header Banner -->
-<div class="text-white py-12 px-6 sm:px-10 lg:px-28" style="background-color: #1a237e;">
+<div class="text-white py-12 px-6 sm:px-10 lg:px-28" style="background-color: #1D4ED8;">
     <div class="mx-auto max-w-7xl">
         <p class="text-sm font-semibold uppercase tracking-wider text-blue-300">Dashboard Siswa</p>
         <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">Selamat datang kembali, {{ auth()->user()->name }}!</h1>
