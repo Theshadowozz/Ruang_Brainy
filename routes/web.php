@@ -107,6 +107,7 @@ Route::middleware(['auth', 'role:2'])->group(function () {
     Route::get('/siswa/kelas-kursus/{slug}', [\App\Http\Controllers\Siswa\SiswaCourseController::class, 'show'])->name('siswa.kelas-kursus.show');
     Route::get('/siswa/translate', [\App\Http\Controllers\Siswa\SiswaTranslateController::class, 'index'])->name('siswa.translate.index');
     Route::post('/siswa/translate', [\App\Http\Controllers\Siswa\SiswaTranslateController::class, 'translate'])->name('siswa.translate.store');
+    Route::get('/siswa/jadwal', [\App\Http\Controllers\Siswa\SiswaScheduleController::class, 'index'])->name('siswa.jadwal.index');
     Route::get('/siswa/diskusi', [DiscussionController::class, 'index'])->name('siswa.diskusi.index');
     Route::get('/siswa/diskusi/live', [DiscussionController::class, 'live'])->name('siswa.diskusi.live');
     Route::post('/siswa/diskusi', [DiscussionController::class, 'storeTopic'])->name('siswa.diskusi.store');
