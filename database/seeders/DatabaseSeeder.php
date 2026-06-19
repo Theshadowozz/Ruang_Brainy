@@ -16,14 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Seed Admin User
-        User::updateOrCreate(
-            ['email' => 'admin@brainy.com'],
-            [
-                'name' => 'Admin Brainy',
-                'password' => \Illuminate\Support\Facades\Hash::make('admin123'),
-                'role' => User::ROLE_ADMIN,
-            ]
-        );
+        
 
         User::factory()->create([
             'name' => 'Test User',
