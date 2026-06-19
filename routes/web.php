@@ -112,6 +112,11 @@ Route::middleware(['auth', 'role:2'])->group(function () {
     Route::get('/siswa/diskusi/live', [DiscussionController::class, 'live'])->name('siswa.diskusi.live');
     Route::post('/siswa/diskusi', [DiscussionController::class, 'storeTopic'])->name('siswa.diskusi.store');
     Route::post('/siswa/diskusi/{topic}/messages', [DiscussionController::class, 'storeMessage'])->name('siswa.diskusi.messages.store');
+
+    // Quiz & Assessment Routes
+    Route::get('/siswa/quiz', [\App\Http\Controllers\Siswa\SiswaQuizController::class, 'index'])->name('siswa.quiz.index');
+    Route::get('/siswa/quiz/{id}/start', [\App\Http\Controllers\Siswa\SiswaQuizController::class, 'start'])->name('siswa.quiz.start');
+    Route::post('/siswa/quiz/{id}/submit', [\App\Http\Controllers\Siswa\SiswaQuizController::class, 'submit'])->name('siswa.quiz.submit');
 });
 
 Route::middleware(['auth', 'role:1'])->group(function () {
