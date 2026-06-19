@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DiscussionController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -106,4 +107,22 @@ Route::middleware(['auth', 'role:2'])->group(function () {
     Route::get('/siswa/kelas-kursus/{slug}', [\App\Http\Controllers\Siswa\SiswaCourseController::class, 'show'])->name('siswa.kelas-kursus.show');
     Route::get('/siswa/translate', [\App\Http\Controllers\Siswa\SiswaTranslateController::class, 'index'])->name('siswa.translate.index');
     Route::post('/siswa/translate', [\App\Http\Controllers\Siswa\SiswaTranslateController::class, 'translate'])->name('siswa.translate.store');
+    Route::get('/siswa/diskusi', [DiscussionController::class, 'index'])->name('siswa.diskusi.index');
+    Route::get('/siswa/diskusi/live', [DiscussionController::class, 'live'])->name('siswa.diskusi.live');
+    Route::post('/siswa/diskusi', [DiscussionController::class, 'storeTopic'])->name('siswa.diskusi.store');
+    Route::post('/siswa/diskusi/{topic}/messages', [DiscussionController::class, 'storeMessage'])->name('siswa.diskusi.messages.store');
+});
+
+Route::middleware(['auth', 'role:1'])->group(function () {
+    Route::get('/admin/diskusi', [DiscussionController::class, 'index'])->name('admin.diskusi.index');
+    Route::get('/admin/diskusi/live', [DiscussionController::class, 'live'])->name('admin.diskusi.live');
+    Route::post('/admin/diskusi', [DiscussionController::class, 'storeTopic'])->name('admin.diskusi.store');
+    Route::post('/admin/diskusi/{topic}/messages', [DiscussionController::class, 'storeMessage'])->name('admin.diskusi.messages.store');
+});
+
+Route::middleware(['auth', 'role:3'])->group(function () {
+    Route::get('/tutor/diskusi', [DiscussionController::class, 'index'])->name('tutor.diskusi.index');
+    Route::get('/tutor/diskusi/live', [DiscussionController::class, 'live'])->name('tutor.diskusi.live');
+    Route::post('/tutor/diskusi', [DiscussionController::class, 'storeTopic'])->name('tutor.diskusi.store');
+    Route::post('/tutor/diskusi/{topic}/messages', [DiscussionController::class, 'storeMessage'])->name('tutor.diskusi.messages.store');
 });

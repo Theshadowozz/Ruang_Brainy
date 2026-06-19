@@ -242,6 +242,14 @@
                         <span>Data Siswa</span>
                     </div>
                 </a>
+
+                <!-- Nav Item: Forum Diskusi -->
+                <a href="/admin/diskusi" class="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 @if($activeTab === 'diskusi') bg-blue-50/80 text-blue-600 @else text-slate-600 hover:bg-slate-50 hover:text-slate-900 @endif">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="message-square" class="h-5 w-5 @if($activeTab === 'diskusi') text-blue-600 @else text-slate-400 @endif"></i>
+                        <span>Forum Diskusi</span>
+                    </div>
+                </a>
             </nav>
 
             <div class="absolute bottom-6 left-5 right-5 border-t border-slate-100 pt-5 flex items-center justify-between">
