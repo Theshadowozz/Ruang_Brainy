@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\AdminQuizController;
 use App\Http\Controllers\DiscussionController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -115,11 +116,13 @@ Route::middleware(['auth', 'role:2'])->group(function () {
 
     // Quiz & Assessment Routes
     Route::get('/siswa/quiz', [\App\Http\Controllers\Siswa\SiswaQuizController::class, 'index'])->name('siswa.quiz.index');
-    Route::get('/siswa/quiz/{id}/start', [\App\Http\Controllers\Siswa\SiswaQuizController::class, 'start'])->name('siswa.quiz.start');
-    Route::post('/siswa/quiz/{id}/submit', [\App\Http\Controllers\Siswa\SiswaQuizController::class, 'submit'])->name('siswa.quiz.submit');
+    Route::post('/siswa/quiz/{quiz}/answer', [\App\Http\Controllers\Siswa\SiswaQuizController::class, 'answer'])->name('siswa.quiz.answer');
 });
 
 Route::middleware(['auth', 'role:1'])->group(function () {
+    Route::get('/admin/quiz', [AdminQuizController::class, 'index'])->name('admin.quiz.index');
+    Route::post('/admin/quiz', [AdminQuizController::class, 'store'])->name('admin.quiz.store');
+    Route::delete('/admin/quiz/{quiz}', [AdminQuizController::class, 'destroy'])->name('admin.quiz.destroy');
     Route::get('/admin/diskusi', [DiscussionController::class, 'index'])->name('admin.diskusi.index');
     Route::get('/admin/diskusi/live', [DiscussionController::class, 'live'])->name('admin.diskusi.live');
     Route::post('/admin/diskusi', [DiscussionController::class, 'storeTopic'])->name('admin.diskusi.store');

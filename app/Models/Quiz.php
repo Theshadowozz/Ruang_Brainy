@@ -11,19 +11,19 @@ class Quiz extends Model
 
     protected $fillable = [
         'title',
+        'image_path',
+        'week_label',
+        'description',
+        'published_at',
         'language',
         'level',
         'duration_minutes',
         'total_questions',
     ];
 
-    /**
-     * Get the questions for this quiz.
-     */
-    public function questions(): HasMany
-    {
-        return $this->hasMany(QuizQuestion::class, 'quiz_id');
-    }
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
 
     /**
      * Get the results for this quiz.

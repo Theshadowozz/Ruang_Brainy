@@ -1,153 +1,123 @@
 @extends('layouts.siswa')
 
-@section('title', 'Quiz & Assessment - Brainy')
+@section('title', 'Quiz Mingguan - Brainy')
 
 @section('content')
-<!-- Header Banner -->
 <div class="text-white py-12 px-6 sm:px-10 lg:px-28" style="background-color: #1D4ED8;">
-    <div class="mx-auto max-w-7xl flex items-center gap-4">
-        <!-- Trophy Icon -->
-        <div class="p-3 bg-white/15 rounded-xl">
-            <svg class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15a7 7 0 007-7V4H5v4a7 7 0 007 7z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 6H3v2c0 2.2 1.8 4 4 4h1M19 6h2v2c0 2.2-1.8 4-4 4h-1" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v4m-4 0h8" />
-            </svg>
-        </div>
-        <div>
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Quiz & Assessment</h1>
-            <p class="mt-2 text-blue-100 text-sm sm:text-base">Uji pemahaman Anda dengan quiz interaktif</p>
+    <div class="mx-auto max-w-7xl">
+        @include('siswa.partials.back-button', ['fallback' => route('siswa.dashboard')])
+
+        <div class="mt-7 flex items-center gap-4">
+            <div class="p-3 bg-white/15 rounded-xl">
+                <img src="{{ asset('asset/quiz.svg') }}" alt="" class="h-10 w-10 object-contain brightness-0 invert">
+            </div>
+            <div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Quiz Mingguan</h1>
+                <p class="mt-2 text-blue-100 text-sm sm:text-base">Lihat gambar quiz dari admin, lalu kirim jawaban Anda.</p>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- Main Container -->
-<div class="mx-auto max-w-7xl px-6 py-8 sm:px-10 lg:px-28 space-y-8">
-
-    <!-- Flash message -->
+<main class="mx-auto max-w-7xl px-6 py-8 sm:px-10 lg:px-28">
     @if(session('success'))
-        <div class="bg-green-50 border border-green-200 text-green-800 rounded-lg p-4 text-sm font-medium">
+        <div class="mb-6 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">
             {{ session('success') }}
         </div>
     @endif
 
-    <!-- Quiz Grid Section -->
-    <div>
-        <h2 class="text-xl font-bold text-gray-950 mb-6 flex items-center gap-2">
-            <span>📝</span> Daftar Quiz Tersedia
-        </h2>
+    @if($errors->any())
+        <div class="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+            {{ $errors->first() }}
+        </div>
+    @endif
 
-        @if($quizzes->isEmpty())
-            <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-12 text-center">
-                <div class="mx-auto w-16 h-16 text-gray-400 mb-4 flex items-center justify-center bg-gray-50 rounded-full">
-                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                </div>
-                <p class="text-gray-600 font-semibold text-lg">Tidak ada quiz yang tersedia saat ini</p>
-                <p class="text-gray-400 text-sm mt-1">Hubungi tutor Anda jika belum ada quiz yang ditugaskan.</p>
+    @if($quizzes->isEmpty())
+        <section class="rounded-lg border border-gray-200 bg-white p-12 text-center shadow-sm">
+            <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-50">
+                <img src="{{ asset('asset/quiz.svg') }}" alt="" class="h-8 w-8 object-contain">
             </div>
-        @else
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                @foreach($quizzes as $quiz)
-                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-5 flex flex-col justify-between hover:shadow-md transition duration-200">
-                        <div class="space-y-4">
-                            <!-- Top Row: Badge Level and Badge Bahasa -->
-                            <div class="flex items-center justify-between">
-                                <span class="bg-gray-900 text-white text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded">
-                                    {{ $quiz->level }}
-                                </span>
-                                
-                                <span class="border border-gray-300 text-gray-600 text-[10px] sm:text-xs px-2.5 py-1 rounded flex items-center gap-1.5 font-medium bg-gray-50">
-                                    @if($quiz->language == 'Inggris')
-                                        <span>🇬🇧</span>
-                                    @elseif($quiz->language == 'Jepang')
-                                        <span>🇯🇵</span>
-                                    @elseif($quiz->language == 'Korea')
-                                        <span>🇰🇷</span>
-                                    @endif
-                                    <span>{{ $quiz->language }}</span>
-                                </span>
-                            </div>
+            <p class="text-lg font-bold text-gray-700">Belum ada quiz minggu ini</p>
+            <p class="mt-1 text-sm text-gray-500">Quiz akan muncul setelah admin mengupload gambar.</p>
+        </section>
+    @else
+        <div class="space-y-8">
+            @foreach($quizzes as $quiz)
+                @php
+                    $answer = $answers->get($quiz->id);
+                @endphp
 
-                            <!-- Quiz Details -->
+                <article class="overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+                    <div class="border-b border-gray-100 px-5 py-4 sm:px-6">
+                        <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                             <div>
-                                <h3 class="text-base font-bold text-gray-950 leading-snug line-clamp-2 mt-2">
-                                    {{ $quiz->title }}
-                                </h3>
-                                <p class="text-xs text-gray-500 mt-1">
-                                    {{ $quiz->total_questions }} pertanyaan • {{ $quiz->duration_minutes }} menit
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <h2 class="text-xl font-extrabold text-gray-950">{{ $quiz->title }}</h2>
+                                    <span class="rounded-md bg-gray-950 px-2.5 py-1 text-[11px] font-bold text-white">{{ $quiz->level }}</span>
+                                    <span class="rounded-md border border-gray-200 bg-gray-50 px-2.5 py-1 text-[11px] font-bold text-gray-700">{{ $quiz->language }}</span>
+                                </div>
+                                <p class="mt-2 text-sm text-gray-500">
+                                    {{ $quiz->week_label ?: 'Quiz minggu ini' }}
+                                    @if($quiz->published_at)
+                                        - Diunggah {{ $quiz->published_at->diffForHumans() }}
+                                    @endif
                                 </p>
                             </div>
 
-                            <!-- Icons info -->
-                            <div class="space-y-2 pt-2">
-                                <!-- Durasi -->
-                                <div class="flex items-center gap-2 text-xs text-gray-600">
-                                    <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                    <span>Durasi: {{ $quiz->duration_minutes }} menit</span>
-                                </div>
-                                <!-- Soal Pilihan Ganda -->
-                                <div class="flex items-center gap-2 text-xs text-gray-600">
-                                    <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                    </svg>
-                                    <span>{{ $quiz->total_questions }} soal pilihan ganda</span>
-                                </div>
-                            </div>
+                            @if($answer)
+                                <span class="w-max rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">
+                                    Sudah dijawab
+                                </span>
+                            @endif
                         </div>
 
-                        <!-- Button Mulai Quiz -->
-                        <div class="mt-6">
-                            <a href="{{ route('siswa.quiz.start', $quiz->id) }}" class="block w-full text-center py-2 px-4 bg-gray-900 hover:bg-gray-700 text-white text-sm font-semibold rounded transition">
-                                Mulai Quiz
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        @endif
-    </div>
-
-    <!-- Skor Terakhir Section -->
-    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
-        <div>
-            <h2 class="text-lg font-bold text-gray-950">Skor Terakhir</h2>
-            <p class="text-xs text-gray-500 mt-0.5">History quiz yang telah Anda kerjakan</p>
-        </div>
-
-        <div class="mt-4 divide-y divide-gray-100">
-            @forelse($quizResults as $result)
-                <div class="py-3.5 flex justify-between items-center gap-4">
-                    <div>
-                        <h4 class="text-sm font-bold text-gray-900">{{ $result->quiz->title ?? 'Quiz' }}</h4>
-                        <p class="text-xs text-gray-500 mt-1">
-                            Dikerjakan pada: {{ $result->completed_at ? $result->completed_at->format('d M Y') : '-' }}
-                        </p>
-                    </div>
-                    <div>
-                        @if($result->score >= 90)
-                            <span class="inline-block px-2.5 py-1 text-xs font-bold text-green-700 bg-green-100 rounded border border-green-150">
-                                Skor: {{ $result->score }}
-                            </span>
-                        @elseif($result->score >= 70)
-                            <span class="inline-block px-2.5 py-1 text-xs font-bold text-yellow-700 bg-yellow-100 rounded border border-yellow-150">
-                                Skor: {{ $result->score }}
-                            </span>
-                        @else
-                            <span class="inline-block px-2.5 py-1 text-xs font-bold text-red-700 bg-red-100 rounded border border-red-150">
-                                Skor: {{ $result->score }}
-                            </span>
+                        @if($quiz->description)
+                            <p class="mt-4 rounded-lg bg-blue-50 px-4 py-3 text-sm leading-relaxed text-gray-700">
+                                {{ $quiz->description }}
+                            </p>
                         @endif
                     </div>
-                </div>
-            @empty
-                <p class="text-sm text-gray-500 py-4 italic">Belum ada quiz yang dikerjakan</p>
-            @endforelse
-        </div>
-    </div>
 
-</div>
+                    <div class="bg-gray-50 p-4 sm:p-6">
+                        <div class="mx-auto max-w-4xl overflow-hidden rounded-lg border border-gray-200 bg-white">
+                            @if($quiz->image_path)
+                                <img src="{{ asset('storage/' . $quiz->image_path) }}" alt="{{ $quiz->title }}" class="w-full object-contain">
+                            @else
+                                <div class="flex min-h-64 items-center justify-center text-sm font-semibold text-gray-500">
+                                    Gambar quiz belum tersedia.
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="px-5 py-5 sm:px-6">
+                        @if($answer)
+                            <div class="mb-4 rounded-lg border border-emerald-100 bg-emerald-50 px-4 py-3">
+                                <p class="text-xs font-bold uppercase tracking-wide text-emerald-700">Jawaban terkirim</p>
+                                <p class="mt-2 whitespace-pre-line text-sm leading-relaxed text-gray-800">{{ $answer->answer_text }}</p>
+                                <p class="mt-2 text-xs font-medium text-gray-500">{{ $answer->answered_at?->format('d M Y, H:i') }}</p>
+                            </div>
+                        @endif
+
+                        <form method="POST" action="{{ route('siswa.quiz.answer', $quiz) }}" class="rounded-2xl border border-gray-200 bg-gray-50 p-2 shadow-inner">
+                            @csrf
+                            <div class="flex items-end gap-2">
+                                <textarea
+                                    name="answer_text"
+                                    rows="1"
+                                    class="min-h-12 flex-1 resize-none rounded-xl border-0 bg-white px-4 py-3 text-sm leading-6 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500"
+                                    placeholder="Tulis jawaban Anda di sini..."
+                                    required
+                                >{{ old('answer_text', $answer->answer_text ?? '') }}</textarea>
+                                <button type="submit" class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-sm transition hover:bg-blue-700" aria-label="Kirim jawaban">
+                                    <img src="{{ asset('asset/send.svg') }}" alt="" class="h-5 w-5 object-contain brightness-0 invert">
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </article>
+            @endforeach
+        </div>
+    @endif
+</main>
 @endsection

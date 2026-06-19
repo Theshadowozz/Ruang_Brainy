@@ -10,60 +10,40 @@ use Illuminate\Support\Facades\Auth;
 
 class SiswaQuizController extends Controller
 {
-    /**
-     * Display a listing of quizzes and recent quiz results.
-     */
     public function index()
     {
-        $quizzes = Quiz::all();
-        
-        $quizResults = QuizResult::where('user_id', Auth::id())
-            ->with('quiz')
-            ->orderBy('completed_at', 'desc')
+        $quizzes = Quiz::query()
+            ->latest('published_at')
+            ->latest()
             ->get();
 
-        return view('siswa.quiz', compact('quizzes', 'quizResults'));
+        $answers = QuizResult::where('user_id', Auth::id())
+            ->with('quiz')
+            ->latest('answered_at')
+            ->get()
+            ->keyBy('quiz_id');
+
+        return view('siswa.quiz', compact('quizzes', 'answers'));
     }
 
-    /**
-     * Start a specific quiz.
-     */
-    public function start($id)
+    public function answer(Request $request, Quiz $quiz)
     {
-        $quiz = Quiz::with('questions')->findOrFail($id);
-        $questions = $quiz->questions;
-
-        return view('siswa.quiz-start', compact('quiz', 'questions'));
-    }
-
-    /**
-     * Submit and score the quiz.
-     */
-    public function submit(Request $request, $id)
-    {
-        $quiz = Quiz::with('questions')->findOrFail($id);
-        $questions = $quiz->questions;
-        $submittedAnswers = $request->input('answers', []);
-
-        $correctCount = 0;
-        foreach ($questions as $question) {
-            $submitted = $submittedAnswers[$question->id] ?? null;
-            if ($submitted === $question->correct_answer) {
-                $correctCount++;
-            }
-        }
-
-        $totalQuestions = count($questions);
-        $score = $totalQuestions > 0 ? (int) round(($correctCount / $totalQuestions) * 100) : 0;
+        $validated = $request->validate([
+            'answer_text' => ['required', 'string', 'max:5000'],
+        ]);
 
         QuizResult::updateOrCreate([
             'user_id' => Auth::id(),
             'quiz_id' => $quiz->id,
         ], [
-            'score' => $score,
+            'answer_text' => $validated['answer_text'],
+            'answered_at' => now(),
+            'score' => 0,
             'completed_at' => now(),
         ]);
 
-        return redirect()->route('siswa.quiz.index')->with('success', "Quiz \"{$quiz->title}\" selesai dikerjakan! Skor Anda: {$score}.");
+        return redirect()
+            ->route('siswa.quiz.index')
+            ->with('success', "Jawaban untuk \"{$quiz->title}\" berhasil dikirim ke admin.");
     }
 }

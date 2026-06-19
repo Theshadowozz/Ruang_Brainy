@@ -243,6 +243,14 @@
                     </div>
                 </a>
 
+                <!-- Nav Item: Quiz Mingguan -->
+                <a href="/admin/quiz" class="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 @if($activeTab === 'quiz') bg-blue-50/80 text-blue-600 @else text-slate-600 hover:bg-slate-50 hover:text-slate-900 @endif">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="file-question" class="h-5 w-5 @if($activeTab === 'quiz') text-blue-600 @else text-slate-400 @endif"></i>
+                        <span>Quiz Mingguan</span>
+                    </div>
+                </a>
+
                 <!-- Nav Item: Forum Diskusi -->
                 <a href="/admin/diskusi" class="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 @if($activeTab === 'diskusi') bg-blue-50/80 text-blue-600 @else text-slate-600 hover:bg-slate-50 hover:text-slate-900 @endif">
                     <div class="flex items-center gap-3">

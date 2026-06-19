@@ -12,11 +12,14 @@ class QuizResult extends Model
     protected $fillable = [
         'user_id',
         'quiz_id',
+        'answer_text',
+        'answered_at',
         'score',
         'completed_at',
     ];
 
     protected $casts = [
+        'answered_at' => 'datetime',
         'completed_at' => 'datetime',
     ];
 
