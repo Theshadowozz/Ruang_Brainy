@@ -85,7 +85,7 @@
                             <img src="{{ asset('asset/kelas_aktif_saya.svg') }}" alt="" class="h-6 w-6 object-contain">
                         </div>
                         <p class="text-gray-500 font-medium">Belum ada kelas aktif</p>
-                        <p class="text-gray-400 text-xs mt-1">Silakan mendaftar kelas baru melalui katalog kursus.</p>
+                        <p class="text-gray-400 text-xs mt-1">Silakan mendaftar kelas baru melalui kelas kursus.</p>
                     </div>
                 @else
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -159,10 +159,10 @@
                 <div class="space-y-4">
                     <!-- Baris 1: 4 Kolom -->
                     <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <!-- Katalog Kursus -->
-                        <a href="{{ url('/siswa/katalog') }}" class="flex flex-col items-center justify-center p-5 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-600 hover:shadow-md transition duration-200 text-center">
+                        <!-- Kelas Kursus -->
+                        <a href="{{ route('siswa.kelas-kursus.index') }}" class="flex flex-col items-center justify-center p-5 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-600 hover:shadow-md transition duration-200 text-center">
                             <div class="mb-3 p-3 bg-blue-50 rounded-full">
-                                <img src="{{ asset('asset/kelas%20kursus.svg') }}" alt="" class="h-6 w-6 object-contain">
+                                <img src="{{ asset('asset/kelas_kursus.svg') }}" alt="" class="h-6 w-6 object-contain">
                             </div>
                             <span class="text-sm font-bold text-gray-900">Kelas Kursus</span>
                         </a>

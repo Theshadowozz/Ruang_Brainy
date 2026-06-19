@@ -19,10 +19,12 @@
 
             <!-- Navigation Menu -->
             <nav class="flex items-center gap-6 text-sm font-medium text-gray-700">
-                <a href="{{ url('/siswa/dashboard') }}" class="flex items-center gap-1.5 hover:text-blue-700 transition {{ request()->is('siswa/dashboard') ? 'text-blue-700 font-semibold' : '' }}">
-                    <img src="{{ asset('asset/home.svg') }}" alt="" class="h-4 w-4 object-contain">
-                    <span>Home</span>
-                </a>
+                @if(request()->routeIs('siswa.dashboard') || request()->is('siswa/dashboard'))
+                    <a href="{{ url('/') }}" class="flex items-center gap-1.5 text-blue-700 font-semibold hover:text-blue-800 transition">
+                        <img src="{{ asset('asset/home.svg') }}" alt="" class="h-4 w-4 object-contain">
+                        <span>Home</span>
+                    </a>
+                @endif
                 
                 <!-- Logout Trigger -->
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
@@ -48,5 +50,21 @@
     <!-- Footer -->
     @include('layouts.footer')
 
+    <script>
+        document.querySelectorAll('[data-back-button]').forEach((button) => {
+            button.addEventListener('click', () => {
+                const fallbackUrl = button.dataset.fallbackUrl || '{{ route('siswa.dashboard') }}';
+                const referrer = document.referrer;
+                const currentUrl = window.location.href;
+
+                if (window.history.length > 1 && referrer && referrer.startsWith(window.location.origin) && referrer !== currentUrl) {
+                    window.history.back();
+                    return;
+                }
+
+                window.location.href = fallbackUrl;
+            });
+        });
+    </script>
 </body>
 </html>
