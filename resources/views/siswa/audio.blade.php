@@ -5,16 +5,18 @@
 @section('content')
 <!-- Header Banner -->
 <div class="text-white py-12 px-6 sm:px-10 lg:px-28" style="background-color: #1D4ED8;">
-    <div class="mx-auto max-w-7xl flex items-center gap-4">
-        <!-- Headphone Icon -->
-        <div class="p-3 bg-white/15 rounded-xl">
-            <svg class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 18v-6a9 9 0 0118 0v6M3 17a2 2 0 012-2h2a2 2 0 012 2v3a2 2 0 01-2 2H5a2 2 0 01-2-2v-3zm12-2a2 2 0 012-2h2a2 2 0 012 2v3a2 2 0 01-2 2h-2a2 2 0 01-2-2v-3z" />
-            </svg>
-        </div>
-        <div>
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Audio Listening</h1>
-            <p class="mt-2 text-blue-100 text-sm sm:text-base">Latih kemampuan mendengar dengan audio lessons</p>
+    <div class="mx-auto max-w-7xl">
+        @include('siswa.partials.back-button', ['fallback' => route('siswa.dashboard')])
+
+        <div class="mt-7 flex items-center gap-4">
+            <!-- Headphone Icon -->
+            <div class="p-3 bg-white/15 rounded-xl">
+                <img src="{{ asset('asset/audio_listening.svg') }}" alt="" class="h-10 w-10 object-contain brightness-0 invert">
+            </div>
+            <div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Audio Listening</h1>
+                <p class="mt-2 text-blue-100 text-sm sm:text-base">Latih kemampuan mendengar dengan audio lessons</p>
+            </div>
         </div>
     </div>
 </div>
