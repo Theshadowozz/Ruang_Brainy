@@ -70,11 +70,121 @@ Route::middleware('auth')->group(function () {
         return view('admin.students');
     })->name('admin.students');
 
-    Route::get('/tutor/dashboard', function () use ($forumData) {
-        abort_unless(Auth::user()->isTutor(), 403);
+    $tutorData = function (): array {
+        $classes = collect([
+            [
+                'name' => 'English for Beginners',
+                'language' => 'Inggris',
+                'level' => 'Beginner',
+                'summary' => 'Kelas dasar untuk siswa yang baru mulai belajar percakapan bahasa Inggris.',
+                'students_current' => 12,
+                'students_capacity' => 15,
+                'sessions_total' => 24,
+                'sessions_done' => 8,
+                'duration' => '3 bulan',
+                'next_session' => 'Rabu, 24 Mei 2026',
+                'next_topic' => 'Daily Conversation',
+                'price' => 'Rp 1.500.000',
+                'status' => 'Tersedia',
+                'schedules' => [
+                    [
+                        'day' => 'Senin',
+                        'date' => '22 Mei 2026',
+                        'date_short' => '22',
+                        'time' => '19:00 - 20:30',
+                        'room' => 'Online Room A',
+                        'topic' => 'Basic Greetings',
+                    ],
+                    [
+                        'day' => 'Rabu',
+                        'date' => '24 Mei 2026',
+                        'date_short' => '24',
+                        'time' => '19:00 - 20:30',
+                        'room' => 'Online Room A',
+                        'topic' => 'Daily Conversation',
+                    ],
+                ],
+            ],
+            [
+                'name' => 'English Intermediate',
+                'language' => 'Inggris',
+                'level' => 'Intermediate',
+                'summary' => 'Kelas lanjutan untuk meningkatkan speaking, grammar, dan writing.',
+                'students_current' => 15,
+                'students_capacity' => 15,
+                'sessions_total' => 24,
+                'sessions_done' => 16,
+                'duration' => '3 bulan',
+                'next_session' => 'Selasa, 23 Mei 2026',
+                'next_topic' => 'Business Communication',
+                'price' => 'Rp 1.800.000',
+                'status' => 'Penuh',
+                'schedules' => [
+                    [
+                        'day' => 'Selasa',
+                        'date' => '23 Mei 2026',
+                        'date_short' => '23',
+                        'time' => '19:00 - 20:30',
+                        'room' => 'Online Room B',
+                        'topic' => 'Business Communication',
+                    ],
+                    [
+                        'day' => 'Kamis',
+                        'date' => '25 Mei 2026',
+                        'date_short' => '25',
+                        'time' => '19:00 - 20:30',
+                        'room' => 'Online Room B',
+                        'topic' => 'Email Writing',
+                    ],
+                ],
+            ],
+        ])->map(function ($class) {
+            $class['schedule'] = collect($class['schedules'])->pluck('day')->implode(' & ');
+            $class['time'] = data_get($class, 'schedules.0.time');
+            $class['room'] = data_get($class, 'schedules.0.room');
 
-        return view('tutor.dashboard', $forumData());
-    })->name('tutor.dashboard');
+            return $class;
+        });
+
+        $nextSchedules = $classes
+            ->flatMap(fn ($class) => collect($class['schedules'])->map(fn ($schedule) => array_merge($schedule, [
+                'class_name' => $class['name'],
+                'level' => $class['level'],
+                'students' => $class['students_current'],
+            ])))
+            ->values();
+
+        $availableDays = collect(['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']);
+
+        return [
+            'tutor' => [
+                'name' => Auth::user()->name ?? 'Tutor Brainy',
+                'description' => 'Native speaker dengan sertifikasi TESOL',
+                'avatar_url' => null,
+            ],
+            'classes' => $classes,
+            'availableDays' => $availableDays,
+            'nextSchedules' => $nextSchedules,
+            'stats' => [
+                'classes' => $classes->count(),
+                'students' => $classes->sum('students_current'),
+                'weekly_sessions' => $nextSchedules->count(),
+                'teaching_hours' => 36,
+                'attendance' => '95%',
+                'rating' => '4.9',
+            ],
+        ];
+    };
+
+    Route::middleware('role:' . User::ROLE_TUTOR)->prefix('tutor')->name('tutor.')->group(function () use ($forumData, $tutorData) {
+        Route::get('/dashboard', function () use ($forumData, $tutorData) {
+            return view('tutor.dashboard', array_merge($forumData(), $tutorData()));
+        })->name('dashboard');
+
+        Route::get('/classes', function () use ($tutorData) {
+            return view('tutor.classes', $tutorData());
+        })->name('classes');
+    });
 
     Route::middleware('role:' . User::ROLE_SISWA)->prefix('siswa')->name('siswa.')->group(function () {
         Route::get('/dashboard', [SiswaDashboardController::class, 'index'])->name('dashboard');
