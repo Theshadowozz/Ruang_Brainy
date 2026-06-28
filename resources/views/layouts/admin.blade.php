@@ -37,6 +37,14 @@
     </style>
 </head>
 <body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen">
+    @php
+        $dbPendingPaymentCount = \Illuminate\Support\Facades\Schema::hasTable('payments')
+            ? \App\Models\Payment::query()
+                ->where('status', 'pending')
+                ->whereNotNull('transaction_code')
+                ->count()
+            : 0;
+    @endphp
 
     <!-- Admin Authentication State Sync -->
     <script>
@@ -207,7 +215,11 @@
                         <i data-lucide="dollar-sign" class="h-5 w-5 @if($activeTab === 'payments') text-blue-600 @else text-slate-400 @endif"></i>
                         <span>Pembayaran</span>
                     </div>
-                    <span id="badge-pembayaran" class="rounded-full px-2 py-0.5 text-xs font-bold bg-slate-100 text-slate-600 hidden">0</span>
+                    <span
+                        id="badge-pembayaran"
+                        data-count="{{ $dbPendingPaymentCount }}"
+                        class="rounded-full px-2 py-0.5 text-xs font-bold bg-slate-100 text-slate-600 {{ $dbPendingPaymentCount > 0 ? '' : 'hidden' }}"
+                    >{{ $dbPendingPaymentCount }}</span>
                 </a>
 
                 <!-- Nav Item: Waiting List -->
@@ -412,8 +424,6 @@
         function syncSidebarBadges() {
             try {
                 const waitListCount = JSON.parse(localStorage.getItem('brainy_waiting_list') || '[]').length;
-                const paymentsCount = JSON.parse(localStorage.getItem('brainy_pending_payments') || '[]').length;
-                
                 const badgeWaitList = document.getElementById('badge-waiting-list');
                 const badgePayments = document.getElementById('badge-pembayaran');
                 
@@ -424,6 +434,7 @@
                 }
                 
                 if (badgePayments) {
+                    const paymentsCount = Number(badgePayments.dataset.count || 0);
                     badgePayments.innerText = paymentsCount;
                     if (paymentsCount > 0) badgePayments.classList.remove('hidden');
                     else badgePayments.classList.add('hidden');

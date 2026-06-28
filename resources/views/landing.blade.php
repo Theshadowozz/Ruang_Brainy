@@ -31,10 +31,10 @@
             'image' => 'Adelia Delarosa S,Pd., Gr - English Tutor - Ms Adel.jpeg',
         ],
         [
-            'name' => 'Annisa Nur Umatil Iqbal, S.Pd., Gr',
-            'role' => 'English Tutor',
-            'nickname' => 'Ms Nisa',
-            'image' => 'Annisa Nur Umatil Iqbal, S.Pd., Gr - English Tutor - Ms Nisa.jpeg',
+            'name' => 'Titin Hajri, M.Ed in Diglearn',
+            'role' => 'Owner Brainy Course',
+            'nickname' => 'Ms Titin',
+            'image' => 'Titin Hajri, M.Ed in Diglearn - Owner Brainy Course - Ms Titin.jpeg',
         ],
         [
             'name' => 'Ihya Maghfirah S.Kep',
@@ -55,10 +55,10 @@
             'image' => 'Retno Suhermen, S.s - English Tutor - Ms Retno.jpeg',
         ],
         [
-            'name' => 'Titin Hajri, M.Ed in Diglearn',
-            'role' => 'Owner Brainy Course',
-            'nickname' => 'Ms Titin',
-            'image' => 'Titin Hajri, M.Ed in Diglearn - Owner Brainy Course - Ms Titin.jpeg',
+            'name' => 'Annisa Nur Umatil Iqbal, S.Pd., Gr',
+            'role' => 'English Tutor',
+            'nickname' => 'Ms Nisa',
+            'image' => 'Annisa Nur Umatil Iqbal, S.Pd., Gr - English Tutor - Ms Nisa.jpeg',
         ],
     ];
 
@@ -817,8 +817,14 @@
                 font-size: 18px;
             }
 
-            .lp-actions .secondary {
-                display: none;
+            .lp-actions {
+                gap: 6px;
+            }
+
+            .lp-actions .lp-button {
+                min-height: 40px;
+                padding: 0 11px;
+                font-size: 12px;
             }
 
             .lp-hero {
@@ -902,7 +908,8 @@
                 @auth
                     <a href="{{ route('dashboard') }}" class="lp-button">Dashboard</a>
                 @else
-                    <a href="{{ route('login') }}" class="lp-button">Masuk</a>
+                    <a href="{{ route('login') }}" class="lp-button secondary">Masuk</a>
+                    <a href="{{ route('classes.index') }}" class="lp-button">Daftar Sekarang</a>
                 @endauth
             </div>
         </div>
@@ -918,7 +925,6 @@
                         Kuasai bahasa Inggris, Jepang, dan Korea bersama tutor profesional Brainy Course. Materinya praktis, kelasnya interaktif, dan belajarnya dibuat nyaman untuk targetmu.
                     </p>
                     <div class="lp-hero-actions">
-                        <a href="#kelas" class="lp-button">Lihat Pilihan Kelas</a>
                         <a href="#kontak" class="lp-button secondary">Konsultasi Gratis</a>
                     </div>
                     <div class="lp-stats" aria-label="Ringkasan Brainy Course">
@@ -1029,10 +1035,13 @@
                                         <li><span class="lp-check">&#10003;</span>{{ $detail }}</li>
                                     @endforeach
                                 </ul>
-                                <a href="#kontak" class="lp-button secondary" style="width: 100%;">Tanya Kelas Ini</a>
                             </div>
                         </article>
                     @endforeach
+                </div>
+
+                <div style="display: flex; justify-content: center; margin-top: 30px;">
+                    <a href="{{ route('classes.index') }}" class="lp-button secondary">Lihat Jadwal Tersedia</a>
                 </div>
             </div>
         </section>
@@ -1064,7 +1073,7 @@
                             <option>Bahasa Korea</option>
                         </select>
                     </div>
-                    <a href="#kontak" class="lp-button" style="width: 100%;">Daftar Sekarang</a>
+                    <a href="{{ route('classes.index') }}" class="lp-button" style="width: 100%;">Daftar Sekarang</a>
                 </form>
             </div>
         </section>

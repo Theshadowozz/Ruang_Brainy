@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\AdminCourseController;
+use App\Http\Controllers\Admin\AdminPaymentController;
+use App\Http\Controllers\Admin\AdminScheduleController;
+use App\Http\Controllers\ClassRegistrationController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\Siswa\SiswaAudioController;
 use App\Http\Controllers\Siswa\SiswaDashboardController;
@@ -13,6 +17,12 @@ use Illuminate\Support\Facades\Schema;
 Route::get('/', function () {
     return view('landing');
 });
+
+Route::get('/kelas', [ClassRegistrationController::class, 'index'])->name('classes.index');
+Route::get('/kelas/jadwal/{schedule}/daftar', [ClassRegistrationController::class, 'create'])->name('registration.create');
+Route::post('/kelas/jadwal/{schedule}/daftar', [ClassRegistrationController::class, 'store'])->name('registration.store');
+Route::get('/pendaftaran/{registration}/pembayaran', [ClassRegistrationController::class, 'showPayment'])->name('registration.payment.show');
+Route::post('/pendaftaran/{registration}/pembayaran', [ClassRegistrationController::class, 'pay'])->name('registration.payment.pay');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -69,6 +79,22 @@ Route::middleware('auth')->group(function () {
 
         return view('admin.students');
     })->name('admin.students');
+
+    Route::middleware('role:' . User::ROLE_ADMIN)->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/courses', [AdminCourseController::class, 'index'])->name('courses.index');
+        Route::post('/courses', [AdminCourseController::class, 'store'])->name('courses.store');
+        Route::put('/courses/{course}', [AdminCourseController::class, 'update'])->name('courses.update');
+        Route::delete('/courses/{course}', [AdminCourseController::class, 'destroy'])->name('courses.destroy');
+
+        Route::get('/schedules', [AdminScheduleController::class, 'index'])->name('schedules.index');
+        Route::post('/schedules', [AdminScheduleController::class, 'store'])->name('schedules.store');
+        Route::put('/schedules/{schedule}', [AdminScheduleController::class, 'update'])->name('schedules.update');
+        Route::delete('/schedules/{schedule}', [AdminScheduleController::class, 'destroy'])->name('schedules.destroy');
+
+        Route::get('/payments', [AdminPaymentController::class, 'index'])->name('payments.index');
+        Route::patch('/payments/{payment}/confirm', [AdminPaymentController::class, 'confirm'])->name('payments.confirm');
+        Route::patch('/payments/{payment}/reject', [AdminPaymentController::class, 'reject'])->name('payments.reject');
+    });
 
     $tutorData = function (): array {
         $classes = collect([

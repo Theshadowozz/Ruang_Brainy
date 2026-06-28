@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -16,28 +15,14 @@ class AuthController extends Controller
 
     public function showRegister()
     {
-        return view('auth.register');
+        return redirect()->route('classes.index');
     }
 
     public function register(Request $request)
     {
-        $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
-            'password' => ['required', 'confirmed', 'min:6'],
-        ]);
-
-        $user = User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-            'role' => User::ROLE_SISWA,
-        ]);
-
-        Auth::login($user);
-        $request->session()->regenerate();
-
-        return redirect()->route('dashboard')->with('success', 'Registrasi berhasil. Selamat datang di Brainy.');
+        return redirect()
+            ->route('classes.index')
+            ->with('success', 'Silakan pilih kelas dan jadwal terlebih dahulu.');
     }
 
     public function login(Request $request)
@@ -53,6 +38,17 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
+            if (Auth::user()->isSiswa() && (
+                ! Auth::user()->is_active
+                || ! Auth::user()->registrations()->where('status', 'accepted')->exists()
+            )) {
+                Auth::logout();
+
+                return back()
+                    ->withErrors(['email' => 'Akun belum aktif. Selesaikan pembayaran dan tunggu konfirmasi admin.'])
+                    ->onlyInput('email');
+            }
+
             $request->session()->regenerate();
 
             return redirect()->intended(route('dashboard'));
