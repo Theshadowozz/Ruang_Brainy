@@ -99,7 +99,7 @@ Sistem mencatat transaksi masuk → rekap pembayaran → sistem membuat laporan 
 - Menghapus topik atau komentar (Admin)
 - Menampilkan riwayat diskusi
 
-<img width="1168" height="778" alt="image" src="https://github.com/user-attachments/assets/fb86dad1-6c15-4e3c-aa8e-852aae90f5ca" />
+<img width="355" height="212" alt="image" src="https://github.com/user-attachments/assets/fb86dad1-6c15-4e3c-aa8e-852aae90f5ca" />
 
 
 ---
@@ -138,5 +138,5 @@ User membuka navbar atau halaman Hubungi Kami → melihat informasi kontak, alam
 `GET /contact`
 (ContactController)
 
-<img width="1399" height="676" alt="image" src="https://github.com/user-attachments/assets/e2e2f1d1-2033-43c0-a262-3c01e501c20c" />
+<img width="355" height="212" alt="image" src="https://github.com/user-attachments/assets/e2e2f1d1-2033-43c0-a262-3c01e501c20c" />
 
