@@ -84,17 +84,23 @@ Sistem mencatat transaksi masuk → rekap pembayaran → sistem membuat laporan 
 
 ---
 
-## 7. Direct Chat Interaktif
-**Tujuan fitur:**
-Menyediakan fitur pesan langsung (Direct Chat) antara admin dan *customer* di dalam platform tanpa harus menggunakan aplikasi pihak ketiga. **Aktor:**
-Siswa/Customer , Admin **Alur fitur:**
-Buka *widget* chat di *dashboard* → kirim pesan ke admin → sistem menampilkan riwayat chat → opsional menghapus chat **Route / Controller terkait:**
-`POST /chat/send`
-`GET /chat/history`
-`DELETE /chat/{id}`
-(ChatController)
+## 7. Forum Diskusi Interaktif
 
-*(Tambahkan screenshot tampilan antarmuka chat di sini)*
+**Tujuan fitur:** Menyediakan forum diskusi sebagai media komunikasi antara **admin, tutor, dan siswa/customer** untuk berdiskusi, bertanya, berbagi informasi, serta membahas materi pembelajaran maupun hal yang berkaitan dengan platform Brainy.
+
+**Aktor:** Siswa/Customer, Tutor, Admin
+
+**Alur fitur:** Buka menu **Forum Diskusi** di dashboard → pilih kategori forum (**Keluhan**, **Seputar Brainy**, atau **Pembelajaran**) → melihat atau membuat topik diskusi → pengguna lain memberikan balasan atau komentar → sistem menampilkan seluruh riwayat diskusi sesuai kategori.
+
+**Fitur utama:**
+- Membuat topik diskusi baru
+- Membalas komentar pada topik diskusi
+- Menampilkan seluruh diskusi berdasarkan kategori
+- Menghapus topik atau komentar (Admin)
+- Menampilkan riwayat diskusi
+
+<img width="1168" height="778" alt="image" src="https://github.com/user-attachments/assets/fb86dad1-6c15-4e3c-aa8e-852aae90f5ca" />
+
 
 ---
 
@@ -132,4 +138,5 @@ User membuka navbar atau halaman Hubungi Kami → melihat informasi kontak, alam
 `GET /contact`
 (ContactController)
 
-*(Tambahkan screenshot halaman Hubungi Kami beserta Google Maps di sini)*
+<img width="1399" height="676" alt="image" src="https://github.com/user-attachments/assets/e2e2f1d1-2033-43c0-a262-3c01e501c20c" />
+
