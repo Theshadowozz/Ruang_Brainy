@@ -169,8 +169,8 @@
     <div class="min-h-screen bg-[#F8FAFC] flex text-slate-800 font-sans w-full">
         
         <!-- Sidebar Navigation -->
-        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 border-r border-slate-200/80 bg-white px-5 py-6 transition-transform -translate-x-full lg:translate-x-0 lg:static lg:shrink-0">
-            <div class="flex items-center justify-between mb-8">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 flex h-screen w-64 flex-col overflow-hidden border-r border-slate-200/80 bg-white px-5 py-6 transition-transform -translate-x-full lg:translate-x-0">
+            <div class="mb-8 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-500/10">
                         <i data-lucide="book-open" class="h-5 w-5 animate-pulse" stroke-width="2.2"></i>
@@ -182,7 +182,7 @@
                 </button>
             </div>
 
-            <nav class="space-y-1">
+            <nav class="flex-1 space-y-1">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-3 block mb-2">Menu Utama</span>
                 
                 <!-- Nav Item: Dashboard -->
@@ -260,7 +260,7 @@
                 </a>
             </nav>
 
-            <div class="absolute bottom-6 left-5 right-5 border-t border-slate-100 pt-5 flex items-center justify-between">
+            <div class="mt-5 border-t border-slate-100 pt-5 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600 text-white font-bold text-sm shadow-sm shadow-blue-500/10">
                         AD
@@ -277,7 +277,7 @@
         <div id="sidebar-overlay" onclick="toggleSidebar(false)" class="fixed inset-0 z-30 bg-slate-900/25 backdrop-blur-sm lg:hidden hidden"></div>
 
         <!-- Main Area -->
-        <div class="flex-1 flex flex-col min-w-0">
+        <div class="flex min-w-0 flex-1 flex-col lg:pl-64">
             <!-- Top Header -->
             <header class="sticky top-0 z-20 border-b border-slate-200/60 bg-[#F8FAFC]/95 backdrop-blur-md px-6 py-4 flex items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
