@@ -10,6 +10,7 @@ class Registration extends Model
 {
     protected $fillable = [
         'full_name',
+        'nik',
         'user_id',
         'schedule_id',
         'phone_number',

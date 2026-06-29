@@ -6,7 +6,9 @@ use App\Models\CourseClass;
 use App\Models\Payment;
 use App\Models\Registration;
 use App\Models\Schedule;
+use App\Models\TrialRegistration;
 use App\Models\User;
+use App\Rules\ValidNik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -42,8 +44,18 @@ class ClassRegistrationController extends Controller
 
     public function store(Request $request, Schedule $schedule)
     {
+        $request->merge([
+            'nik' => ValidNik::normalize($request->input('nik')),
+        ]);
+
         $validated = $request->validate([
             'full_name' => ['required', 'string', 'max:255'],
+            'nik' => [
+                'required',
+                'digits:16',
+                new ValidNik,
+                Rule::unique('registrations', 'nik'),
+            ],
             'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')],
             'password' => ['required', 'confirmed', 'min:6'],
             'phone_number' => ['required', 'string', 'max:20'],
@@ -68,6 +80,7 @@ class ClassRegistrationController extends Controller
 
             $registration = Registration::create([
                 'full_name' => $validated['full_name'],
+                'nik' => $validated['nik'],
                 'user_id' => $user->id,
                 'schedule_id' => $schedule->id,
                 'phone_number' => $validated['phone_number'],
@@ -88,6 +101,39 @@ class ClassRegistrationController extends Controller
         $request->session()->put('registration_id', $registration->id);
 
         return redirect()->route('registration.payment.show', $registration);
+    }
+
+    public function checkNik(Request $request)
+    {
+        $nik = ValidNik::normalize($request->query('nik'));
+        $context = $request->query('context') === 'trial' ? 'trial' : 'registration';
+        $valid = ValidNik::passes($nik);
+        $classRegistered = $nik !== '' && Registration::query()->where('nik', $nik)->exists();
+        $trialRegistered = $nik !== '' && TrialRegistration::query()->where('nik', $nik)->exists();
+        $registered = $context === 'trial'
+            ? $classRegistered || $trialRegistered
+            : $classRegistered;
+
+        $message = match (true) {
+            strlen($nik) !== 16 => 'NIK harus terdiri dari 16 digit.',
+            ! $valid => 'NIK tidak valid.',
+            $context === 'trial' && $trialRegistered => 'NIK ini sudah pernah digunakan untuk trial.',
+            $context === 'trial' && $classRegistered => 'NIK ini sudah terdaftar sebagai siswa.',
+            $classRegistered => 'NIK ini sudah pernah digunakan untuk pendaftaran kelas.',
+            $trialRegistered => 'NIK valid. Trial sebelumnya tercatat, lanjutkan pendaftaran kelas.',
+            default => 'NIK valid dan belum terdaftar.',
+        };
+
+        return response()->json([
+            'nik' => $nik,
+            'context' => $context,
+            'valid' => $valid,
+            'registered' => $registered,
+            'class_registered' => $classRegistered,
+            'trial_registered' => $trialRegistered,
+            'available' => $valid && ! $registered,
+            'message' => $message,
+        ]);
     }
 
     public function showPayment(Request $request, Registration $registration)

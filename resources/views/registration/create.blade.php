@@ -36,6 +36,24 @@
                     <span class="text-sm font-bold">Nama lengkap</span>
                     <input name="full_name" value="{{ old('full_name') }}" required class="mt-2 h-12 w-full rounded-xl border border-slate-300 px-4 outline-none focus:border-blue-500" autocomplete="name">
                 </label>
+                <label class="sm:col-span-2">
+                    <span class="text-sm font-bold">NIK</span>
+                    <input
+                        name="nik"
+                        id="nik"
+                        value="{{ old('nik') }}"
+                        required
+                        inputmode="numeric"
+                        maxlength="16"
+                        pattern="\d{16}"
+                        data-nik-input
+                        data-check-url="{{ route('api.nik.check') }}"
+                        data-check-context="registration"
+                        class="mt-2 h-12 w-full rounded-xl border border-slate-300 px-4 outline-none focus:border-blue-500"
+                        autocomplete="off"
+                    >
+                    <p class="mt-2 text-xs font-semibold text-slate-500" data-nik-feedback>NIK digunakan untuk memastikan trial/pendaftaran hanya satu kali.</p>
+                </label>
                 <label>
                     <span class="text-sm font-bold">Email</span>
                     <input name="email" type="email" value="{{ old('email') }}" required class="mt-2 h-12 w-full rounded-xl border border-slate-300 px-4 outline-none focus:border-blue-500" autocomplete="email">
@@ -56,7 +74,7 @@
                     <span class="text-sm font-bold">Alamat</span>
                     <textarea name="address" rows="4" required class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue-500">{{ old('address') }}</textarea>
                 </label>
-                <button type="submit" class="sm:col-span-2 rounded-xl bg-blue-600 px-6 py-3.5 font-extrabold text-white hover:bg-blue-700">Daftar Kelas</button>
+                <button type="submit" data-nik-submit class="sm:col-span-2 rounded-xl bg-blue-600 px-6 py-3.5 font-extrabold text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-slate-400">Daftar Kelas</button>
             </form>
         </section>
     </main>

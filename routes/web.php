@@ -8,6 +8,7 @@ use App\Http\Controllers\ClassRegistrationController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\Siswa\SiswaAudioController;
 use App\Http\Controllers\Siswa\SiswaDashboardController;
+use App\Http\Controllers\TrialRegistrationController;
 use App\Models\ForumTopic;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -16,9 +17,11 @@ use Illuminate\Support\Facades\Schema;
 
 Route::get('/', function () {
     return view('landing');
-});
+})->name('home');
 
 Route::get('/kelas', [ClassRegistrationController::class, 'index'])->name('classes.index');
+Route::get('/api/nik/check', [ClassRegistrationController::class, 'checkNik'])->name('api.nik.check');
+Route::post('/trial', [TrialRegistrationController::class, 'store'])->name('trial.store');
 Route::get('/kelas/jadwal/{schedule}/daftar', [ClassRegistrationController::class, 'create'])->name('registration.create');
 Route::post('/kelas/jadwal/{schedule}/daftar', [ClassRegistrationController::class, 'store'])->name('registration.store');
 Route::get('/pendaftaran/{registration}/pembayaran', [ClassRegistrationController::class, 'showPayment'])->name('registration.payment.show');

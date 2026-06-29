@@ -210,6 +210,12 @@
             transform: translateY(-1px);
         }
 
+        .lp-button:disabled {
+            cursor: not-allowed;
+            background: #94a3b8;
+            transform: none;
+        }
+
         .lp-button.secondary {
             background: #fff;
             color: var(--blue);
@@ -1046,7 +1052,7 @@
             </div>
         </section>
 
-        <section class="lp-section lp-band">
+        <section id="trial" class="lp-section lp-band">
             <div class="lp-container lp-trial">
                 <div>
                     <div class="lp-eyebrow" style="background: rgba(255,255,255,.16); color: #fff; border-color: rgba(255,255,255,.26);">Gratis Trial</div>
@@ -1059,21 +1065,50 @@
                     </div>
                 </div>
 
-                <form class="lp-trial-form" action="#kontak">
+                <form class="lp-trial-form" action="{{ route('trial.store') }}" method="POST">
+                    @csrf
+                    @if (session('trial_success'))
+                        <div style="margin-bottom: 14px; border: 1px solid #bbf7d0; border-radius: 8px; background: #f0fdf4; color: #166534; padding: 12px; font-size: 13px; font-weight: 800;">
+                            {{ session('trial_success') }}
+                        </div>
+                    @endif
+                    @if ($errors->getBag('trial')->any())
+                        <div style="margin-bottom: 14px; border: 1px solid #fecdd3; border-radius: 8px; background: #fff1f2; color: #9f1239; padding: 12px; font-size: 13px; font-weight: 800;">
+                            {{ $errors->getBag('trial')->first() }}
+                        </div>
+                    @endif
                     <div class="lp-form-field">
                         <label for="trial-name">Nama Lengkap</label>
-                        <input id="trial-name" type="text" placeholder="Masukkan nama">
+                        <input id="trial-name" name="full_name" type="text" value="{{ old('full_name') }}" placeholder="Masukkan nama" required>
+                    </div>
+                    <div class="lp-form-field">
+                        <label for="trial-nik">NIK</label>
+                        <input
+                            id="trial-nik"
+                            name="nik"
+                            type="text"
+                            value="{{ old('nik') }}"
+                            inputmode="numeric"
+                            maxlength="16"
+                            pattern="\d{16}"
+                            placeholder="16 digit NIK"
+                            data-nik-input
+                            data-check-url="{{ route('api.nik.check') }}"
+                            data-check-context="trial"
+                            required
+                        >
+                        <p style="margin: 0; font-size: 12px; font-weight: 800; color: #64748b;" data-nik-feedback>NIK digunakan agar trial hanya bisa dipakai satu kali.</p>
                     </div>
                     <div class="lp-form-field">
                         <label for="trial-program">Minat Bahasa</label>
-                        <select id="trial-program">
-                            <option>Pilih Bahasa...</option>
-                            <option>Bahasa Inggris</option>
-                            <option>Bahasa Jepang</option>
-                            <option>Bahasa Korea</option>
+                        <select id="trial-program" name="program" required>
+                            <option value="">Pilih Bahasa...</option>
+                            <option @selected(old('program') === 'Bahasa Inggris')>Bahasa Inggris</option>
+                            <option @selected(old('program') === 'Bahasa Jepang')>Bahasa Jepang</option>
+                            <option @selected(old('program') === 'Bahasa Korea')>Bahasa Korea</option>
                         </select>
                     </div>
-                    <a href="{{ route('classes.index') }}" class="lp-button" style="width: 100%;">Daftar Sekarang</a>
+                    <button type="submit" class="lp-button" style="width: 100%;" data-nik-submit>Daftar Trial</button>
                 </form>
             </div>
         </section>
