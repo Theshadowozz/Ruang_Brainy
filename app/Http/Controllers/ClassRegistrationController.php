@@ -9,7 +9,8 @@ use App\Models\Schedule;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class ClassRegistrationController extends Controller
 {
@@ -19,9 +20,10 @@ class ClassRegistrationController extends Controller
             ->with(['tutor', 'schedules' => fn ($query) => $query
                 ->withCount(['registrations as occupied_seats' => fn ($registration) => $registration
                     ->whereIn('status', ['pending', 'accepted'])])
+                ->whereDate('end_date', '>=', today())
                 ->orderBy('start_date')
                 ->orderBy('start_time')])
-            ->whereHas('schedules')
+            ->whereHas('schedules', fn ($query) => $query->whereDate('end_date', '>=', today()))
             ->orderBy('language')
             ->orderBy('level')
             ->get();
@@ -44,7 +46,7 @@ class ClassRegistrationController extends Controller
     {
         $validated = $request->validate([
             'full_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')],
+            'email' => ['required', 'email', 'max:255'],
             'password' => ['required', 'confirmed', 'min:6'],
             'phone_number' => ['required', 'string', 'max:20'],
             'address' => ['required', 'string', 'max:1000'],
@@ -58,13 +60,29 @@ class ClassRegistrationController extends Controller
 
             abort_if($occupiedSeats >= $schedule->capacity, 422, 'Maaf, jadwal kelas ini baru saja penuh.');
 
-            $user = User::create([
-                'name' => $validated['full_name'],
-                'email' => $validated['email'],
-                'password' => $validated['password'],
-                'role' => User::ROLE_SISWA,
-                'is_active' => false,
-            ]);
+            $user = User::query()->where('email', $validated['email'])->first();
+
+            if ($user && (! $user->isSiswa() || ! Hash::check($validated['password'], $user->password))) {
+                throw ValidationException::withMessages([
+                    'email' => 'Email sudah digunakan atau password akun tidak sesuai.',
+                ]);
+            }
+
+            if ($user?->registrations()->where('schedule_id', $schedule->id)->exists()) {
+                throw ValidationException::withMessages([
+                    'email' => 'Akun ini sudah terdaftar pada jadwal yang dipilih.',
+                ]);
+            }
+
+            if (! $user) {
+                $user = User::create([
+                    'name' => $validated['full_name'],
+                    'email' => $validated['email'],
+                    'password' => $validated['password'],
+                    'role' => User::ROLE_SISWA,
+                    'is_active' => false,
+                ]);
+            }
 
             $registration = Registration::create([
                 'full_name' => $validated['full_name'],

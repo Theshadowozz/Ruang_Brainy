@@ -1,85 +1,4 @@
 @php
-    $courses = [
-        [
-            'title' => 'Bahasa Inggris',
-            'image' => 'englishpng.png',
-            'badge' => 'Populer',
-            'description' => 'Kelas percakapan, grammar, interview, hingga persiapan TOEFL/IELTS dengan latihan yang terarah.',
-            'details' => ['Level basic hingga advanced', 'Kelas anak, remaja, dan dewasa', 'Belajar aktif lewat speaking practice'],
-        ],
-        [
-            'title' => 'Bahasa Jepang',
-            'image' => 'jepang.png',
-            'badge' => 'JLPT Ready',
-            'description' => 'Belajar hiragana, katakana, kanji, percakapan, dan persiapan JLPT bersama tutor berpengalaman.',
-            'details' => ['Materi budaya dan percakapan', 'Latihan kosakata harian', 'Pendampingan level dasar'],
-        ],
-        [
-            'title' => 'Bahasa Korea',
-            'image' => 'korean.png',
-            'badge' => 'TOPIK Ready',
-            'description' => 'Kuasai hangeul, speaking, listening, dan persiapan TOPIK dengan metode belajar yang menyenangkan.',
-            'details' => ['Latihan hangeul dari nol', 'Kelas interaktif dan fun', 'Materi budaya Korea'],
-        ],
-    ];
-
-    $tutors = [
-        [
-            'name' => 'Adelia Delarosa S,Pd., Gr',
-            'role' => 'English Tutor',
-            'nickname' => 'Ms Adel',
-            'image' => 'Adelia Delarosa S,Pd., Gr - English Tutor - Ms Adel.jpeg',
-        ],
-        [
-            'name' => 'Titin Hajri, M.Ed in Diglearn',
-            'role' => 'Owner Brainy Course',
-            'nickname' => 'Ms Titin',
-            'image' => 'Titin Hajri, M.Ed in Diglearn - Owner Brainy Course - Ms Titin.jpeg',
-        ],
-        [
-            'name' => 'Ihya Maghfirah S.Kep',
-            'role' => 'Korean Tutor',
-            'nickname' => 'Ira Ssaem',
-            'image' => 'Ihya Maghfirah S.Kep - Korean Tutor - Ira Ssaem.jpeg',
-        ],
-        [
-            'name' => 'Nadia Indah Sari, S.Pd',
-            'role' => 'Japanese Tutor',
-            'nickname' => 'Nadia Sensei',
-            'image' => 'Nadia Indah Sari, S.Pd - Japanese Tutor - Nadia Sensei.jpeg',
-        ],
-        [
-            'name' => 'Retno Suhermen, S.s',
-            'role' => 'English Tutor',
-            'nickname' => 'Ms Retno',
-            'image' => 'Retno Suhermen, S.s - English Tutor - Ms Retno.jpeg',
-        ],
-        [
-            'name' => 'Annisa Nur Umatil Iqbal, S.Pd., Gr',
-            'role' => 'English Tutor',
-            'nickname' => 'Ms Nisa',
-            'image' => 'Annisa Nur Umatil Iqbal, S.Pd., Gr - English Tutor - Ms Nisa.jpeg',
-        ],
-    ];
-
-    $testimonials = [
-        [
-            'name' => 'Alya Putri',
-            'program' => 'Alumni English Class',
-            'quote' => 'Belajar di Brainy Course bikin saya lebih percaya diri saat speaking. Materinya jelas, tutornya sabar, dan kelasnya terasa hidup.',
-        ],
-        [
-            'name' => 'Rizky Ramadhan',
-            'program' => 'Alumni Japanese Class',
-            'quote' => 'Dari awalnya bingung hiragana, sekarang saya sudah bisa baca teks sederhana. Cara ngajarnya runtut dan mudah diikuti.',
-        ],
-        [
-            'name' => 'Nabila Sari',
-            'program' => 'Alumni Korean Class',
-            'quote' => 'Kelas Korea-nya seru banget. Saya jadi lebih paham hangeul, pelafalan, dan kosakata yang sering dipakai sehari-hari.',
-        ],
-    ];
-
     $address = 'Jl. Teuku Umar No.1 D RT/RW 003/012, Alai Parak Kopi, Kec. Padang Utara, Kota Padang, Sumatera Barat 25171';
 @endphp
 
@@ -900,7 +819,6 @@
                 <a href="#keunggulan">Keunggulan</a>
                 <a href="#kelas">Kelas</a>
                 <a href="#tutor">Tutor</a>
-                <a href="#alumni">Alumni</a>
                 <a href="#kontak">Kontak</a>
             </nav>
 
@@ -933,7 +851,7 @@
                             <span>Bahasa pilihan</span>
                         </div>
                         <div class="lp-stat">
-                            <strong>6</strong>
+                            <strong>{{ count($tutors) }}</strong>
                             <span>Tutor aktif</span>
                         </div>
                         <div class="lp-stat">
@@ -1059,22 +977,9 @@
                     </div>
                 </div>
 
-                <form class="lp-trial-form" action="#kontak">
-                    <div class="lp-form-field">
-                        <label for="trial-name">Nama Lengkap</label>
-                        <input id="trial-name" type="text" placeholder="Masukkan nama">
-                    </div>
-                    <div class="lp-form-field">
-                        <label for="trial-program">Minat Bahasa</label>
-                        <select id="trial-program">
-                            <option>Pilih Bahasa...</option>
-                            <option>Bahasa Inggris</option>
-                            <option>Bahasa Jepang</option>
-                            <option>Bahasa Korea</option>
-                        </select>
-                    </div>
-                    <a href="{{ route('classes.index') }}" class="lp-button" style="width: 100%;">Daftar Sekarang</a>
-                </form>
+                <div class="lp-trial-form">
+                    <a href="{{ route('trial.create') }}" class="lp-button" style="width: 100%;">Daftar Sekarang</a>
+                </div>
             </div>
         </section>
 
@@ -1094,26 +999,6 @@
                             <h3>{{ $tutor['name'] }}</h3>
                             <div class="role">{{ $tutor['role'] }}</div>
                             <div class="nickname">{{ $tutor['nickname'] }}</div>
-                        </article>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-
-        <section id="alumni" class="lp-section">
-            <div class="lp-container">
-                <div class="lp-section-head">
-                    <h2>Kata Alumni</h2>
-                    <p>Pengalaman siswa setelah belajar bersama Brainy Course.</p>
-                </div>
-
-                <div class="lp-testimonials">
-                    @foreach ($testimonials as $testimonial)
-                        <article class="lp-testimonial">
-                            <div class="lp-quote-mark" aria-hidden="true">"</div>
-                            <h3>{{ $testimonial['name'] }}</h3>
-                            <span>{{ $testimonial['program'] }}</span>
-                            <p>{{ $testimonial['quote'] }}</p>
                         </article>
                     @endforeach
                 </div>

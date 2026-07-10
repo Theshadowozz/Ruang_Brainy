@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Tutor extends Model
+class WaitingList extends Model
 {
     protected $fillable = [
         'user_id',
-        'name',
-        'email',
+        'schedule_id',
+        'full_name',
         'phone_number',
-        'expertise',
+        'address',
+        'queue_number',
+        'status',
     ];
 
     public function user(): BelongsTo
@@ -21,8 +22,8 @@ class Tutor extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function classes(): HasMany
+    public function schedule(): BelongsTo
     {
-        return $this->hasMany(CourseClass::class, 'tutor_id');
+        return $this->belongsTo(Schedule::class);
     }
 }

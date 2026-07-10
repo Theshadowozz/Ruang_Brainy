@@ -4,7 +4,9 @@
 @section('page_title', 'Jadwal Kelas')
 @section('page_description', 'Jadwal aktif akan muncul pada katalog pendaftaran siswa.')
 
-@php($activeTab = 'schedules')
+@php
+    $activeTab = 'schedules';
+@endphp
 
 @section('content')
     @if (session('success'))

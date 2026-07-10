@@ -4,7 +4,9 @@
 @section('page_title', 'Kelola Kursus')
 @section('page_description', 'Data kelas ini langsung ditampilkan pada halaman pendaftaran siswa.')
 
-@php($activeTab = 'courses')
+@php
+    $activeTab = 'courses';
+@endphp
 
 @section('content')
     @if (session('success'))

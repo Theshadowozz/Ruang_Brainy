@@ -44,7 +44,13 @@ class AdminPaymentController extends Controller
         DB::transaction(function () use ($payment) {
             $payment->update(['status' => 'failed']);
             $payment->registration->update(['status' => 'rejected']);
-            $payment->registration->user->update(['is_active' => false]);
+            $hasOtherAcceptedClass = $payment->registration->user
+                ->registrations()
+                ->where('id', '!=', $payment->registration_id)
+                ->where('status', 'accepted')
+                ->exists();
+
+            $payment->registration->user->update(['is_active' => $hasOtherAcceptedClass]);
         });
 
         return back()->with('success', 'Pembayaran ditolak dan akun siswa tetap nonaktif.');

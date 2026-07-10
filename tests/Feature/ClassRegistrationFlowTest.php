@@ -5,6 +5,7 @@ use App\Models\Payment;
 use App\Models\Registration;
 use App\Models\Schedule;
 use App\Models\Tutor;
+use App\Models\TrialRegistration;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -128,3 +129,52 @@ test('admin and tutor login are not restricted by student payment status', funct
     'admin' => User::ROLE_ADMIN,
     'tutor' => User::ROLE_TUTOR,
 ]);
+
+test('trial registration is stored and visible to admin', function () {
+    $this->post(route('trial.store'), [
+        'full_name' => 'Siswa Trial',
+        'email' => 'trial@example.com',
+        'phone_number' => '081298765400',
+        'password' => 'rahasia',
+        'password_confirmation' => 'rahasia',
+    ])->assertRedirect(route('trial.create'));
+
+    expect(TrialRegistration::query()->count())->toBe(1)
+        ->and(User::query()->where('email', 'trial@example.com')->firstOrFail()->is_active)->toBeFalse();
+
+    $admin = User::factory()->create([
+        'role' => User::ROLE_ADMIN,
+        'is_active' => true,
+    ]);
+
+    $this->actingAs($admin)
+        ->get(route('admin.dashboard'))
+        ->assertOk()
+        ->assertSee('Siswa Trial');
+});
+
+test('admin creates a tutor profile with a working tutor login', function () {
+    $admin = User::factory()->create([
+        'role' => User::ROLE_ADMIN,
+        'is_active' => true,
+    ]);
+
+    $this->actingAs($admin)->post(route('admin.tutors.store'), [
+        'name' => 'Tutor Baru',
+        'email' => 'tutor.baru@example.com',
+        'phone_number' => '081298765401',
+        'expertise' => 'Bahasa Korea',
+        'password' => 'rahasia',
+        'password_confirmation' => 'rahasia',
+    ])->assertSessionHas('success');
+
+    $tutor = Tutor::query()->where('email', 'tutor.baru@example.com')->firstOrFail();
+    expect($tutor->user)->not->toBeNull()
+        ->and($tutor->user->isTutor())->toBeTrue();
+
+    $this->post(route('logout'));
+    $this->post(route('login.store'), [
+        'email' => 'tutor.baru@example.com',
+        'password' => 'rahasia',
+    ])->assertRedirect(route('dashboard'));
+});

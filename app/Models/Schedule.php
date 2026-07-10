@@ -32,6 +32,11 @@ class Schedule extends Model
         return $this->belongsTo(CourseClass::class, 'class_id');
     }
 
+    public function class(): BelongsTo
+    {
+        return $this->courseClass();
+    }
+
     public function registrations(): HasMany
     {
         return $this->hasMany(Registration::class);

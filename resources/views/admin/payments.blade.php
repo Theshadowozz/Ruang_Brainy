@@ -4,7 +4,9 @@
 @section('page_title', 'Manajemen Pembayaran')
 @section('page_description', 'Konfirmasi pembayaran agar akun siswa dapat digunakan.')
 
-@php($activeTab = 'payments')
+@php
+    $activeTab = 'payments';
+@endphp
 
 @section('content')
     @if (session('success'))
