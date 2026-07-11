@@ -4,57 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Brainy Admin')</title>
-    <!-- Outfit Font from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     @include('layouts.vite')
-    
-    <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        body {
-            font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-        }
-        
-        /* Keyframe animations matching the React dashboard */
-        @keyframes slideIn {
-            from { transform: translateY(1rem); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes scaleIn {
-            from { transform: scale(0.97); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        .animate-slide-in {
-            animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .animate-scale-in {
-            animation: scaleIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-    </style>
 </head>
-<body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen">
+<body class="min-h-screen bg-slate-50 text-slate-800 antialiased" style="font-family: Outfit, sans-serif">
+@php
+    $activeTab = $activeTab ?? '';
+    $pendingPaymentCount = \App\Models\Payment::query()
+        ->where('status', 'pending')
+        ->whereNotNull('transaction_code')
+        ->count();
+    $waitingCount = \App\Models\WaitingList::query()->where('status', 'waiting')->count();
+@endphp
 
-    <!-- Admin Authentication State Sync -->
-    <script>
-        localStorage.setItem('brainy_admin_auth', 'true');
+<div class="min-h-screen lg:flex">
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-64 -translate-x-full border-r border-slate-200 bg-white p-5 transition lg:static lg:translate-x-0">
+        <div class="mb-8 flex items-center justify-between">
+            <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
+                <img src="{{ asset('images/logo_brainy.png') }}" alt="Brainy" class="h-10 w-10 object-contain">
+                <span class="text-lg font-extrabold text-slate-900">Brainy <span class="text-blue-600">Admin</span></span>
+            </a>
+            <button type="button" class="text-slate-500 lg:hidden" onclick="toggleSidebar(false)">✕</button>
+        </div>
 
-        // Initialize Global State in localStorage if not exists
-        const DEFAULT_STUDENTS = [
-            { id: 1, name: 'Ahmad Fauzi', email: 'ahmad@email.com', phone: '081234567890', course: 'English Intermediate', level: 'Intermediate', lang: 'English', joinedDate: '26 Mei 2026', status: 'Active', attendance: 95, progress: 85, paymentStatus: 'Paid', avatar: 'AF', color: 'bg-blue-50 text-blue-600 border border-blue-100/50' },
-            { id: 2, name: 'Dewi Lestari', email: 'dewi@email.com', phone: '081234567891', course: 'Korean for Beginners', level: 'Beginner', lang: 'Korean', joinedDate: '26 Mei 2026', status: 'Active', attendance: 92, progress: 78, paymentStatus: 'Paid', avatar: 'DL', color: 'bg-orange-50 text-orange-600 border border-orange-100/50' },
-            { id: 3, name: 'Farhan Malik', email: 'farhan@email.com', phone: '081234567892', course: 'Japanese Intermediate', level: 'Intermediate', lang: 'Japanese', joinedDate: '25 Mei 2026', status: 'Active', attendance: 88, progress: 65, paymentStatus: 'Paid', avatar: 'FM', color: 'bg-purple-50 text-purple-600 border border-purple-100/50' },
-            { id: 4, name: 'Larasati Putri', email: 'laras@email.com', phone: '081234567893', course: 'English Advanced', level: 'Advanced', lang: 'English', joinedDate: '24 Mei 2026', status: 'Active', attendance: 100, progress: 92, paymentStatus: 'Paid', avatar: 'LP', color: 'bg-blue-50 text-blue-600 border border-blue-100/50' },
-            { id: 5, name: 'Rizky Pratama', email: 'rizky@email.com', phone: '081234567894', course: 'Korean Intermediate', level: 'Intermediate', lang: 'Korean', joinedDate: '24 Mei 2026', status: 'Active', attendance: 85, progress: 70, paymentStatus: 'Paid', avatar: 'RP', color: 'bg-orange-50 text-orange-600 border border-orange-100/50' },
-            { id: 6, name: 'Siti Nurhaliza', email: 'siti@email.com', phone: '081234567895', course: 'Japanese Beginner', level: 'Beginner', lang: 'Japanese', joinedDate: '21 Mei 2026', status: 'Active', attendance: 90, progress: 60, paymentStatus: 'Paid', avatar: 'SN', color: 'bg-purple-50 text-purple-600 border border-purple-100/50' },
-            { id: 7, name: 'Budi Hartono', email: 'budi.h@email.com', phone: '081234567896', course: 'Korean Beginner', level: 'Beginner', lang: 'Korean', joinedDate: '20 Mei 2026', status: 'Inactive', attendance: 75, progress: 40, paymentStatus: 'Unpaid', avatar: 'BH', color: 'bg-orange-50 text-orange-600 border border-orange-100/50' },
-            { id: 8, name: 'Dewi Putri', email: 'dewip@email.com', phone: '081234567897', course: 'English Beginner', level: 'Beginner', lang: 'English', joinedDate: '19 Mei 2026', status: 'Active', attendance: 96, progress: 88, paymentStatus: 'Paid', avatar: 'DP', color: 'bg-blue-50 text-blue-600 border border-blue-100/50' },
-            { id: 9, name: 'Rahman Ali', email: 'rahman@email.com', phone: '081234567898', course: 'Japanese Intermediate', level: 'Intermediate', lang: 'Japanese', joinedDate: '18 Mei 2026', status: 'Suspended', attendance: 60, progress: 30, paymentStatus: 'Paid', avatar: 'RA', color: 'bg-purple-50 text-purple-600 border border-purple-100/50' }
-        ];
+        <nav class="space-y-1 text-sm font-bold">
+            @php
+                $menus = [
+                    ['dashboard', 'admin.dashboard', 'home', 'Dashboard', null],
+                    ['courses', 'admin.courses.index', 'graduation-cap', 'Kelola Kursus', null],
+                    ['payments', 'admin.payments.index', 'badge-dollar-sign', 'Pembayaran', $pendingPaymentCount],
+                    ['waitinglist', 'admin.waitinglist', 'clipboard-list', 'Waiting List', $waitingCount],
+                    ['tutors', 'admin.tutors.index', 'user-check', 'Kelola Tutor', null],
+                    ['schedules', 'admin.schedules.index', 'calendar-days', 'Jadwal Kelas', null],
+                    ['siswa', 'admin.students', 'users', 'Data Siswa & Trial', null],
+                    ['quiz', 'admin.quiz.index', 'file-question', 'Quiz Mingguan', null],
+                    ['diskusi', 'admin.diskusi.index', 'message-square', 'Forum Diskusi', null],
+                ];
+            @endphp
 
+<<<<<<< HEAD
         const DEFAULT_TUTORS = [
             {
                 id: 1,
@@ -191,16 +182,25 @@
                         <i data-lucide="home" class="h-5 w-5 @if($activeTab === 'dashboard') text-blue-600 @else text-slate-400 @endif"></i>
                         <span>Dashboard</span>
                     </div>
+=======
+            @foreach ($menus as [$key, $routeName, $icon, $label, $count])
+                <a href="{{ route($routeName) }}" class="flex items-center justify-between rounded-xl px-3 py-2.5 transition {{ $activeTab === $key ? 'bg-blue-50 text-blue-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900' }}">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="{{ $icon }}" class="h-5 w-5"></i>
+                        {{ $label }}
+                    </span>
+                    @if ($count)
+                        <span class="rounded-full bg-blue-600 px-2 py-0.5 text-xs text-white">{{ $count }}</span>
+                    @endif
+>>>>>>> 08f0257880bc6a1a2b4ae192c295e716b2e4c819
                 </a>
+            @endforeach
+        </nav>
+    </aside>
 
-                <!-- Nav Item: Kelola Kursus -->
-                <a href="/admin/courses" class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 @if($activeTab === 'courses') bg-blue-50/80 text-blue-600 @else text-slate-600 hover:bg-slate-50 hover:text-slate-900 @endif">
-                    <div class="flex items-center gap-3">
-                        <i data-lucide="graduation-cap" class="h-5 w-5 @if($activeTab === 'courses') text-blue-600 @else text-slate-400 @endif"></i>
-                        <span>Kelola Kursus</span>
-                    </div>
-                </a>
+    <div id="sidebar-overlay" class="fixed inset-0 z-30 hidden bg-slate-900/40 lg:hidden" onclick="toggleSidebar(false)"></div>
 
+<<<<<<< HEAD
                 <!-- Nav Item: Pembayaran -->
                 <a href="/admin/payments" class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200 @if($activeTab === 'payments') bg-blue-50/80 text-blue-600 @else text-slate-600 hover:bg-slate-50 hover:text-slate-900 @endif">
                     <div class="flex items-center gap-3">
@@ -283,163 +283,49 @@
                 <div class="flex items-center gap-3">
                     <button onclick="toggleSidebar(true)" class="lg:hidden p-2 -ml-2 rounded-lg text-slate-500 hover:bg-slate-50 hover:text-slate-950">
                         <i data-lucide="menu" class="h-6 w-6"></i>
+=======
+    <div class="min-w-0 flex-1">
+        <header class="border-b border-slate-200 bg-white px-5 py-4 sm:px-7">
+            <div class="mx-auto flex max-w-[1500px] items-center justify-between gap-4">
+                <div class="flex min-w-0 items-center gap-3">
+                    <button type="button" onclick="toggleSidebar(true)" class="rounded-lg border border-slate-200 p-2 lg:hidden">
+                        <i data-lucide="menu" class="h-5 w-5"></i>
+>>>>>>> 08f0257880bc6a1a2b4ae192c295e716b2e4c819
                     </button>
                     <div>
-                        <h1 class="text-xl font-extrabold text-slate-900 tracking-tight">
-                            @yield('page_title', 'Dasbor Ringkasan')
-                        </h1>
-                        <p class="hidden sm:block text-xs text-slate-400 font-medium mt-0.5">
-                            @yield('page_description', 'Pantau parameter operasional lembaga bahasa asing Brainy.')
-                        </p>
+                        <h1 class="truncate text-lg font-extrabold text-slate-900">@yield('page_title', 'Dashboard')</h1>
+                        <p class="hidden text-xs text-slate-500 sm:block">@yield('page_description')</p>
                     </div>
                 </div>
-
-                <div class="flex items-center gap-4">
-                    <div class="hidden sm:relative max-w-xs">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
-                            <i data-lucide="search" class="h-4 w-4"></i>
-                        </span>
-                        <input id="global-search-bar" type="text" placeholder="Cari data..." oninput="handleGlobalSearch(this.value)" class="h-9 w-60 rounded-xl border border-slate-200 bg-white pl-9 pr-4 text-xs font-medium outline-none transition focus:border-blue-500">
-                    </div>
-
-                    <a href="/" class="inline-flex h-9 items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-xs font-bold text-slate-700 shadow-sm transition hover:bg-slate-50 active:scale-[0.98]">
-                        <i data-lucide="home" class="h-4 w-4"></i>
-                        Home
-                    </a>
-
-                    <button onclick="handleLogout()" class="inline-flex h-9 items-center gap-2 rounded-xl bg-slate-900 px-4 text-xs font-bold text-white shadow-sm transition hover:bg-slate-800 active:scale-[0.98]">
-                        <i data-lucide="log-out" class="h-4 w-4"></i>
-                        Logout
-                    </button>
+                <div class="flex items-center gap-3">
+                    <span class="hidden text-sm font-bold text-slate-700 sm:inline">{{ auth()->user()->name }}</span>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="rounded-xl bg-slate-900 px-4 py-2 text-xs font-bold text-white hover:bg-slate-800">Logout</button>
+                    </form>
                 </div>
-            </header>
+            </div>
+        </header>
 
-            <main class="flex-1 p-6 space-y-6 max-w-[1600px] w-full mx-auto animate-scale-in">
-                @yield('content')
-            </main>
-
-            <footer class="border-t border-slate-200/50 bg-white py-4 text-center text-[10px] text-slate-400 mt-10">
-                &copy; 2026 Brainy Language Institute Portal Admin. Hak cipta dilindungi.
-            </footer>
-        </div>
+        <main class="mx-auto max-w-[1500px] space-y-6 p-5 sm:p-7">
+            @if (session('success'))
+                <div class="rounded-xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-bold text-emerald-800">{{ session('success') }}</div>
+            @endif
+            @if ($errors->any())
+                <div class="rounded-xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-bold text-rose-800">{{ $errors->first() }}</div>
+            @endif
+            @yield('content')
+        </main>
     </div>
+</div>
 
-    <!-- Toast Container -->
-    <div id="toast-container" class="fixed bottom-0 right-0 z-50 p-6 flex flex-col gap-3 font-sans"></div>
-
-    <!-- Global Layout Scripts -->
-    <script>
-        // Toggle Mobile Sidebar
-        function toggleSidebar(open) {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebar-overlay');
-            if (open) {
-                sidebar.classList.remove('-translate-x-full');
-                overlay.classList.remove('hidden');
-            } else {
-                sidebar.classList.add('-translate-x-full');
-                overlay.classList.add('hidden');
-            }
-        }
-
-        // Global Search stub - can be overridden in page scripts
-        function handleGlobalSearch(query) {
-            if (window.onLocalSearch) {
-                window.onLocalSearch(query);
-            }
-        }
-
-        // Admin Logout
-        function handleLogout() {
-            localStorage.removeItem('brainy_admin_auth');
-            showToast('Anda telah keluar dari sistem admin.', 'info');
-            setTimeout(() => {
-                window.location.href = '/logout';
-            }, 600);
-        }
-
-        // Custom Toast System
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toast-container');
-            const id = Date.now();
-            
-            const toast = document.createElement('div');
-            toast.id = `toast-${id}`;
-            toast.className = 'flex items-center gap-3 rounded-xl bg-slate-900 px-5 py-4 text-white shadow-xl animate-slide-in border border-slate-800 max-w-sm transition duration-300';
-            
-            const isSuccess = type === 'success';
-            const iconColor = isSuccess ? 'bg-emerald-500/10 text-emerald-400' : 'bg-blue-500/10 text-blue-400';
-            const iconName = isSuccess ? 'check' : 'bell';
-            
-            toast.innerHTML = `
-                <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${iconColor}">
-                    <i data-lucide="${iconName}" class="h-5 w-5"></i>
-                </div>
-                <div class="flex-1">
-                    <p class="text-sm font-semibold">${isSuccess ? 'Berhasil' : 'Info'}</p>
-                    <p class="text-xs text-slate-300 mt-0.5">${message}</p>
-                </div>
-                <button onclick="removeToast(${id})" class="text-slate-400 hover:text-white transition">
-                    <i data-lucide="x" class="h-4 w-4"></i>
-                </button>
-            `;
-            
-            container.appendChild(toast);
-            lucide.createIcons();
-
-            // Auto dismiss after 4s
-            setTimeout(() => {
-                removeToast(id);
-            }, 4000);
-        }
-
-        function removeToast(id) {
-            const toast = document.getElementById(`toast-${id}`);
-            if (toast) {
-                toast.classList.add('opacity-0', 'translate-y-2');
-                setTimeout(() => {
-                    toast.remove();
-                }, 300);
-            }
-        }
-
-        // Inform developer of unfinished features
-        function showDevInfo(featureName) {
-            showToast(`Halaman ${featureName} sedang dikembangkan.`, 'info');
-        }
-
-        // Sync Sidebar Badges
-        function syncSidebarBadges() {
-            try {
-                const waitListCount = JSON.parse(localStorage.getItem('brainy_waiting_list') || '[]').length;
-                const paymentsCount = JSON.parse(localStorage.getItem('brainy_pending_payments') || '[]').length;
-                
-                const badgeWaitList = document.getElementById('badge-waiting-list');
-                const badgePayments = document.getElementById('badge-pembayaran');
-                
-                if (badgeWaitList) {
-                    badgeWaitList.innerText = waitListCount;
-                    if (waitListCount > 0) badgeWaitList.classList.remove('hidden');
-                    else badgeWaitList.classList.add('hidden');
-                }
-                
-                if (badgePayments) {
-                    badgePayments.innerText = paymentsCount;
-                    if (paymentsCount > 0) badgePayments.classList.remove('hidden');
-                    else badgePayments.classList.add('hidden');
-                }
-            } catch (e) {
-                console.error(e);
-            }
-        }
-
-        // On DOM Loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            syncSidebarBadges();
-        });
-    </script>
-    
-    @yield('scripts')
+<script>
+    function toggleSidebar(open) {
+        document.getElementById('sidebar').classList.toggle('-translate-x-full', !open);
+        document.getElementById('sidebar-overlay').classList.toggle('hidden', !open);
+    }
+    document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+</script>
+@yield('scripts')
 </body>
 </html>

@@ -392,7 +392,7 @@
             <section class="auth-card auth-card-login" aria-labelledby="login-title">
                 <img src="{{ asset('images/logo_brainy.png') }}" alt="Brainy" class="auth-logo">
                 <h1 id="login-title" class="auth-title">Hello!</h1>
-                <p class="auth-subtitle">Sign In to Continue</p>
+                <p class="auth-subtitle">Masuk sebagai siswa, tutor, atau admin</p>
 
                 @if (session('success'))
                     <div class="auth-alert auth-alert-success">
@@ -431,7 +431,7 @@
                 </form>
 
                 <div class="auth-links">
-                    <button type="button" data-auth-toggle="register" data-url="{{ route('register') }}">Create Account</button>
+                    <a href="{{ route('classes.index') }}">Belum menjadi siswa? Daftar kelas</a>
                     <span>Forgot Password?</span>
                 </div>
             </section>
