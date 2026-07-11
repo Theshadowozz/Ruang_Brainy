@@ -1,427 +1,167 @@
-# Feature Documentation Ruang Brainy
+# Dokumentasi Fitur Ruang Brainy
 
-Dokumen ini menjelaskan seluruh fitur utama yang tersedia pada aplikasi Ruang Brainy berdasarkan route, controller, model, dan halaman view yang ada pada proyek. Bagian screenshot sengaja disediakan sebagai placeholder agar dapat dilengkapi setelah tampilan akhir aplikasi siap.
-
-Format setiap fitur:
-
-- **Tujuan**
-- **Aktor**
-- **Alur fitur**
-- **Route / Controller terkait**
-- **Output**
-- **Screenshot**
+Sesuai dengan ketentuan dokumentasi proyek, berikut adalah rincian fitur yang tersedia pada aplikasi Ruang Brainy:
 
 ---
 
-## 1. Landing Page dan Informasi Publik
+## 1. Autentikasi Multi-Level (Registrasi & Login)
+**Tujuan fitur:**
+Menyediakan sistem autentikasi multi-level (Admin, Tutor, dan Siswa) dengan hak akses yang berbeda untuk mengamankan sistem. Fitur ini memvalidasi username/email dan password pengguna. 
+**Aktor:**
+Siswa/Customer , Admin , Tutor 
+**Alur fitur:**
+User input data registrasi atau email & password login → sistem validasi kredensial → masuk ke dashboard sesuai hak akses (Siswa/Admin/Tutor) 
+**Route / Controller terkait:**
+`POST /login`
+`POST /register`
+(AuthController)
 
-| Field | Detail |
-|---|---|
-| **Tujuan** | Menampilkan halaman awal aplikasi sebagai pengenalan layanan Ruang Brainy kepada pengunjung sebelum login. |
-| **Aktor** | Pengunjung, Calon Siswa |
-| **Alur fitur** | Pengunjung membuka website -> sistem menampilkan halaman landing -> pengunjung melihat informasi umum layanan -> pengunjung dapat menuju halaman login atau registrasi. |
-| **Route terkait** | `GET /` |
-| **Controller terkait** | Route closure pada `routes/web.php` |
-| **Output** | Pengunjung mendapatkan gambaran awal tentang aplikasi Ruang Brainy. |
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/058012fe-eb03-4a55-8d56-de2f2ab633dd" />
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/a04fb8e8-ea73-4638-962b-54fa169b966b" />
 
-**Screenshot:**  
-_(Tambahkan screenshot landing page di sini.)_
-
----
-
-## 2. Registrasi Akun Siswa
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Memungkinkan pengguna baru membuat akun siswa pada sistem Ruang Brainy. |
-| **Aktor** | Calon Siswa |
-| **Alur fitur** | Pengguna membuka halaman register -> mengisi nama, email, password, dan konfirmasi password -> sistem memvalidasi input -> sistem membuat akun dengan role siswa -> pengguna otomatis login dan diarahkan ke dashboard. |
-| **Route terkait** | `GET /register`, `POST /register` |
-| **Controller terkait** | `AuthController@showRegister`, `AuthController@register` |
-| **Output** | Akun siswa berhasil dibuat dan pengguna masuk ke sistem. |
-
-**Screenshot:**  
-_(Tambahkan screenshot halaman register di sini.)_
 
 ---
 
-## 3. Login dan Logout
+## 2. Katalog dan Pencarian Kelas
+**Tujuan fitur:**
+Menampilkan katalog lengkap kursus bahasa (Inggris, Jepang, Korea) untuk semua jenjang usia dan menyediakan fitur filter kategori kursus berdasarkan bahasa dan metode belajar. 
+**Aktor:**
+Siswa/Customer 
+**Alur fitur:**
+Siswa buka website → lihat katalog kursus → melakukan pencarian dan memfilter kelas berdasarkan bahasa/metode → mengecek ketersediaan kelas 
+**Route / Controller terkait:**
+`GET /courses`
+`GET /courses/search`
+(CourseController)
 
-| Field | Detail |
-|---|---|
-| **Tujuan** | Mengamankan akses aplikasi dengan proses autentikasi email dan password serta menyediakan proses keluar dari sistem. |
-| **Aktor** | Admin, Tutor, Siswa |
-| **Alur fitur** | Pengguna membuka halaman login -> mengisi email dan password -> sistem memvalidasi kredensial -> session dibuat -> pengguna dapat logout saat selesai menggunakan aplikasi. |
-| **Route terkait** | `GET /login`, `POST /login`, `GET|POST /logout` |
-| **Controller terkait** | `AuthController@showLogin`, `AuthController@login`, `AuthController@logout` |
-| **Output** | Pengguna berhasil masuk atau keluar dari aplikasi dengan aman. |
-
-**Screenshot:**  
-_(Tambahkan screenshot halaman login dan logout di sini.)_
-
----
-
-## 4. Redirect Dashboard Berdasarkan Role
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Mengarahkan pengguna ke dashboard yang sesuai dengan role masing-masing setelah login. |
-| **Aktor** | Admin, Tutor, Siswa |
-| **Alur fitur** | Pengguna berhasil login -> sistem membaca role user -> admin diarahkan ke dashboard admin, tutor ke dashboard tutor, dan siswa ke dashboard siswa. |
-| **Route terkait** | `GET /dashboard`, `GET /admin/dashboard`, `GET /tutor/dashboard`, `GET /siswa/dashboard` |
-| **Controller terkait** | `AuthController@dashboard`, `SiswaDashboardController@index` |
-| **Output** | Setiap role mendapatkan halaman dashboard dan menu yang sesuai. |
-
-**Screenshot:**  
-_(Tambahkan screenshot redirect/dashboard sesuai role di sini.)_
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/50177129-fd99-4e3c-98e4-71e0e4602220" />
 
 ---
 
-## 5. Dashboard Admin dan Ringkasan Operasional
+## 3. Pendaftaran Kelas & Waiting List Otomatis
+**Tujuan fitur:**
+Memfasilitasi pendaftaran kursus online secara langsung di dalam platform dan menyediakan sistem *waiting list* otomatis apabila kuota kelas penuh. 
+**Aktor:**
+Siswa/Customer , Sistem Web Ruang Brainy 
+**Alur fitur:**
+Siswa mendaftar online mengisi formulir → sistem cek ketersediaan kuota kelas → jika kuota tersedia sistem menyimpan data pendaftaran dan mengirimkan notifikasi → jika kuota penuh, siswa dimasukkan ke *waiting list* 
+**Route / Controller terkait:**
+`POST /courses/{id}/enroll`
+(EnrollmentController)
 
-| Field | Detail |
-|---|---|
-| **Tujuan** | Menampilkan ringkasan operasional admin seperti pendaftaran, aktivitas terbaru, pembayaran pending, waiting list, dan akses cepat ke fitur manajemen. |
-| **Aktor** | Admin |
-| **Alur fitur** | Admin login -> membuka dashboard admin -> sistem menampilkan ringkasan data -> admin dapat memilih quick action untuk membuka menu manajemen tertentu. |
-| **Route terkait** | `GET /admin/dashboard`, `GET /admin` |
-| **Controller terkait** | Route closure pada `routes/web.php` |
-| **Output** | Admin dapat memantau kondisi operasional aplikasi dari satu halaman utama. |
+<img width="153" height="191" alt="image" src="https://github.com/user-attachments/assets/eebd78d6-399f-4aa9-9539-d51b1619e479" />
 
-**Screenshot:**  
-_(Tambahkan screenshot dashboard admin di sini.)_
-
----
-
-## 6. Manajemen Kursus Admin
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Memungkinkan admin mengelola data kursus, termasuk menambah, mengubah, menghapus, dan memfilter kursus berdasarkan level. |
-| **Aktor** | Admin |
-| **Alur fitur** | Admin membuka menu kelola kursus -> sistem menampilkan daftar kursus -> admin memfilter level kursus -> admin menambah atau mengedit data melalui modal -> data ditampilkan pada daftar kursus. |
-| **Route terkait** | `GET /admin/courses`, `GET /admin/kursus` |
-| **Controller terkait** | Route closure pada `routes/web.php`, view `admin/courses.blade.php` |
-| **Output** | Data kursus dapat dikelola oleh admin melalui halaman kursus. |
-
-**Screenshot:**  
-_(Tambahkan screenshot manajemen kursus di sini.)_
 
 ---
 
-## 7. Manajemen Tutor Admin
+## 4. Pembayaran Online Terintegrasi
+**Tujuan fitur:**
+Menyediakan sistem pembayaran kursus digital yang terintegrasi dengan *payment gateway* (Midtrans/Xendit atau sejenisnya) di dalam platform untuk transaksi yang aman. 
+**Aktor:**
+Siswa/Customer , Sistem Web Ruang Brainy , Sistem Pembayaran 
+**Alur fitur:**
+Siswa terima invoice atau tagihan → pilih metode pembayaran → melakukan pembayaran dan diproses oleh sistem pembayaran → jika berhasil, sistem mengirimkan status pembayaran ke sistem web → sistem update status siswa aktif dan kirim notifikasi pembayaran berhasil 
+**Route / Controller terkait:**
+`POST /payment/checkout`
+`POST /payment/callback`
+(PaymentController)
 
-| Field | Detail |
-|---|---|
-| **Tujuan** | Memungkinkan admin mengelola data tutor dan melihat jadwal mengajar tutor. |
-| **Aktor** | Admin |
-| **Alur fitur** | Admin membuka menu tutor -> sistem menampilkan daftar tutor -> admin memfilter tutor berdasarkan bahasa -> admin menambah, mengedit, menghapus, atau membuka jadwal tutor. |
-| **Route terkait** | `GET /admin/tutors`, `GET /admin/tutor` |
-| **Controller terkait** | Route closure pada `routes/web.php`, view `admin/tutors.blade.php` |
-| **Output** | Data tutor dan jadwal mengajar dapat dipantau serta dikelola admin. |
-
-**Screenshot:**  
-_(Tambahkan screenshot manajemen tutor di sini.)_
-
----
-
-## 8. Manajemen Data Siswa Admin
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Memungkinkan admin mengelola data siswa, memfilter berdasarkan bahasa/status, melihat detail profil, dan mengubah status siswa. |
-| **Aktor** | Admin |
-| **Alur fitur** | Admin membuka menu siswa -> sistem menampilkan daftar siswa -> admin memfilter data -> admin menambah atau membuka detail siswa -> admin dapat mengubah status menjadi Active, Inactive, atau Suspended. |
-| **Route terkait** | `GET /admin/students`, `GET /admin/siswa` |
-| **Controller terkait** | Route closure pada `routes/web.php`, view `admin/students.blade.php` |
-| **Output** | Admin dapat memantau dan memperbarui status data siswa. |
-
-**Screenshot:**  
-_(Tambahkan screenshot manajemen data siswa di sini.)_
+*(Tambahkan screenshot halaman pembayaran / invoice di sini)*
 
 ---
 
-## 9. Manajemen Pembayaran Admin
+## 5. Dashboard Admin (CMS & Monitoring)
+**Tujuan fitur:**
+Memungkinkan admin mengelola operasional dengan melakukan CRUD (Create, Read, Update, Delete) pada program kursus, data customer, jadwal, data tutor, testimoni, dan prestasi lembaga serta memonitor sistem melalui dashboard monitoring. 
+**Aktor:**
+Admin 
+**Alur fitur:**
+Admin login CMS → masuk ke *dashboard* monitoring → melakukan manajemen data (tambah/ubah/hapus kursus, customer, tutor, atau jadwal) → data langsung tampil di halaman publik 
+**Route / Controller terkait:**
+`Resource /admin/courses`
+`Resource /admin/customers`
+(AdminController / CourseController / CustomerController)
 
-| Field | Detail |
-|---|---|
-| **Tujuan** | Membantu admin memantau daftar pembayaran dan melakukan konfirmasi atau penolakan pembayaran. |
-| **Aktor** | Admin |
-| **Alur fitur** | Admin membuka menu pembayaran -> sistem menampilkan daftar pembayaran -> admin memfilter status pembayaran -> admin mengonfirmasi atau menolak pembayaran. |
-| **Route terkait** | `GET /admin/payments`, `GET /admin/pembayaran` |
-| **Controller terkait** | Route closure pada `routes/web.php`, view `admin/payments.blade.php` |
-| **Output** | Status pembayaran dapat dipantau dan diperbarui oleh admin. |
-
-**Screenshot:**  
-_(Tambahkan screenshot manajemen pembayaran di sini.)_
-
----
-
-## 10. Manajemen Jadwal Kelas Admin
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Memungkinkan admin mengatur jadwal kelas berdasarkan hari, kursus, tutor, waktu, ruangan, dan kuota. |
-| **Aktor** | Admin |
-| **Alur fitur** | Admin membuka menu jadwal -> sistem menampilkan jadwal mingguan -> admin memilih kelas atau membuka modal jadwal -> admin menambah atau mengubah jadwal kelas. |
-| **Route terkait** | `GET /admin/schedules`, `GET /admin/jadwal` |
-| **Controller terkait** | Route closure pada `routes/web.php`, view `admin/schedules.blade.php` |
-| **Output** | Jadwal kelas dapat diatur dan ditampilkan dalam tampilan mingguan. |
-
-**Screenshot:**  
-_(Tambahkan screenshot manajemen jadwal kelas di sini.)_
+<img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/b8943f59-6353-4535-b6dc-82577a718087" />
 
 ---
 
-## 11. Manajemen Waiting List Admin
+## 6. Laporan Keuangan & Riwayat Transaksi
+**Tujuan fitur:**
+Mengotomasi proses rekapitulasi data pembayaran dalam periode tertentu dan membuat Laporan Pembayaran/Keuangan untuk bahan evaluasi pemasukan , serta mengelola riwayat transaksi (tambah, lihat, hapus, rekap). 
+**Aktor:**
+Admin , Sistem Web 
+**Alur fitur:**
+Sistem mencatat transaksi masuk → rekap pembayaran → sistem membuat laporan pembayaran otomatis → Admin melihat riwayat transaksi dan memverifikasi laporan → Admin mengekspor Laporan Keuangan 
+**Route / Controller terkait:**
+`GET /admin/transactions`
+`GET /admin/reports/export`
+(TransactionController / ReportController)
 
-| Field | Detail |
-|---|---|
-| **Tujuan** | Memudahkan admin memantau calon siswa yang masuk daftar tunggu dan memproses statusnya. |
-| **Aktor** | Admin |
-| **Alur fitur** | Admin membuka waiting list -> sistem menampilkan daftar calon siswa -> admin memfilter berdasarkan bahasa -> admin menerima atau menolak data waiting list. |
-| **Route terkait** | `GET /admin/waitinglist`, `GET /admin/waitlist` |
-| **Controller terkait** | Route closure pada `routes/web.php`, view `admin/waitinglist.blade.php` |
-| **Output** | Data waiting list dapat dipantau dan diproses oleh admin. |
-
-**Screenshot:**  
-_(Tambahkan screenshot waiting list di sini.)_
-
----
-
-## 12. Manajemen Quiz Admin
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Memungkinkan admin mengunggah quiz mingguan berbasis gambar, menghapus quiz, dan melihat jawaban siswa. |
-| **Aktor** | Admin |
-| **Alur fitur** | Admin membuka halaman quiz -> admin mengisi judul, minggu, deskripsi, bahasa, level, dan gambar quiz -> sistem menyimpan quiz -> admin dapat melihat quiz terupload dan jawaban siswa. |
-| **Route terkait** | `GET /admin/quiz`, `POST /admin/quiz`, `DELETE /admin/quiz/{quiz}` |
-| **Controller terkait** | `AdminQuizController@index`, `AdminQuizController@store`, `AdminQuizController@destroy` |
-| **Output** | Quiz tersedia untuk siswa dan jawaban siswa dapat dipantau admin. |
-
-**Screenshot:**  
-_(Tambahkan screenshot manajemen quiz admin di sini.)_
+<img width="400" height="203" alt="image" src="https://github.com/user-attachments/assets/b9c61602-1ce9-4938-82c0-303f16550d14" />
 
 ---
 
-## 13. Dashboard Siswa
+## 7. Forum Diskusi Interaktif
 
-| Field | Detail |
-|---|---|
-| **Tujuan** | Menyediakan halaman utama siswa yang berisi sambutan, ringkasan kelas aktif, akses cepat fitur belajar, dan jadwal terdekat. |
-| **Aktor** | Siswa |
-| **Alur fitur** | Siswa login -> sistem membuka dashboard siswa -> siswa melihat kelas aktif dan jadwal -> siswa memilih fitur seperti kelas kursus, audio, quiz, diskusi, translate, atau jadwal. |
-| **Route terkait** | `GET /siswa/dashboard` |
-| **Controller terkait** | `SiswaDashboardController@index` |
-| **Output** | Siswa mendapatkan pusat navigasi belajar setelah login. |
+**Tujuan fitur:** Menyediakan forum diskusi sebagai media komunikasi antara 
+**admin, tutor, dan siswa/customer** untuk berdiskusi, bertanya, berbagi informasi, serta membahas materi pembelajaran maupun hal yang berkaitan dengan platform Brainy.
+**Aktor:** Siswa/Customer, Tutor, Admin
+**Alur fitur:** Buka menu **Forum Diskusi** di dashboard → pilih kategori forum (**Keluhan**, **Seputar Brainy**, atau **Pembelajaran**) → melihat atau membuat topik diskusi → pengguna lain memberikan balasan atau komentar → sistem menampilkan seluruh riwayat diskusi sesuai kategori.
 
-**Screenshot:**  
-_(Tambahkan screenshot dashboard siswa di sini.)_
+**Fitur utama:**
+- Membuat topik diskusi baru
+- Membalas komentar pada topik diskusi
+- Menampilkan seluruh diskusi berdasarkan kategori
+- Menghapus topik atau komentar (Admin)
+- Menampilkan riwayat diskusi
 
----
-
-## 14. Katalog Kelas Kursus Siswa
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Menampilkan daftar kelas kursus bahasa yang dapat dilihat dan difilter oleh siswa. |
-| **Aktor** | Siswa |
-| **Alur fitur** | Siswa membuka menu kelas kursus -> sistem menampilkan daftar kelas -> siswa memfilter berdasarkan bahasa atau level -> daftar kelas diperbarui sesuai filter. |
-| **Route terkait** | `GET /siswa/kelas-kursus` |
-| **Controller terkait** | `SiswaCourseController@index` |
-| **Output** | Siswa dapat melihat pilihan kelas bahasa Inggris, Jepang, dan Korea berdasarkan level. |
-
-**Screenshot:**  
-_(Tambahkan screenshot katalog kelas kursus di sini.)_
+<img width="400" height="200" alt="WhatsApp Image 2026-06-29 at 14 04 40" src="https://github.com/user-attachments/assets/f2d87d0d-0c1c-4e7d-9a85-bc85aacf7bc6" />
 
 ---
 
-## 15. Detail Kelas dan Pendaftaran Online
+## 8. Audio Listening Interaktif
+**Tujuan fitur:**
+Mendukung pembelajaran bahasa dengan fitur pemutar audio *listening* interaktif yang dilengkapi tombol *play, pause, volume*, dan *repeat*. 
+**Aktor:**
+Siswa/Customer 
+**Alur fitur:**
+Siswa membuka halaman pembelajaran siswa → mengakses player audio listening → menggunakan tombol kontrol audio (play, pause, volume, repeat) 
+**Route / Controller terkait:**
+`GET /learning/materi/{id}`
+(LearningController)
 
-| Field | Detail |
-|---|---|
-| **Tujuan** | Menampilkan detail kelas yang dipilih, termasuk jadwal, tutor, materi pembelajaran, kapasitas, durasi, harga, dan tombol pendaftaran online. |
-| **Aktor** | Siswa |
-| **Alur fitur** | Siswa memilih kelas dari katalog -> sistem membuka detail kelas -> siswa membaca informasi kursus -> siswa dapat menekan tombol daftar kelas. |
-| **Route terkait** | `GET /siswa/kelas-kursus/{slug}` |
-| **Controller terkait** | `SiswaCourseController@show` |
-| **Output** | Informasi detail kelas tampil sebelum siswa melakukan pendaftaran. |
-
-**Screenshot:**  
-_(Tambahkan screenshot detail kelas dan pendaftaran online di sini.)_
-
----
-
-## 16. Audio Listening
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Menyediakan materi audio untuk latihan listening siswa berdasarkan bahasa pembelajaran. |
-| **Aktor** | Siswa |
-| **Alur fitur** | Siswa membuka menu audio -> sistem menampilkan daftar audio -> siswa memfilter bahasa -> siswa mendengarkan audio, mengunduh file, membuka transkrip, dan sistem menandai audio yang sudah didengarkan. |
-| **Route terkait** | `GET /siswa/audio`, `GET /siswa/audio/{id}/download`, `POST /siswa/audio/{id}/listen` |
-| **Controller terkait** | `SiswaAudioController@index`, `SiswaAudioController@download`, `SiswaAudioController@markListened` |
-| **Output** | Siswa dapat mengakses audio listening dan riwayat audio yang sudah didengar tersimpan. |
-
-**Screenshot:**  
-_(Tambahkan screenshot audio listening di sini.)_
+<img width="400" height="200" alt="WhatsApp Image 2026-06-29 at 14 06 15" src="https://github.com/user-attachments/assets/53fffb66-8f7b-4067-a42d-92b05da996e7" />
 
 ---
 
-## 17. Quiz Mingguan Siswa
+## 9. Kuis Interaktif
+**Tujuan fitur:**
+Menyediakan sarana evaluasi siswa melalui kuis interaktif dengan sistem pengacakan (*random*) soal per sesi pengerjaan siswa. 
+**Aktor:**
+Siswa/Customer 
+**Alur fitur:**
+Siswa mengakses halaman pembelajaran → memulai sesi kuis dengan soal random → menjawab soal kuis → melihat hasil atau evaluasi kuis 
+**Route / Controller terkait:**
+`GET /quiz/{id}`
+`POST /quiz/{id}/submit`
+(QuizController)
 
-| Field | Detail |
-|---|---|
-| **Tujuan** | Menyediakan halaman pengerjaan quiz mingguan bagi siswa dan menyimpan jawaban yang dikirim. |
-| **Aktor** | Siswa |
-| **Alur fitur** | Siswa membuka menu quiz -> sistem menampilkan quiz yang tersedia -> siswa melihat gambar quiz -> siswa menulis jawaban -> sistem menyimpan jawaban siswa. |
-| **Route terkait** | `GET /siswa/quiz`, `POST /siswa/quiz/{quiz}/answer` |
-| **Controller terkait** | `SiswaQuizController@index`, `SiswaQuizController@answer` |
-| **Output** | Jawaban siswa tersimpan dan dapat dilihat oleh admin. |
+<img width="400" height="200" alt="WhatsApp Image 2026-06-29 at 14 05 14" src="https://github.com/user-attachments/assets/869cec24-d5bc-4e68-8a77-633bfa07dab1" />
 
-**Screenshot:**  
-_(Tambahkan screenshot quiz siswa di sini.)_
-
----
-
-## 18. Translate Bahasa
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Membantu siswa menerjemahkan teks antara Bahasa Indonesia dan bahasa pembelajaran seperti English, Korean, atau Japanese. |
-| **Aktor** | Siswa |
-| **Alur fitur** | Siswa membuka menu translate -> memilih bahasa sumber dan target -> memasukkan teks -> sistem memvalidasi pasangan bahasa -> sistem mengirim request translate -> hasil dan riwayat terjemahan ditampilkan. |
-| **Route terkait** | `GET /siswa/translate`, `POST /siswa/translate` |
-| **Controller terkait** | `SiswaTranslateController@index`, `SiswaTranslateController@translate` |
-| **Output** | Hasil terjemahan tampil dan riwayat terjemahan terakhir tersimpan di session. |
-
-**Screenshot:**  
-_(Tambahkan screenshot fitur translate di sini.)_
 
 ---
 
-## 19. Kontrol Translate Interaktif
+## 10. Integrasi Lokasi & Kontak (Hubungi Kami)
+**Tujuan fitur:**
+Menyajikan halaman Hubungi Kami yang berisi nomor kontak, alamat (Jl. Alai Parak Kopi), jam operasional, dan media sosial dengan *embed* Google Maps yang interaktif untuk menunjukkan lokasi fisik Brainy Course. 
+**Aktor:**
+Publik, Siswa/Customer 
+**Alur fitur:**
+User membuka navbar atau halaman Hubungi Kami → melihat informasi kontak, alamat, jam operasional → berinteraksi dengan widget Google Maps interaktif 
+**Route / Controller terkait:**
+`GET /contact`
+(ContactController)
 
-| Field | Detail |
-|---|---|
-| **Tujuan** | Melengkapi fitur translate dengan interaksi tambahan seperti tukar bahasa, hapus input, input suara, dengarkan teks, salin hasil, dan riwayat copy. |
-| **Aktor** | Siswa |
-| **Alur fitur** | Siswa menggunakan tombol interaktif pada halaman translate -> sistem menjalankan fungsi sesuai tombol -> tampilan input, output, atau riwayat diperbarui. |
-| **Route terkait** | `GET /siswa/translate`, `POST /siswa/translate` |
-| **Controller terkait** | `SiswaTranslateController`, script pada view `siswa/translate.blade.php` |
-| **Output** | Penggunaan translate menjadi lebih praktis dan interaktif. |
+<img width="355" height="212" alt="image" src="https://github.com/user-attachments/assets/e2e2f1d1-2033-43c0-a262-3c01e501c20c" />
 
-**Screenshot:**  
-_(Tambahkan screenshot kontrol translate interaktif di sini.)_
-
----
-
-## 20. Jadwal dan Progress Belajar Siswa
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Menampilkan kelas aktif, kelas selesai, jadwal mingguan, progress belajar, kehadiran, nilai rata-rata, tugas, dan materi tersedia. |
-| **Aktor** | Siswa |
-| **Alur fitur** | Siswa membuka menu jadwal -> memilih tab aktif, selesai, atau jadwal -> sistem menampilkan informasi sesuai tab -> siswa dapat membuka materi, audio, atau forum diskusi. |
-| **Route terkait** | `GET /siswa/jadwal` |
-| **Controller terkait** | `SiswaScheduleController@index` |
-| **Output** | Siswa dapat memantau perkembangan belajar dan jadwal kelas. |
-
-**Screenshot:**  
-_(Tambahkan screenshot jadwal dan progress belajar siswa di sini.)_
-
----
-
-## 21. Forum Diskusi Multi-Role
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Menyediakan ruang diskusi untuk admin, tutor, dan siswa berdasarkan kategori topik. |
-| **Aktor** | Admin, Tutor, Siswa |
-| **Alur fitur** | Pengguna membuka forum diskusi -> memilih kategori -> sistem menampilkan topik -> pengguna membuat topik atau membalas pesan -> sistem menyimpan diskusi. |
-| **Route terkait** | `GET /siswa/diskusi`, `GET /admin/diskusi`, `GET /tutor/diskusi`, `POST /{role}/diskusi`, `POST /{role}/diskusi/{topic}/messages` |
-| **Controller terkait** | `DiscussionController@index`, `DiscussionController@storeTopic`, `DiscussionController@storeMessage` |
-| **Output** | Topik dan pesan diskusi tersimpan serta dapat dibaca oleh pengguna sesuai role. |
-
-**Screenshot:**  
-_(Tambahkan screenshot forum diskusi di sini.)_
-
----
-
-## 22. Live Update Forum Diskusi
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Memperbarui daftar topik diskusi secara dinamis tanpa harus memuat ulang seluruh halaman. |
-| **Aktor** | Admin, Tutor, Siswa |
-| **Alur fitur** | Pengguna membuka forum -> sistem memanggil endpoint live berdasarkan kategori -> server mengembalikan HTML topik terbaru dan waktu update -> tampilan diskusi diperbarui. |
-| **Route terkait** | `GET /siswa/diskusi/live`, `GET /admin/diskusi/live`, `GET /tutor/diskusi/live` |
-| **Controller terkait** | `DiscussionController@live` |
-| **Output** | Daftar diskusi dapat diperbarui secara lebih cepat dan interaktif. |
-
-**Screenshot:**  
-_(Tambahkan screenshot live update forum diskusi di sini.)_
-
----
-
-## 23. Dashboard Tutor
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Menyediakan halaman awal untuk tutor setelah login dan akses cepat ke forum diskusi. |
-| **Aktor** | Tutor |
-| **Alur fitur** | Tutor login -> sistem mengarahkan ke dashboard tutor -> tutor melihat halaman sambutan -> tutor dapat membuka forum diskusi. |
-| **Route terkait** | `GET /tutor/dashboard`, `GET /tutor/diskusi` |
-| **Controller terkait** | Route closure pada `routes/web.php`, `DiscussionController@index` |
-| **Output** | Tutor mendapatkan halaman kerja sederhana dan akses ke diskusi. |
-
-**Screenshot:**  
-_(Tambahkan screenshot dashboard tutor di sini.)_
-
----
-
-## 24. Middleware dan Hak Akses Role
-
-| Field | Detail |
-|---|---|
-| **Tujuan** | Membatasi akses halaman berdasarkan role agar admin, tutor, dan siswa hanya dapat membuka fitur yang sesuai. |
-| **Aktor** | Sistem, Admin, Tutor, Siswa |
-| **Alur fitur** | Pengguna mengakses route tertentu -> middleware atau pengecekan role memvalidasi hak akses -> jika sesuai halaman ditampilkan -> jika tidak sesuai sistem menolak akses. |
-| **Route terkait** | Route dengan middleware `auth`, `role:1`, `role:2`, `role:3` |
-| **Controller terkait** | `AuthController`, `User` model helper role, middleware role |
-| **Output** | Akses aplikasi lebih aman dan terpisah berdasarkan jenis pengguna. |
-
-**Screenshot:**  
-_(Tambahkan screenshot contoh akses role atau halaman forbidden bila diperlukan.)_
-
----
-
-## Ringkasan Fitur
-
-| No | Fitur | Aktor Utama | Status |
-|---:|---|---|---|
-| 1 | Landing Page dan Informasi Publik | Pengunjung | Tersedia |
-| 2 | Registrasi Akun Siswa | Calon Siswa | Tersedia |
-| 3 | Login dan Logout | Admin, Tutor, Siswa | Tersedia |
-| 4 | Redirect Dashboard Berdasarkan Role | Admin, Tutor, Siswa | Tersedia |
-| 5 | Dashboard Admin dan Ringkasan Operasional | Admin | Tersedia |
-| 6 | Manajemen Kursus Admin | Admin | Tersedia |
-| 7 | Manajemen Tutor Admin | Admin | Tersedia |
-| 8 | Manajemen Data Siswa Admin | Admin | Tersedia |
-| 9 | Manajemen Pembayaran Admin | Admin | Tersedia |
-| 10 | Manajemen Jadwal Kelas Admin | Admin | Tersedia |
-| 11 | Manajemen Waiting List Admin | Admin | Tersedia |
-| 12 | Manajemen Quiz Admin | Admin | Tersedia |
-| 13 | Dashboard Siswa | Siswa | Tersedia |
-| 14 | Katalog Kelas Kursus Siswa | Siswa | Tersedia |
-| 15 | Detail Kelas dan Pendaftaran Online | Siswa | Tersedia |
-| 16 | Audio Listening | Siswa | Tersedia |
-| 17 | Quiz Mingguan Siswa | Siswa | Tersedia |
-| 18 | Translate Bahasa | Siswa | Tersedia |
-| 19 | Kontrol Translate Interaktif | Siswa | Tersedia |
-| 20 | Jadwal dan Progress Belajar Siswa | Siswa | Tersedia |
-| 21 | Forum Diskusi Multi-Role | Admin, Tutor, Siswa | Tersedia |
-| 22 | Live Update Forum Diskusi | Admin, Tutor, Siswa | Tersedia |
-| 23 | Dashboard Tutor | Tutor | Tersedia |
-| 24 | Middleware dan Hak Akses Role | Sistem | Tersedia |

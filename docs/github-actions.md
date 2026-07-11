@@ -1,112 +1,181 @@
-# GitHub Actions Documentation
+# G. GitHub Actions Documentation
 
-Dokumen ini disiapkan untuk tahap final proyek. Isinya akan menjelaskan workflow GitHub Actions yang digunakan untuk membantu pengecekan otomatis repository.
+**File:**
 
-## 1. Tujuan
+```text
+docs/github_actions.md
+```
 
-GitHub Actions digunakan untuk menjalankan proses otomatis seperti install dependency, test, build asset frontend, dan pengecekan format kode saat ada perubahan pada repository.
+---
 
-## 2. Status Saat Ini
+## Workflow yang Digunakan
 
-| Item | Keterangan |
-| --- | --- |
-| Status dokumen | Template final |
-| Waktu pengisian | Saat final |
-| Workflow aktif | Belum ada |
-| Folder workflow | `.github/workflows/` |
-| Status badge | Belum tersedia |
-| Screenshot workflow | Belum tersedia |
+Workflow GitHub Actions digunakan untuk melakukan proses **Continuous Integration (CI)** secara otomatis pada project Laravel. Workflow ini akan menyiapkan environment PHP, menginstal seluruh dependency menggunakan Composer, membuat konfigurasi aplikasi Laravel, membuat database SQLite untuk pengujian, kemudian menjalankan seluruh Unit Test dan Feature Test menggunakan Laravel Artisan.
 
-## 3. Rencana Workflow
+---
 
-Workflow yang direkomendasikan untuk proyek Laravel Brainy:
-
-| Workflow | Tujuan | Trigger |
-| --- | --- | --- |
-| Laravel Test | Install Composer dependency dan menjalankan test Laravel | Pull request dan push |
-| Frontend Build | Install npm dependency dan menjalankan `npm run build` | Pull request dan push |
-| Code Style | Menjalankan Laravel Pint | Pull request |
-
-## 4. Contoh Struktur Workflow
-
-File workflow nantinya dapat ditempatkan di:
+## Lokasi File
 
 ```text
 .github/workflows/laravel.yml
 ```
 
-Contoh tahapan umum:
+---
+
+## Trigger
+
+Workflow akan dijalankan secara otomatis ketika terjadi:
+
+- **Push** ke branch `main`
+- **Pull Request** ke branch `main`
+
+Konfigurasi trigger:
 
 ```yaml
-name: Laravel CI
-
 on:
   push:
-    branches: [main, tiara]
+    branches: [ "main" ]
   pull_request:
-    branches: [main, tiara]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-
-      - name: Install Composer dependencies
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader
-
-      - name: Copy environment file
-        run: cp .env.example .env
-
-      - name: Generate application key
-        run: php artisan key:generate
-
-      - name: Run tests
-        run: php artisan test
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install npm dependencies
-        run: npm install
-
-      - name: Build frontend assets
-        run: npm run build
+    branches: [ "main" ]
 ```
 
-Catatan: contoh di atas belum dibuat sebagai workflow aktif. Workflow final perlu disesuaikan dengan branch utama, kebutuhan database testing, dan standar tim.
+---
 
-## 5. Hasil Workflow
+## Tahapan Workflow
 
-Karena workflow belum dibuat, belum ada hasil run GitHub Actions yang dapat dilampirkan. Saat final, bagian ini perlu diisi dengan:
+### 1. Setup PHP
 
-- Screenshot status workflow dari tab Actions GitHub.
-- Status badge pada README jika workflow sudah stabil.
-- Catatan run terakhir, misalnya success atau failed.
-- Ringkasan error jika workflow gagal.
+Menginstal PHP versi **8.2** yang digunakan oleh project Laravel.
 
-Contoh badge yang dapat ditambahkan setelah workflow aktif:
-
-```markdown
-![Laravel CI](https://github.com/Theshadowozz/Ruang_Brainy/actions/workflows/laravel.yml/badge.svg)
+```yaml
+- uses: shivammathur/setup-php@...
+  with:
+    php-version: '8.2'
 ```
 
-## 6. Checklist Final
+---
 
-- Folder `.github/workflows/` tersedia.
-- Workflow berjalan pada branch yang benar.
-- Composer dependency berhasil diinstall.
-- npm dependency berhasil diinstall.
-- Test Laravel berhasil dijalankan.
-- Build frontend berhasil dijalankan.
-- Jika memakai database testing, konfigurasi environment CI sudah sesuai.
-- Badge status workflow dapat ditambahkan ke README jika workflow sudah aktif.
+### 2. Checkout Source Code
+
+Mengambil source code terbaru dari repository GitHub.
+
+```yaml
+- uses: actions/checkout@v4
+```
+
+---
+
+### 3. Copy Environment File
+
+Membuat file `.env` secara otomatis apabila file tersebut belum tersedia.
+
+```yaml
+- name: Copy .env
+  run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+```
+
+---
+
+### 4. Install Dependencies
+
+Menginstal seluruh dependency project Laravel menggunakan Composer.
+
+```yaml
+- name: Install Dependencies
+  run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+```
+
+---
+
+### 5. Generate Application Key
+
+Membuat **APP_KEY** yang diperlukan oleh Laravel.
+
+```yaml
+- name: Generate key
+  run: php artisan key:generate
+```
+
+---
+
+### 6. Mengatur Hak Akses Direktori
+
+Memberikan hak akses pada folder yang digunakan Laravel untuk menyimpan cache dan file sementara.
+
+Folder yang diberikan permission:
+
+- `storage`
+- `bootstrap/cache`
+
+```yaml
+- name: Directory Permissions
+  run: chmod -R 777 storage bootstrap/cache
+```
+
+---
+
+### 7. Membuat Database SQLite
+
+Membuat file database SQLite yang digunakan selama proses pengujian.
+
+```yaml
+- name: Create Database
+  run: |
+    mkdir -p database
+    touch database/database.sqlite
+```
+
+---
+
+### 8. Menjalankan Pengujian
+
+Menjalankan seluruh Unit Test dan Feature Test menggunakan Laravel Artisan dengan konfigurasi database SQLite.
+
+```yaml
+- name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
+  env:
+    DB_CONNECTION: sqlite
+    DB_DATABASE: database/database.sqlite
+  run: php artisan test
+```
+
+---
+
+## Environment yang Digunakan
+
+| Komponen | Konfigurasi |
+|----------|-------------|
+| Operating System | Ubuntu Latest |
+| PHP | 8.2 |
+| Framework | Laravel |
+| CSS Framework | Tailwind CSS |
+| Dependency Manager | Composer |
+| Database Testing | SQLite |
+| Testing Framework | PHPUnit / Pest |
+
+---
+
+## Alur Workflow
+
+1. GitHub mendeteksi **Push** atau **Pull Request** pada branch `main`.
+2. GitHub Actions membuat runner dengan sistem operasi **Ubuntu Latest**.
+3. Menginstal PHP versi **8.2**.
+4. Mengambil source code dari repository.
+5. Membuat file `.env`.
+6. Menginstal dependency menggunakan Composer.
+7. Membuat **Application Key** Laravel.
+8. Memberikan permission pada folder `storage` dan `bootstrap/cache`.
+9. Membuat database SQLite untuk proses testing.
+10. Menjalankan seluruh Unit Test dan Feature Test menggunakan perintah `php artisan test`.
+
+---
+
+## Tujuan Penggunaan GitHub Actions
+
+Implementasi GitHub Actions pada project ini bertujuan untuk:
+
+- Mengotomatisasi proses pengujian aplikasi setiap terjadi perubahan kode.
+- Memastikan seluruh dependency berhasil diinstal sebelum aplikasi dijalankan.
+- Menjamin konfigurasi Laravel telah siap digunakan pada lingkungan CI.
+- Memastikan seluruh Unit Test dan Feature Test berhasil dijalankan.
+- Membantu menjaga kualitas kode sebelum perubahan digabungkan ke branch utama.
