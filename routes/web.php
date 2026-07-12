@@ -17,14 +17,44 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
-    Route::match(['get', 'post'], '/logout', [AuthController::class, 'logout'])->name('logout');
-
     Route::get('/admin/dashboard', function () {
-        abort_unless(Auth::user()->role === User::ROLE_ADMIN, 403);
-
+        abort_unless(Auth::user()->isAdmin(), 403);
         return view('admin.dashboard');
     })->name('admin.dashboard');
+
+    Route::get('/admin/waitinglist', function () {
+        abort_unless(Auth::user()->isAdmin(), 403);
+        return view('admin.waitinglist');
+    })->name('admin.waitinglist');
+
+    Route::get('/admin/tutors', function () {
+        abort_unless(Auth::user()->isAdmin(), 403);
+        return view('admin.tutors');
+    })->name('admin.tutors');
+
+    Route::get('/admin/students', function () {
+        abort_unless(Auth::user()->isAdmin(), 403);
+        return view('admin.students');
+    })->name('admin.students');
+});
+
+// Redirects for compatibility
+Route::get('/admin/waitlist', function () {
+    return redirect()->route('admin.waitinglist');
+});
+Route::get('/admin/tutor', function () {
+    return redirect()->route('admin.tutors');
+});
+Route::get('/admin/siswa', function () {
+    return redirect()->route('admin.students');
+});
+Route::get('/admin', function () {
+    return redirect()->route('admin.dashboard');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+    Route::match(['get', 'post'], '/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/tutor/dashboard', function () {
         abort_unless(Auth::user()->role === User::ROLE_TUTOR, 403);
@@ -50,5 +80,6 @@ Route::middleware(['auth', 'role:2'])->group(function () {
     Route::get('/siswa/quiz', [\App\Http\Controllers\Siswa\SiswaQuizController::class, 'index'])->name('siswa.quiz.index');
     Route::get('/siswa/quiz/{id}/start', [\App\Http\Controllers\Siswa\SiswaQuizController::class, 'start'])->name('siswa.quiz.start');
     Route::post('/siswa/quiz/{id}/submit', [\App\Http\Controllers\Siswa\SiswaQuizController::class, 'submit'])->name('siswa.quiz.submit');
+    Route::get('/siswa/translate', [\App\Http\Controllers\Siswa\SiswaTranslateController::class, 'index'])->name('siswa.translate.index');
+    Route::post('/siswa/translate', [\App\Http\Controllers\Siswa\SiswaTranslateController::class, 'translate'])->name('siswa.translate.store');
 });
-

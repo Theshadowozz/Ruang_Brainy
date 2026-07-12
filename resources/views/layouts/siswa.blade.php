@@ -19,8 +19,9 @@
 
             <!-- Navigation Menu -->
             <nav class="flex items-center gap-6 text-sm font-medium text-gray-700">
-                <a href="{{ url('/siswa/dashboard') }}" class="hover:text-blue-700 transition {{ request()->is('siswa/dashboard') ? 'text-blue-700 font-semibold' : '' }}">
-                    Home
+                <a href="{{ url('/siswa/dashboard') }}" class="flex items-center gap-1.5 hover:text-blue-700 transition {{ request()->is('siswa/dashboard') ? 'text-blue-700 font-semibold' : '' }}">
+                    <img src="{{ asset('asset/home.svg') }}" alt="" class="h-4 w-4 object-contain">
+                    <span>Home</span>
                 </a>
                 
                 <!-- Logout Trigger -->
