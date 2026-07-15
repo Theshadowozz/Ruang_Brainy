@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\CourseClass;
 use App\Models\Tutor;
+use App\Services\CoursePricingService;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -41,13 +42,15 @@ class AdminCourseController extends Controller
 
     private function validated(Request $request): array
     {
-        return $request->validate([
+        $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'language' => ['required', Rule::in(['Inggris', 'Jepang', 'Korea'])],
             'level' => ['required', Rule::in(['Beginner', 'Intermediate', 'Advance'])],
             'tutor_id' => ['required', 'exists:tutors,id'],
-            'price' => ['required', 'numeric', 'min:0'],
             'description' => ['required', 'string'],
         ]);
+        $validated['price'] = app(CoursePricingService::class)->subtotalFor($validated['level']);
+
+        return $validated;
     }
 }

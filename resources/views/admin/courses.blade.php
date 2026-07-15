@@ -33,7 +33,7 @@
                 <option value="">Pilih tutor</option>
                 @foreach ($tutors as $tutor)<option value="{{ $tutor->id }}">{{ $tutor->name }}</option>@endforeach
             </select>
-            <input name="price" type="number" min="0" required placeholder="Harga" class="h-11 rounded-xl border border-slate-300 px-4">
+            <div class="flex h-11 items-center rounded-xl border border-blue-100 bg-blue-50 px-4 text-sm font-bold text-blue-800">Harga otomatis mengikuti level</div>
             <textarea name="description" required placeholder="Deskripsi kelas" class="min-h-24 rounded-xl border border-slate-300 px-4 py-3 xl:col-span-2"></textarea>
             <button class="rounded-xl bg-blue-600 px-5 py-3 font-bold text-white hover:bg-blue-700">Simpan Kelas</button>
         </form>
@@ -57,7 +57,7 @@
                         <select name="tutor_id" class="h-10 rounded-lg border border-slate-300 px-3">
                             @foreach ($tutors as $tutor)<option value="{{ $tutor->id }}" @selected($class->tutor_id === $tutor->id)>{{ $tutor->name }}</option>@endforeach
                         </select>
-                        <input name="price" type="number" value="{{ (int) $class->price }}" required class="h-10 rounded-lg border border-slate-300 px-3">
+                        <div class="flex h-10 items-center rounded-lg border border-blue-100 bg-blue-50 px-3 text-xs font-bold text-blue-800">Rp {{ number_format($class->price, 0, ',', '.') }}/bulan</div>
                         <textarea name="description" required class="min-h-20 rounded-lg border border-slate-300 px-3 py-2 md:col-span-2 xl:col-span-5">{{ $class->description }}</textarea>
                         <button class="rounded-lg bg-slate-900 px-4 py-2 text-sm font-bold text-white">Simpan Perubahan</button>
                     </form>

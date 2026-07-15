@@ -32,8 +32,8 @@
 <section class="grid gap-6 xl:grid-cols-2">
     <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div class="border-b border-slate-100 p-5">
-            <h2 class="font-black">Siswa dengan pembayaran terkonfirmasi</h2>
-            <p class="mt-1 text-sm text-slate-500">Pendaftaran tampil di sini setelah admin mengonfirmasi pembayaran.</p>
+            <h2 class="font-black">Siswa dengan pembayaran berhasil</h2>
+            <p class="mt-1 text-sm text-slate-500">Pendaftaran aktif otomatis setelah webhook Midtrans tervalidasi.</p>
         </div>
         <div class="divide-y divide-slate-100">
             @forelse ($confirmedRegistrations as $registration)
@@ -52,7 +52,7 @@
 
     <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div class="flex items-center justify-between border-b border-slate-100 p-5">
-            <div><h2 class="font-black">Pembayaran menunggu verifikasi</h2><p class="mt-1 text-sm text-slate-500">Siswa sudah menekan tombol pembayaran.</p></div>
+            <div><h2 class="font-black">Pembayaran menunggu Midtrans</h2><p class="mt-1 text-sm text-slate-500">Order dibuat, tetapi belum settlement/capture.</p></div>
             <a href="{{ route('admin.payments.index') }}" class="text-sm font-bold text-blue-700">Buka</a>
         </div>
         <div class="divide-y divide-slate-100">

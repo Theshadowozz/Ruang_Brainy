@@ -40,12 +40,12 @@ class AuthController extends Controller
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             if (Auth::user()->isSiswa() && (
                 ! Auth::user()->is_active
-                || ! Auth::user()->registrations()->where('status', 'accepted')->exists()
+                || ! Auth::user()->hasAcceptedRegistration()
             )) {
                 Auth::logout();
 
                 return back()
-                    ->withErrors(['email' => 'Akun belum aktif. Selesaikan pembayaran dan tunggu konfirmasi admin.'])
+                    ->withErrors(['email' => 'Akun belum aktif. Selesaikan pembayaran Midtrans atau tunggu kursi kelas tersedia.'])
                     ->onlyInput('email');
             }
 

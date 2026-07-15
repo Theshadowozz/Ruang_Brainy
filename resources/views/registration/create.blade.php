@@ -24,7 +24,11 @@
 
         <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-9">
             <h2 class="text-3xl font-black">Lengkapi data pendaftaran</h2>
-            <p class="mt-2 text-slate-500">Email dan password ini digunakan untuk login setelah pembayaran dikonfirmasi admin.</p>
+            <p class="mt-2 text-slate-500">Email dan password digunakan untuk login setelah pembayaran Midtrans berhasil dan kursi tersedia.</p>
+
+            @if ($willJoinWaitingList)
+                <div class="mt-5 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm font-bold leading-6 text-amber-900">Jadwal penuh. Pendaftaran ini akan masuk waiting list setelah pembayaran. Akun aktif saat admin mempromosikan antrean karena kursi tersedia.</div>
+            @endif
 
             @if ($errors->any())
                 <div class="mt-6 rounded-xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-semibold text-rose-800">{{ $errors->first() }}</div>

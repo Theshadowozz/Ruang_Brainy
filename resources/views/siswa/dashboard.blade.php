@@ -67,6 +67,14 @@
 
 <!-- Main Section -->
 <main class="mx-auto max-w-7xl px-6 py-10 sm:px-10 lg:px-28">
+    @if (session('access_error'))
+        <div class="mb-8 rounded-xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm font-bold text-amber-900">{{ session('access_error') }}</div>
+    @endif
+    @if (! $hasActiveAccess && $kelasAktifList->isNotEmpty())
+        <div class="mb-8 flex flex-col justify-between gap-5 rounded-2xl border border-amber-200 bg-gradient-to-r from-amber-50 to-white p-6 sm:flex-row sm:items-center">
+            <div><p class="text-xs font-black uppercase tracking-widest text-amber-700">Akses kelas berakhir</p><h2 class="mt-2 text-xl font-black">Perpanjang satu bulan untuk membuka materi</h2><p class="mt-1 text-sm text-slate-600">Akun tetap dapat login. Audio, quiz, translate, dan diskusi terkunci sampai pembayaran baru berhasil.</p></div>
+        </div>
+    @endif
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         <!-- Left Column (Kelas Aktif & Fitur Pembelajaran) -->
@@ -133,14 +141,20 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- Buttons -->
+                                    <div class="mt-4 rounded-lg px-3 py-2 text-xs font-bold {{ $reg->hasActiveAccess() ? 'bg-emerald-50 text-emerald-800' : 'bg-amber-50 text-amber-900' }}">
+                                        @if ($reg->hasActiveAccess())
+                                            Akses aktif sampai {{ $reg->access_ends_at->format('d/m/Y H:i') }}
+                                        @else
+                                            Akses habis {{ $reg->access_ends_at?->format('d/m/Y H:i') ?? '-' }}
+                                        @endif
+                                    </div>
                                     <div class="mt-6 grid grid-cols-2 gap-3">
-                                        <a href="#" class="flex items-center justify-center py-2 px-3 border border-gray-300 text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 transition text-center">
-                                            Lihat Detail
-                                        </a>
-                                        <a href="#" class="flex items-center justify-center py-2 px-3 bg-gray-950 text-xs font-medium rounded text-white hover:bg-gray-800 transition text-center">
-                                            Mulai Belajar
-                                        </a>
+                                        <a href="{{ route('siswa.kelas-kursus.show', $reg->schedule->class) }}" class="flex items-center justify-center rounded border border-gray-300 bg-white px-3 py-2 text-center text-xs font-medium text-gray-700 transition hover:bg-gray-50">Lihat Detail</a>
+                                        @if ($reg->hasActiveAccess())
+                                            <a href="{{ route('siswa.audio.index') }}" class="flex items-center justify-center rounded bg-gray-950 px-3 py-2 text-center text-xs font-medium text-white hover:bg-gray-800">Mulai Belajar</a>
+                                        @else
+                                            <form action="{{ route('siswa.registration.renew', $reg) }}" method="POST">@csrf<button class="h-full w-full rounded bg-blue-700 px-3 py-2 text-xs font-black text-white">Perpanjang</button></form>
+                                        @endif
                                     </div>
                                 </div>
                             @endif

@@ -22,11 +22,11 @@ class CheckRole
 
         if ($request->user()->role === User::ROLE_SISWA && (
             ! $request->user()->is_active
-            || ! $request->user()->registrations()->where('status', 'accepted')->exists()
+            || ! $request->user()->hasAcceptedRegistration()
         )) {
             return redirect()
                 ->route('classes.index')
-                ->with('success', 'Dashboard siswa hanya dapat diakses setelah pendaftaran dan pembayaran dikonfirmasi admin.');
+                ->with('success', 'Dashboard siswa tersedia setelah pembayaran Midtrans berhasil dan kursi kelas diperoleh.');
         }
 
         return $next($request);

@@ -36,8 +36,12 @@
                     <div><dt class="text-gray-500">Jam</dt><dd class="font-bold">{{ substr($schedule->start_time, 0, 5) }}–{{ substr($schedule->end_time, 0, 5) }}</dd></div>
                     <div><dt class="text-gray-500">Tutor</dt><dd class="font-bold">{{ $schedule->courseClass->tutor->name }}</dd></div>
                     <div><dt class="text-gray-500">Ruangan</dt><dd class="font-bold">{{ $schedule->room }}</dd></div>
-                    <div class="col-span-2"><dt class="text-gray-500">Periode</dt><dd class="font-bold">{{ $schedule->start_date->format('d/m/Y') }}–{{ $schedule->end_date->format('d/m/Y') }}</dd></div>
+                    <div class="col-span-2"><dt class="text-gray-500">Periode jadwal</dt><dd class="font-bold">{{ $schedule->start_date->format('d/m/Y') }}–{{ $schedule->end_date->format('d/m/Y') }}</dd></div>
+                    <div class="col-span-2"><dt class="text-gray-500">Masa akses</dt><dd class="font-bold {{ $registration->hasActiveAccess() ? 'text-emerald-700' : 'text-amber-700' }}">{{ $registration->access_starts_at?->format('d/m/Y H:i') ?? '-' }}–{{ $registration->access_ends_at?->format('d/m/Y H:i') ?? '-' }}</dd></div>
                 </dl>
+                @if (! $registration->hasActiveAccess() && $registration->status === 'accepted')
+                    <form action="{{ route('siswa.registration.renew', $registration) }}" method="POST" class="mt-5">@csrf<button class="w-full rounded-lg bg-blue-700 px-4 py-3 text-sm font-black text-white">Perpanjang akses satu bulan</button></form>
+                @endif
             </article>
         @empty
             <div class="rounded-xl border border-dashed border-gray-300 bg-white p-12 text-center text-gray-400 lg:col-span-2">Belum ada data pada bagian ini.</div>

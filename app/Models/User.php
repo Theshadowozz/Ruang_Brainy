@@ -3,15 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    
     use HasFactory, Notifiable;
 
     public const ROLE_ADMIN = 1;
@@ -86,5 +84,19 @@ class User extends Authenticatable
     public function isTutor(): bool
     {
         return $this->role === self::ROLE_TUTOR;
+    }
+
+    public function hasAcceptedRegistration(): bool
+    {
+        return $this->registrations()->where('status', Registration::STATUS_ACCEPTED)->exists();
+    }
+
+    public function hasActiveClassAccess(): bool
+    {
+        return $this->registrations()
+            ->where('status', Registration::STATUS_ACCEPTED)
+            ->where('access_starts_at', '<=', now())
+            ->where('access_ends_at', '>=', now())
+            ->exists();
     }
 }

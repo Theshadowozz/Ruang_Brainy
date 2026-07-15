@@ -20,7 +20,11 @@ class SiswaCourseController extends Controller
         $courses = CourseClass::query()
             ->with(['tutor', 'schedules' => fn ($query) => $query
                 ->withCount(['registrations as occupied_seats' => fn ($registration) => $registration
-                    ->whereIn('status', ['pending', 'accepted'])])
+                    ->where(fn ($status) => $status
+                        ->where('status', 'accepted')
+                        ->orWhere(fn ($pending) => $pending
+                            ->where('status', 'pending')
+                            ->where('seat_reserved_until', '>', now())))])
                 ->whereDate('end_date', '>=', today())
                 ->orderBy('start_date')])
             ->whereHas('schedules', fn ($query) => $query->whereDate('end_date', '>=', today()))
@@ -39,7 +43,11 @@ class SiswaCourseController extends Controller
             'tutor',
             'schedules' => fn ($query) => $query
                 ->withCount(['registrations as occupied_seats' => fn ($registration) => $registration
-                    ->whereIn('status', ['pending', 'accepted'])])
+                    ->where(fn ($status) => $status
+                        ->where('status', 'accepted')
+                        ->orWhere(fn ($pending) => $pending
+                            ->where('status', 'pending')
+                            ->where('seat_reserved_until', '>', now())))])
                 ->whereDate('end_date', '>=', today())
                 ->orderBy('start_date'),
         ]);

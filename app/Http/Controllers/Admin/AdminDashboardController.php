@@ -32,8 +32,8 @@ class AdminDashboardController extends Controller
                 ->get(),
             'pendingPayments' => Payment::query()
                 ->with(['registration.user', 'registration.schedule.courseClass'])
-                ->where('status', 'pending')
-                ->whereNotNull('transaction_code')
+                ->where('status', Payment::STATUS_PENDING)
+                ->whereNotNull('order_id')
                 ->latest()
                 ->take(10)
                 ->get(),
