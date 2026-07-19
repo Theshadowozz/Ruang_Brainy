@@ -29,11 +29,7 @@
                     <div class="flex items-start justify-between gap-4"><h3 class="font-extrabold">{{ $schedule->day }}</h3><span class="rounded-full px-3 py-1 text-xs font-bold {{ $remaining ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700' }}">{{ $remaining }} kursi</span></div>
                     <p class="mt-2 text-sm text-gray-600">{{ substr($schedule->start_time, 0, 5) }}–{{ substr($schedule->end_time, 0, 5) }} · {{ $schedule->room }}</p>
                     <p class="mt-1 text-xs text-gray-500">{{ $schedule->start_date->format('d/m/Y') }}–{{ $schedule->end_date->format('d/m/Y') }}</p>
-                    @if ($remaining)
-                        <a href="{{ route('registration.create', $schedule) }}" class="mt-4 flex justify-center rounded-lg bg-blue-600 px-4 py-3 text-sm font-bold text-white">Daftar Jadwal Ini</a>
-                    @else
-                        <button disabled class="mt-4 w-full rounded-lg bg-gray-200 px-4 py-3 text-sm font-bold text-gray-500">Penuh</button>
-                    @endif
+                    <a href="{{ route('registration.create', $schedule) }}" class="mt-4 flex justify-center rounded-lg px-4 py-3 text-center text-sm font-bold text-white {{ $remaining ? 'bg-blue-600' : 'bg-amber-600' }}">{{ $remaining ? 'Daftar Jadwal Ini' : 'Daftar & Bayar untuk Waiting List' }}</a>
                 </article>
             @empty
                 <p class="text-sm text-gray-400">Belum ada jadwal aktif untuk kelas ini.</p>

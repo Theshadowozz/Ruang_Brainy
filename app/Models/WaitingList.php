@@ -7,6 +7,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class WaitingList extends Model
 {
+    public const STATUS_WAITING = 'waiting';
+
+    public const STATUS_OFFERED = 'offered';
+
+    public const STATUS_ACCEPTED = 'accepted';
+
+    public const STATUS_EXPIRED = 'expired';
+
+    public const STATUS_CANCELLED = 'cancelled';
+
     protected $fillable = [
         'user_id',
         'schedule_id',

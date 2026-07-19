@@ -16,15 +16,15 @@ class SiswaScheduleController extends Controller
 
         $registrations = Registration::query()
             ->where('user_id', $request->user()->id)
-            ->whereIn('status', ['accepted', 'finished'])
-            ->with(['schedule.courseClass.tutor'])
+            ->whereIn('status', [Registration::STATUS_ACCEPTED, Registration::STATUS_FINISHED])
+            ->with(['schedule.courseClass.tutor', 'latestPayment'])
             ->latest()
             ->get();
 
         return view('siswa.jadwal.index', [
             'activeTab' => $activeTab,
-            'activeRegistrations' => $registrations->where('status', 'accepted')->values(),
-            'finishedRegistrations' => $registrations->where('status', 'finished')->values(),
+            'activeRegistrations' => $registrations->where('status', Registration::STATUS_ACCEPTED)->values(),
+            'finishedRegistrations' => $registrations->where('status', Registration::STATUS_FINISHED)->values(),
         ]);
     }
 }

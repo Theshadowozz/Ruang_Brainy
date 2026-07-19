@@ -83,11 +83,9 @@
                                         <dd class="mt-1 font-bold">{{ $schedule->occupied_seats }} siswa</dd>
                                     </div>
                                 </dl>
-                                @if ($remainingSeats > 0)
-                                    <a href="{{ route('registration.create', $schedule) }}" class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-extrabold text-white hover:bg-blue-700">Daftar Jadwal Ini</a>
-                                @else
-                                    <button disabled class="mt-5 w-full cursor-not-allowed rounded-xl bg-slate-200 px-5 py-3 text-sm font-extrabold text-slate-500">Jadwal Penuh</button>
-                                @endif
+                                <a href="{{ route('registration.create', $schedule) }}" class="mt-5 inline-flex w-full items-center justify-center rounded-xl px-5 py-3 text-center text-sm font-extrabold text-white {{ $remainingSeats > 0 ? 'bg-blue-600 hover:bg-blue-700' : 'bg-amber-600 hover:bg-amber-700' }}">
+                                    {{ $remainingSeats > 0 ? 'Daftar Jadwal Ini' : 'Daftar & Bayar untuk Waiting List' }}
+                                </a>
                             </article>
                         @endforeach
                     </div>

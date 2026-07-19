@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\CourseClass;
-use App\Models\Payment;
 use App\Models\Registration;
 use App\Models\Schedule;
 use App\Models\User;
+use App\Models\WaitingList;
+use App\Services\PaymentService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Validation\ValidationException;
 
 class ClassRegistrationController extends Controller
@@ -19,7 +21,11 @@ class ClassRegistrationController extends Controller
         $classes = CourseClass::query()
             ->with(['tutor', 'schedules' => fn ($query) => $query
                 ->withCount(['registrations as occupied_seats' => fn ($registration) => $registration
-                    ->whereIn('status', ['pending', 'accepted'])])
+                    ->where(fn ($status) => $status
+                        ->where('status', Registration::STATUS_ACCEPTED)
+                        ->orWhere(fn ($pending) => $pending
+                            ->where('status', Registration::STATUS_PENDING)
+                            ->where('seat_reserved_until', '>', now())))])
                 ->whereDate('end_date', '>=', today())
                 ->orderBy('start_date')
                 ->orderBy('start_time')])
@@ -35,14 +41,19 @@ class ClassRegistrationController extends Controller
     {
         $schedule->load(['courseClass.tutor'])
             ->loadCount(['registrations as occupied_seats' => fn ($query) => $query
-                ->whereIn('status', ['pending', 'accepted'])]);
+                ->where(fn ($status) => $status
+                    ->where('status', Registration::STATUS_ACCEPTED)
+                    ->orWhere(fn ($pending) => $pending
+                        ->where('status', Registration::STATUS_PENDING)
+                        ->where('seat_reserved_until', '>', now())))]);
 
-        abort_if($schedule->occupied_seats >= $schedule->capacity, 422, 'Jadwal kelas ini sudah penuh.');
-
-        return view('registration.create', compact('schedule'));
+        return view('registration.create', [
+            'schedule' => $schedule,
+            'willJoinWaitingList' => $schedule->occupied_seats >= $schedule->capacity,
+        ]);
     }
 
-    public function store(Request $request, Schedule $schedule)
+    public function store(Request $request, Schedule $schedule, PaymentService $payments)
     {
         $validated = $request->validate([
             'full_name' => ['required', 'string', 'max:255'],
@@ -52,13 +63,16 @@ class ClassRegistrationController extends Controller
             'address' => ['required', 'string', 'max:1000'],
         ]);
 
-        $registration = DB::transaction(function () use ($validated, $schedule) {
-            $schedule = Schedule::query()->lockForUpdate()->findOrFail($schedule->id);
+        [$registration, $payment] = DB::transaction(function () use ($validated, $schedule, $payments) {
+            $schedule = Schedule::query()->with('courseClass')->lockForUpdate()->findOrFail($schedule->id);
             $occupiedSeats = $schedule->registrations()
-                ->whereIn('status', ['pending', 'accepted'])
+                ->where(fn ($status) => $status
+                    ->where('status', Registration::STATUS_ACCEPTED)
+                    ->orWhere(fn ($pending) => $pending
+                        ->where('status', Registration::STATUS_PENDING)
+                        ->where('seat_reserved_until', '>', now())))
                 ->count();
-
-            abort_if($occupiedSeats >= $schedule->capacity, 422, 'Maaf, jadwal kelas ini baru saja penuh.');
+            $hasSeat = $occupiedSeats < $schedule->capacity;
 
             $user = User::query()->where('email', $validated['email'])->first();
 
@@ -90,51 +104,41 @@ class ClassRegistrationController extends Controller
                 'schedule_id' => $schedule->id,
                 'phone_number' => $validated['phone_number'],
                 'address' => $validated['address'],
-                'status' => 'pending',
+                'status' => $hasSeat ? Registration::STATUS_PENDING : Registration::STATUS_WAITING_LIST,
+                'seat_reserved_until' => $hasSeat
+                    ? now()->addHours((int) config('services.midtrans.expiry_hours', 24))
+                    : null,
             ]);
 
-            Payment::create([
-                'registration_id' => $registration->id,
-                'amount' => $schedule->courseClass->price,
-                'payment_method' => 'Belum dilakukan',
-                'status' => 'pending',
-            ]);
+            if (! $hasSeat) {
+                $queueNumber = ((int) WaitingList::query()
+                    ->where('schedule_id', $schedule->id)
+                    ->max('queue_number')) + 1;
 
-            return $registration;
+                WaitingList::create([
+                    'user_id' => $user->id,
+                    'schedule_id' => $schedule->id,
+                    'full_name' => $validated['full_name'],
+                    'phone_number' => $validated['phone_number'],
+                    'address' => $validated['address'],
+                    'queue_number' => $queueNumber,
+                    'status' => WaitingList::STATUS_WAITING,
+                ]);
+            }
+
+            return [$registration, $payments->createPayment($registration)];
         });
 
         $request->session()->put('registration_id', $registration->id);
 
-        return redirect()->route('registration.payment.show', $registration);
-    }
-
-    public function showPayment(Request $request, Registration $registration)
-    {
-        $this->ensureRegistrationOwner($request, $registration);
-        $registration->load(['user', 'schedule.courseClass.tutor', 'payment']);
-
-        return view('registration.payment', compact('registration'));
-    }
-
-    public function pay(Request $request, Registration $registration)
-    {
-        $this->ensureRegistrationOwner($request, $registration);
-
-        if (! $registration->payment->transaction_code) {
-            $registration->payment->update([
-                'payment_method' => 'Simulasi pembayaran',
-                'transaction_code' => 'SIM-'.now()->format('YmdHis').'-'.$registration->id,
-                'status' => 'pending',
-            ]);
-        }
-
-        return redirect()
-            ->route('registration.payment.show', $registration)
-            ->with('success', 'Pembayaran simulasi tercatat dan sedang menunggu konfirmasi admin.');
-    }
-
-    private function ensureRegistrationOwner(Request $request, Registration $registration): void
-    {
-        abort_unless((int) $request->session()->get('registration_id') === $registration->id, 403);
+        return redirect(URL::temporarySignedRoute(
+            'registration.payment.show',
+            now()->addDays(7),
+            [
+                'registration' => $registration,
+                'payment' => $payment,
+                'access_token' => $payment->access_token,
+            ]
+        ));
     }
 }
