@@ -1,0 +1,2380 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+	<xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5" exporterID="1559"/>
+	<uml:Model xmi:type="uml:Model" name="EA_Model" visibility="public">
+		<packagedElement xmi:type="uml:Package" xmi:id="EAPK_52554252_4149_4E59_434C_000000000001" name="Ruang Brainy Class Diagram" visibility="public">
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAID_00000000_0000_0000_0000_0000000007D1" name="Integer" visibility="public"/>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAID_00000000_0000_0000_0000_0000000007D2" name="String" visibility="public"/>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAID_00000000_0000_0000_0000_0000000007D3" name="Text" visibility="public"/>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAID_00000000_0000_0000_0000_0000000007D4" name="Decimal" visibility="public"/>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAID_00000000_0000_0000_0000_0000000007D5" name="Boolean" visibility="public"/>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAID_00000000_0000_0000_0000_0000000007D6" name="Date" visibility="public"/>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAID_00000000_0000_0000_0000_0000000007D7" name="Time" visibility="public"/>
+			<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAID_00000000_0000_0000_0000_0000000007D8" name="DateTime" visibility="public"/>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_0000000007D9" name="User" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000007DA" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007DB" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007DC" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000007DD" name="name" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007DE" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007DF" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000007E0" name="email" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007E1" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007E2" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000007E3" name="email_verified_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007E4" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007E5" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000007E6" name="password" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007E7" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007E8" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000007E9" name="role" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007EA" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007EB" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000007EC" name="is_active" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007ED" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007EE" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D5"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000007EF" name="remember_token" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007F0" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007F1" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000007F2" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007F3" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007F4" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000007F5" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007F6" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000007F7" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000007F8" name="registrations()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000007F9" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000007FA" name="tutorProfile()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000007FB" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000007FC" name="trialRegistration()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000007FD" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000007FE" name="isAdmin(): bool" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000007FF" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000800" name="isSiswa(): bool" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000801" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000802" name="isTutor(): bool" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000803" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_000000000804" name="Tutor" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000805" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000806" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000807" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000808" name="user_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000809" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000080A" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000080B" name="name" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000080C" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000080D" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000080E" name="email" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000080F" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000810" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000811" name="phone_number" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000812" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000813" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000814" name="expertise" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000815" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000816" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000817" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000818" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000819" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000081A" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000081B" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000081C" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_00000000081D" name="user()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_00000000081E" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_00000000081F" name="classes()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000820" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_000000000821" name="CourseClass" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000822" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000823" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000824" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000825" name="name" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000826" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000827" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000828" name="language" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000829" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000082A" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000082B" name="level" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000082C" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000082D" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000082E" name="tutor_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000082F" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000830" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000831" name="price" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000832" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000833" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D4"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000834" name="description" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000835" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000836" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D3"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000837" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000838" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000839" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000083A" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000083B" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000083C" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_00000000083D" name="tutor()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_00000000083E" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_00000000083F" name="schedules()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000840" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_000000000841" name="Schedule" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000842" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000843" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000844" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000845" name="class_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000846" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000847" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000848" name="start_date" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000849" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000084A" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D6"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000084B" name="end_date" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000084C" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000084D" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D6"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000084E" name="day" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000084F" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000850" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000851" name="start_time" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000852" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000853" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D7"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000854" name="end_time" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000855" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000856" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D7"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000857" name="room" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000858" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000859" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000085A" name="capacity" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000085B" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000085C" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000085D" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000085E" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000085F" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000860" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000861" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000862" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000863" name="courseClass()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000864" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000865" name="class()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000866" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000867" name="registrations()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000868" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_000000000869" name="Registration" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000086A" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000086B" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000086C" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000086D" name="full_name" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000086E" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000086F" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000870" name="user_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000871" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000872" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000873" name="schedule_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000874" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000875" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000876" name="phone_number" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000877" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000878" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000879" name="address" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000087A" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000087B" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000087C" name="status" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000087D" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000087E" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000087F" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000880" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000881" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000882" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000883" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000884" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000885" name="user()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000886" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000887" name="schedule()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000888" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000889" name="payment()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_00000000088A" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_00000000088B" name="Payment" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000088C" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000088D" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000088E" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000088F" name="registration_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000890" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000891" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000892" name="amount" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000893" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000894" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D4"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000895" name="payment_method" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000896" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000897" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000898" name="transaction_code" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000899" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000089A" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000089B" name="payment_proof" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000089C" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000089D" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000089E" name="status" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000089F" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008A0" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008A1" name="paid_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008A2" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008A3" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008A4" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008A5" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008A6" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008A7" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008A8" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008A9" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000008AA" name="registration()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000008AB" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_0000000008AC" name="WaitingList" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008AD" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008AE" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008AF" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008B0" name="user_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008B1" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008B2" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008B3" name="schedule_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008B4" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008B5" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008B6" name="full_name" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008B7" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008B8" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008B9" name="phone_number" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008BA" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008BB" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008BC" name="address" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008BD" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008BE" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008BF" name="queue_number" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008C0" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008C1" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008C2" name="status" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008C3" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008C4" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008C5" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008C6" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008C7" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008C8" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008C9" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008CA" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000008CB" name="user()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000008CC" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000008CD" name="schedule()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000008CE" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_0000000008CF" name="TrialRegistration" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008D0" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008D1" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008D2" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008D3" name="user_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008D4" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008D5" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008D6" name="phone_number" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008D7" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008D8" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008D9" name="status" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008DA" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008DB" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008DC" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008DD" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008DE" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008DF" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008E0" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008E1" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000008E2" name="user()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000008E3" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_0000000008E4" name="AudioLesson" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008E5" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008E6" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008E7" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008E8" name="title" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008E9" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008EA" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008EB" name="language" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008EC" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008ED" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008EE" name="level" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008EF" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008F0" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008F1" name="duration" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008F2" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008F3" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008F4" name="audio_file" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008F5" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008F6" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008F7" name="transcript" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008F8" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008F9" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D3"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008FA" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008FB" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008FC" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000008FD" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008FE" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000008FF" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000900" name="listens()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000901" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_000000000902" name="AudioListen" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000903" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000904" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000905" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000906" name="user_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000907" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000908" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000909" name="audio_lesson_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000090A" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000090B" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000090C" name="listened_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000090D" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000090E" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000090F" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000910" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000911" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000912" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000913" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000914" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000915" name="user()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000916" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000917" name="audioLesson()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000918" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_000000000919" name="Quiz" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000091A" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000091B" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000091C" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000091D" name="title" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000091E" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000091F" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000920" name="image_path" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000921" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000922" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000923" name="week_label" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000924" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000925" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000926" name="description" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000927" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000928" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D3"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000929" name="published_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000092A" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000092B" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000092C" name="language" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000092D" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000092E" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000092F" name="level" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000930" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000931" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000932" name="duration_minutes" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000933" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000934" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000935" name="total_questions" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000936" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000937" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000938" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000939" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000093A" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000093B" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000093C" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000093D" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_00000000093E" name="results()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_00000000093F" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_000000000940" name="QuizResult" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000941" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000942" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000943" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000944" name="user_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000945" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000946" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000947" name="quiz_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000948" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000949" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000094A" name="answer_text" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000094B" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000094C" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D3"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000094D" name="answered_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000094E" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000094F" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000950" name="score" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000951" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000952" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000953" name="completed_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000954" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000955" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000956" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000957" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000958" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000959" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000095A" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000095B" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_00000000095C" name="user()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_00000000095D" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_00000000095E" name="quiz()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_00000000095F" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_000000000960" name="DiscussionTopic" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000961" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000962" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000963" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000964" name="user_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000965" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000966" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000967" name="category" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000968" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000969" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000096A" name="title" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000096B" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000096C" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000096D" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000096E" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000096F" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000970" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000971" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000972" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000973" name="user()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000974" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_000000000975" name="messages()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_000000000976" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_000000000977" name="DiscussionMessage" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000978" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000979" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000097A" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000097B" name="discussion_topic_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000097C" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000097D" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000097E" name="user_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000097F" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000980" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000981" name="body" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000982" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000983" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D3"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000984" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000985" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000986" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000987" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000988" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000989" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_00000000098A" name="topic()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_00000000098B" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_00000000098C" name="user()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_00000000098D" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_00000000098E" name="ForumTopic" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000098F" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000990" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000991" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000992" name="user_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000993" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000994" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000995" name="category" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000996" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000997" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_000000000998" name="title" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000999" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000099A" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000099B" name="body" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000099C" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000099D" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D3"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_00000000099E" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_00000000099F" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009A0" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009A1" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009A2" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009A3" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000009A4" name="user()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000009A5" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000009A6" name="replies()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000009A7" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000009A8" name="categories(): array" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000009A9" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_00000000_0000_0000_0000_0000000009AA" name="ForumReply" visibility="public">
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009AB" name="id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009AC" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009AD" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009AE" name="forum_topic_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009AF" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009B0" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009B1" name="user_id" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009B2" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009B3" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009B4" name="body" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009B5" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009B6" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D3"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009B7" name="created_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009B8" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009B9" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedAttribute xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009BA" name="updated_at" visibility="private" isStatic="false" isReadOnly="false" isDerived="false" isOrdered="false" isUnique="true" isDerivedUnion="false">
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009BB" value="0"/>
+					<upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009BC" value="1"/>
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8"/>
+				</ownedAttribute>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000009BD" name="topic()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000009BE" name="return" direction="return"/>
+				</ownedOperation>
+				<ownedOperation xmi:type="uml:Operation" xmi:id="EAID_00000000_0000_0000_0000_0000000009BF" name="user()" visibility="public" concurrency="sequential">
+					<ownedParameter xmi:type="uml:Parameter" xmi:id="EAID_00000000_0000_0000_0000_0000000009C0" name="return" direction="return"/>
+				</ownedOperation>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009C1" name="memiliki profil tutor" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009C2"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009C2" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009C1" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009FA" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_0000000009FB" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009C3"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009C3" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009C1" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000804"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009FC" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_0000000009FD" value="1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009C4" name="mengajukan trial" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009C5"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009C5" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009C4" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_0000000009FE" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_0000000009FF" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009C6"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009C6" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009C4" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000008CF"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A00" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A01" value="1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009C7" name="mendaftar" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009C8"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009C8" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009C7" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A02" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A03" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009C9"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009C9" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009C7" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000869"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A04" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A05" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009CA" name="mengajar" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009CB"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009CB" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009CA" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000804"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A06" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A07" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009CC"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009CC" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009CA" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000821"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A08" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A09" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009CD" name="memiliki jadwal" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009CE"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009CE" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009CD" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000821"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A0A" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A0B" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009CF"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009CF" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009CD" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000841"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A0C" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A0D" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009D0" name="dipilih dalam pendaftaran" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009D1"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009D1" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009D0" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000841"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A0E" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A0F" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009D2"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009D2" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009D0" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000869"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A10" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A11" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009D3" name="memiliki pembayaran" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009D4"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009D4" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009D3" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000869"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A12" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A13" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009D5"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009D5" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009D3" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_00000000088B"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A14" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A15" value="1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009D6" name="masuk waiting list" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009D7"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009D7" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009D6" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A16" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A17" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009D8"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009D8" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009D6" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000008AC"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A18" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A19" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009D9" name="mengantri pada jadwal" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009DA"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009DA" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009D9" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000841"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A1A" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A1B" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009DB"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009DB" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009D9" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000008AC"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A1C" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A1D" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009DC" name="mendengarkan audio" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009DD"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009DD" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009DC" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A1E" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A1F" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009DE"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009DE" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009DC" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000902"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A20" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A21" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009DF" name="dicatat sebagai listening" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009E0"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009E0" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009DF" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000008E4"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A22" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A23" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009E1"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009E1" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009DF" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000902"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A24" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A25" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009E2" name="memiliki hasil" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009E3"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009E3" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009E2" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000919"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A26" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A27" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009E4"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009E4" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009E2" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000940"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A28" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A29" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009E5" name="menjawab quiz" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009E6"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009E6" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009E5" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A2A" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A2B" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009E7"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009E7" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009E5" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000940"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A2C" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A2D" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009E8" name="membuat topik diskusi" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009E9"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009E9" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009E8" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A2E" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A2F" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009EA"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009EA" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009E8" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000960"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A30" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A31" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009EB" name="memiliki pesan" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009EC"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009EC" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009EB" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000960"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A32" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A33" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009ED"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009ED" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009EB" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000977"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A34" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A35" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009EE" name="menulis pesan diskusi" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009EF"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009EF" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009EE" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A36" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A37" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009F0"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009F0" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009EE" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_000000000977"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A38" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A39" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009F1" name="membuat topik forum" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009F2"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009F2" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009F1" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A3A" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A3B" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009F3"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009F3" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009F1" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_00000000098E"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A3C" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A3D" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009F4" name="memiliki balasan" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009F5"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009F5" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009F4" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_00000000098E"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A3E" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A3F" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009F6"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009F6" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009F4" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000009AA"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A40" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A41" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Association" xmi:id="EAID_00000000_0000_0000_0000_0000000009F7" name="menulis balasan forum" visibility="public">
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009F8"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009F8" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009F7" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A42" value="1"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A43" value="1"/>
+				</ownedEnd>
+				<memberEnd xmi:idref="EAID_00000000_0000_0000_0000_0000000009F9"/>
+				<ownedEnd xmi:type="uml:Property" xmi:id="EAID_00000000_0000_0000_0000_0000000009F9" visibility="public" association="EAID_00000000_0000_0000_0000_0000000009F7" aggregation="none">
+					<type xmi:idref="EAID_00000000_0000_0000_0000_0000000009AA"/>
+					<lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_00000000_0000_0000_0000_000000000A44" value="0"/>
+					<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_00000000_0000_0000_0000_000000000A45" value="-1"/>
+				</ownedEnd>
+			</packagedElement>
+		</packagedElement>
+	</uml:Model>
+	<xmi:Extension extender="Enterprise Architect" extenderID="6.5">
+		<elements>
+			<element xmi:idref="EAPK_52554252_4149_4E59_434C_000000000001" xmi:type="uml:Package" name="Ruang Brainy Class Diagram" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="1" ea_eleType="package"/>
+				<properties isSpecification="false" sType="Package" ea_stype="Package" nType="0" scope="public"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<packageproperties version="1.0"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000007D1" xmi:type="uml:PrimitiveType" name="Integer" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="2630" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="PrimitiveType" ea_stype="PrimitiveType" nType="0" scope="public"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<attributes/>
+				<operations/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000007D2" xmi:type="uml:PrimitiveType" name="String" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="2631" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="PrimitiveType" ea_stype="PrimitiveType" nType="0" scope="public"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<attributes/>
+				<operations/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000007D3" xmi:type="uml:PrimitiveType" name="Text" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="2632" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="PrimitiveType" ea_stype="PrimitiveType" nType="0" scope="public"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<attributes/>
+				<operations/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000007D4" xmi:type="uml:PrimitiveType" name="Decimal" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="2633" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="PrimitiveType" ea_stype="PrimitiveType" nType="0" scope="public"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<attributes/>
+				<operations/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000007D5" xmi:type="uml:PrimitiveType" name="Boolean" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="2634" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="PrimitiveType" ea_stype="PrimitiveType" nType="0" scope="public"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<attributes/>
+				<operations/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000007D6" xmi:type="uml:PrimitiveType" name="Date" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="2635" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="PrimitiveType" ea_stype="PrimitiveType" nType="0" scope="public"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<attributes/>
+				<operations/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000007D7" xmi:type="uml:PrimitiveType" name="Time" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="2636" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="PrimitiveType" ea_stype="PrimitiveType" nType="0" scope="public"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<attributes/>
+				<operations/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000007D8" xmi:type="uml:PrimitiveType" name="DateTime" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="2637" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="PrimitiveType" ea_stype="PrimitiveType" nType="0" scope="public"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<attributes/>
+				<operations/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9" xmi:type="uml:Class" name="User" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="100" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000007DA" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000007DD" name="name" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000007E0" name="email" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000007E3" name="email_verified_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000007E6" name="password" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000007E9" name="role" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000007EC" name="is_active" scope="Private">
+						<properties type="Boolean"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000007EF" name="remember_token" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000007F2" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000007F5" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000007F8" name="registrations()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000007FA" name="tutorProfile()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000007FC" name="trialRegistration()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000007FE" name="isAdmin(): bool" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000800" name="isSiswa(): bool" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000802" name="isTutor(): bool" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_000000000804" xmi:type="uml:Class" name="Tutor" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="101" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000805" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000808" name="user_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000080B" name="name" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000080E" name="email" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000811" name="phone_number" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000814" name="expertise" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000817" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000081A" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_00000000081D" name="user()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_00000000081F" name="classes()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_000000000821" xmi:type="uml:Class" name="CourseClass" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="102" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000822" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000825" name="name" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000828" name="language" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000082B" name="level" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000082E" name="tutor_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000831" name="price" scope="Private">
+						<properties type="Decimal"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000834" name="description" scope="Private">
+						<properties type="Text"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000837" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000083A" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_00000000083D" name="tutor()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_00000000083F" name="schedules()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_000000000841" xmi:type="uml:Class" name="Schedule" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="103" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000842" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000845" name="class_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000848" name="start_date" scope="Private">
+						<properties type="Date"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000084B" name="end_date" scope="Private">
+						<properties type="Date"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000084E" name="day" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000851" name="start_time" scope="Private">
+						<properties type="Time"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000854" name="end_time" scope="Private">
+						<properties type="Time"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000857" name="room" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000085A" name="capacity" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000085D" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000860" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000863" name="courseClass()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000865" name="class()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000867" name="registrations()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_000000000869" xmi:type="uml:Class" name="Registration" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="104" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000086A" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000086D" name="full_name" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000870" name="user_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000873" name="schedule_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000876" name="phone_number" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000879" name="address" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000087C" name="status" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000087F" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000882" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000885" name="user()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000887" name="schedule()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000889" name="payment()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_00000000088B" xmi:type="uml:Class" name="Payment" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="105" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000088C" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000088F" name="registration_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000892" name="amount" scope="Private">
+						<properties type="Decimal"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000895" name="payment_method" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000898" name="transaction_code" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000089B" name="payment_proof" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000089E" name="status" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008A1" name="paid_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008A4" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008A7" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000008AA" name="registration()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000008AC" xmi:type="uml:Class" name="WaitingList" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="106" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008AD" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008B0" name="user_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008B3" name="schedule_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008B6" name="full_name" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008B9" name="phone_number" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008BC" name="address" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008BF" name="queue_number" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008C2" name="status" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008C5" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008C8" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000008CB" name="user()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000008CD" name="schedule()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000008CF" xmi:type="uml:Class" name="TrialRegistration" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="107" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008D0" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008D3" name="user_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008D6" name="phone_number" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008D9" name="status" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008DC" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008DF" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000008E2" name="user()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000008E4" xmi:type="uml:Class" name="AudioLesson" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="108" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008E5" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008E8" name="title" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008EB" name="language" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008EE" name="level" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008F1" name="duration" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008F4" name="audio_file" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008F7" name="transcript" scope="Private">
+						<properties type="Text"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008FA" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000008FD" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000900" name="listens()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_000000000902" xmi:type="uml:Class" name="AudioListen" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="109" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000903" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000906" name="user_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000909" name="audio_lesson_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000090C" name="listened_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000090F" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000912" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000915" name="user()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000917" name="audioLesson()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_000000000919" xmi:type="uml:Class" name="Quiz" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="110" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000091A" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000091D" name="title" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000920" name="image_path" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000923" name="week_label" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000926" name="description" scope="Private">
+						<properties type="Text"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000929" name="published_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000092C" name="language" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000092F" name="level" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000932" name="duration_minutes" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000935" name="total_questions" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000938" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000093B" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_00000000093E" name="results()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_000000000940" xmi:type="uml:Class" name="QuizResult" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="111" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000941" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000944" name="user_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000947" name="quiz_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000094A" name="answer_text" scope="Private">
+						<properties type="Text"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000094D" name="answered_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000950" name="score" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000953" name="completed_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000956" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000959" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_00000000095C" name="user()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_00000000095E" name="quiz()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_000000000960" xmi:type="uml:Class" name="DiscussionTopic" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="112" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000961" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000964" name="user_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000967" name="category" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000096A" name="title" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000096D" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000970" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000973" name="user()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_000000000975" name="messages()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_000000000977" xmi:type="uml:Class" name="DiscussionMessage" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="113" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000978" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000097B" name="discussion_topic_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000097E" name="user_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000981" name="body" scope="Private">
+						<properties type="Text"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000984" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000987" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_00000000098A" name="topic()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_00000000098C" name="user()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_00000000098E" xmi:type="uml:Class" name="ForumTopic" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="114" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000098F" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000992" name="user_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000995" name="category" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_000000000998" name="title" scope="Private">
+						<properties type="String"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000099B" name="body" scope="Private">
+						<properties type="Text"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_00000000099E" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000009A1" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000009A4" name="user()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000009A6" name="replies()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000009A8" name="categories(): array" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+			<element xmi:idref="EAID_00000000_0000_0000_0000_0000000009AA" xmi:type="uml:Class" name="ForumReply" scope="public">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" tpos="0" ea_localid="115" ea_eleType="element"/>
+				<properties documentation="" isSpecification="false" sType="Class" ea_stype="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Codex" version="1.0" phase="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00" complexity="1" status="Proposed"/>
+				<code gentype="PHP"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<attributes>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000009AB" name="id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000009AE" name="forum_topic_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000009B1" name="user_id" scope="Private">
+						<properties type="Integer"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000009B4" name="body" scope="Private">
+						<properties type="Text"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000009B7" name="created_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+					<attribute xmi:idref="EAID_00000000_0000_0000_0000_0000000009BA" name="updated_at" scope="Private">
+						<properties type="DateTime"/>
+					</attribute>
+				</attributes>
+				<operations>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000009BD" name="topic()" scope="Public"/>
+					<operation xmi:idref="EAID_00000000_0000_0000_0000_0000000009BF" name="user()" scope="Public"/>
+				</operations>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Ruang Brainy Class Diagram"/>
+			</element>
+		</elements>
+		<connectors>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009C1" name="memiliki profil tutor">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9">
+					<model ea_localid="100" type="Class" name="User"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000804">
+					<model ea_localid="101" type="Class" name="Tutor"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="memiliki profil tutor" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="memiliki profil tutor"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009C4" name="mengajukan trial">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9">
+					<model ea_localid="100" type="Class" name="User"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_0000000008CF">
+					<model ea_localid="107" type="Class" name="TrialRegistration"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="mengajukan trial" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="mengajukan trial"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009C7" name="mendaftar">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9">
+					<model ea_localid="100" type="Class" name="User"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000869">
+					<model ea_localid="104" type="Class" name="Registration"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="mendaftar" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="mendaftar"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009CA" name="mengajar">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_000000000804">
+					<model ea_localid="101" type="Class" name="Tutor"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000821">
+					<model ea_localid="102" type="Class" name="CourseClass"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="mengajar" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="mengajar"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009CD" name="memiliki jadwal">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_000000000821">
+					<model ea_localid="102" type="Class" name="CourseClass"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000841">
+					<model ea_localid="103" type="Class" name="Schedule"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="memiliki jadwal" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="memiliki jadwal"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009D0" name="dipilih dalam pendaftaran">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_000000000841">
+					<model ea_localid="103" type="Class" name="Schedule"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000869">
+					<model ea_localid="104" type="Class" name="Registration"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="dipilih dalam pendaftaran" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="dipilih dalam pendaftaran"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009D3" name="memiliki pembayaran">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_000000000869">
+					<model ea_localid="104" type="Class" name="Registration"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_00000000088B">
+					<model ea_localid="105" type="Class" name="Payment"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="memiliki pembayaran" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="memiliki pembayaran"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009D6" name="masuk waiting list">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9">
+					<model ea_localid="100" type="Class" name="User"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_0000000008AC">
+					<model ea_localid="106" type="Class" name="WaitingList"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="masuk waiting list" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="masuk waiting list"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009D9" name="mengantri pada jadwal">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_000000000841">
+					<model ea_localid="103" type="Class" name="Schedule"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_0000000008AC">
+					<model ea_localid="106" type="Class" name="WaitingList"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="mengantri pada jadwal" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="mengantri pada jadwal"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009DC" name="mendengarkan audio">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9">
+					<model ea_localid="100" type="Class" name="User"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000902">
+					<model ea_localid="109" type="Class" name="AudioListen"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="mendengarkan audio" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="mendengarkan audio"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009DF" name="dicatat sebagai listening">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000008E4">
+					<model ea_localid="108" type="Class" name="AudioLesson"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000902">
+					<model ea_localid="109" type="Class" name="AudioListen"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="dicatat sebagai listening" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="dicatat sebagai listening"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009E2" name="memiliki hasil">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_000000000919">
+					<model ea_localid="110" type="Class" name="Quiz"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000940">
+					<model ea_localid="111" type="Class" name="QuizResult"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="memiliki hasil" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="memiliki hasil"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009E5" name="menjawab quiz">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9">
+					<model ea_localid="100" type="Class" name="User"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000940">
+					<model ea_localid="111" type="Class" name="QuizResult"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="menjawab quiz" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="menjawab quiz"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009E8" name="membuat topik diskusi">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9">
+					<model ea_localid="100" type="Class" name="User"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000960">
+					<model ea_localid="112" type="Class" name="DiscussionTopic"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="membuat topik diskusi" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="membuat topik diskusi"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009EB" name="memiliki pesan">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_000000000960">
+					<model ea_localid="112" type="Class" name="DiscussionTopic"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000977">
+					<model ea_localid="113" type="Class" name="DiscussionMessage"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="memiliki pesan" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="memiliki pesan"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009EE" name="menulis pesan diskusi">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9">
+					<model ea_localid="100" type="Class" name="User"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_000000000977">
+					<model ea_localid="113" type="Class" name="DiscussionMessage"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="menulis pesan diskusi" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="menulis pesan diskusi"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009F1" name="membuat topik forum">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9">
+					<model ea_localid="100" type="Class" name="User"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_00000000098E">
+					<model ea_localid="114" type="Class" name="ForumTopic"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="membuat topik forum" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="membuat topik forum"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009F4" name="memiliki balasan">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_00000000098E">
+					<model ea_localid="114" type="Class" name="ForumTopic"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_0000000009AA">
+					<model ea_localid="115" type="Class" name="ForumReply"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="memiliki balasan" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="memiliki balasan"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_00000000_0000_0000_0000_0000000009F7" name="menulis balasan forum">
+				<source xmi:idref="EAID_00000000_0000_0000_0000_0000000007D9">
+					<model ea_localid="100" type="Class" name="User"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="1" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+					<documentation/>
+				</source>
+				<target xmi:idref="EAID_00000000_0000_0000_0000_0000000009AA">
+					<model ea_localid="115" type="Class" name="ForumReply"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type multiplicity="0..*" aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+					<documentation/>
+				</target>
+				<properties name="menulis balasan forum" ea_type="Association" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels mt="menulis balasan forum"/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+		</connectors>
+		<diagrams>
+			<diagram xmi:id="EAID_52554252_4149_4E59_434C_444941475241">
+				<model package="EAPK_52554252_4149_4E59_434C_000000000001" localID="1" owner="EAPK_52554252_4149_4E59_434C_000000000001"/>
+				<properties name="Ruang Brainy Class Diagram" type="Logical"/>
+				<project author="Codex" version="1.0" created="2026-07-12 00:00:00" modified="2026-07-12 00:00:00"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;DocSize.cx=1450;DocSize.cy=1450;ShowDetails=0;Orientation=P;Zoom=85;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;TConnectorNotation=UML 2.1;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;SPT=1;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;Theme=:119;"/>
+				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=-1;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;bro=0;"/>
+				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;kanbanactive=false;width=1;clrLine=0;"/>
+				<extendedProperties/>
+				<elements>
+					<element geometry="Left=40;Top=40;Right=285;Bottom=388;" subject="EAID_00000000_0000_0000_0000_0000000007D9" seqno="1" style="DUID=RBCLASS01;"/>
+					<element geometry="Left=360;Top=40;Right=605;Bottom=310;" subject="EAID_00000000_0000_0000_0000_000000000804" seqno="2" style="DUID=RBCLASS02;"/>
+					<element geometry="Left=680;Top=40;Right=925;Bottom=323;" subject="EAID_00000000_0000_0000_0000_000000000821" seqno="3" style="DUID=RBCLASS03;"/>
+					<element geometry="Left=1000;Top=40;Right=1245;Bottom=362;" subject="EAID_00000000_0000_0000_0000_000000000841" seqno="4" style="DUID=RBCLASS04;"/>
+					<element geometry="Left=360;Top=360;Right=605;Bottom=656;" subject="EAID_00000000_0000_0000_0000_000000000869" seqno="5" style="DUID=RBCLASS05;"/>
+					<element geometry="Left=680;Top=360;Right=925;Bottom=643;" subject="EAID_00000000_0000_0000_0000_00000000088B" seqno="6" style="DUID=RBCLASS06;"/>
+					<element geometry="Left=1000;Top=360;Right=1245;Bottom=656;" subject="EAID_00000000_0000_0000_0000_0000000008AC" seqno="7" style="DUID=RBCLASS07;"/>
+					<element geometry="Left=40;Top=360;Right=285;Bottom=591;" subject="EAID_00000000_0000_0000_0000_0000000008CF" seqno="8" style="DUID=RBCLASS08;"/>
+					<element geometry="Left=40;Top=700;Right=285;Bottom=970;" subject="EAID_00000000_0000_0000_0000_0000000008E4" seqno="9" style="DUID=RBCLASS09;"/>
+					<element geometry="Left=360;Top=700;Right=605;Bottom=944;" subject="EAID_00000000_0000_0000_0000_000000000902" seqno="10" style="DUID=RBCLASS10;"/>
+					<element geometry="Left=680;Top=700;Right=925;Bottom=1009;" subject="EAID_00000000_0000_0000_0000_000000000919" seqno="11" style="DUID=RBCLASS11;"/>
+					<element geometry="Left=1000;Top=700;Right=1245;Bottom=983;" subject="EAID_00000000_0000_0000_0000_000000000940" seqno="12" style="DUID=RBCLASS12;"/>
+					<element geometry="Left=40;Top=1040;Right=285;Bottom=1284;" subject="EAID_00000000_0000_0000_0000_000000000960" seqno="13" style="DUID=RBCLASS13;"/>
+					<element geometry="Left=360;Top=1040;Right=605;Bottom=1284;" subject="EAID_00000000_0000_0000_0000_000000000977" seqno="14" style="DUID=RBCLASS14;"/>
+					<element geometry="Left=680;Top=1040;Right=925;Bottom=1310;" subject="EAID_00000000_0000_0000_0000_00000000098E" seqno="15" style="DUID=RBCLASS15;"/>
+					<element geometry="Left=1000;Top=1040;Right=1245;Bottom=1284;" subject="EAID_00000000_0000_0000_0000_0000000009AA" seqno="16" style="DUID=RBCLASS16;"/>
+				</elements>
+			</diagram>
+		</diagrams>
+	</xmi:Extension>
+</xmi:XMI>
